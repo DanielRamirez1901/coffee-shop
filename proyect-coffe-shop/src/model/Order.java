@@ -51,7 +51,7 @@ public class Order {
 		orderCode = generateOrderCode();
 		state = 0;
 		observations = "";
-		products =  new ArrayList<>();
+		products =  new ArrayList<Product>();
 	}
 
 	public String getOrderCode() {
