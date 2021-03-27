@@ -17,8 +17,6 @@ public class Employee {
 		this.password = password;
 		this.state = state;
 	}
-	
-	
 
 	public boolean isState() {
 		return state;

@@ -26,6 +26,27 @@ public class Order {
 		this.observations = observations;
 		this.products = products;
 	}
+	
+	public void addProduct(Product product) {
+		products.add(product);
+	}
+	
+	public Product searchProduct(String name) {
+		for (int i = 0 ; i<products.size() ; i++) {
+			if (products.get(i).getName().compareTo(name) == 0 ) {
+				return products.get(i);
+			}//End if
+		}//End for
+		return null;
+	}
+	
+	public void removeProduct(String name) {
+		Product product = searchProduct(name);
+		if(product != null) {
+			products.remove(product);
+		}
+	}
+	
 	public Order() {
 		orderCode = generateOrderCode();
 		state = 0;
