@@ -53,65 +53,38 @@ public class Order {
 		observations = "";
 		products =  new ArrayList<>();
 	}
-	
-	
-
 
 	public String getOrderCode() {
 		return orderCode;
 	}
 
-
-
-
 	public void setOrderCode(String orderCode) {
 		this.orderCode = orderCode;
 	}
-
-
-
 
 	public int getState() {
 		return state;
 	}
 
-
-
-
 	public void setState(int state) {
 		this.state = state;
 	}
-
-
-
 
 	public String getObservations() {
 		return observations;
 	}
 
-
-
-
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
-
-
-
 
 	public ArrayList<Product> getProducts() {
 		return products;
 	}
 
-
-
-
 	public void setProducts(ArrayList<Product> products) {
 		this.products = products;
 	}
-
-
-
 
 	public String generateOrderCode(){
 	    UUID uuid = UUID.randomUUID();
