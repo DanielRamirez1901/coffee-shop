@@ -46,7 +46,9 @@ public class Coffe {
 	
 	public void removeProduct(String name) {
 		Product product = searchProduct(name);
-		products.remove(product);
+		if(product != null) {
+			products.remove(product);
+		}
 	}
 	
 	public void addIngredient(Ingredient ingredient) {
@@ -94,9 +96,43 @@ public class Coffe {
 		return null;
 	}
 	
-	
 	public boolean userLogin(String name, String password) {
 		return ((searchUsername(name) != null ) && (searchUsername(name).getPassword().compareTo(password)==0)) ? true : false;
+	}
+	
+	public void addEmployee(Employee employee) {
+		employees.add(employee);
+	}
+
+	public int searchEmployeeInt(String name) {
+		int position = 0;
+		for (int i = 0 ; i<ingredients.size() ; i++) {
+			if (ingredients.get(i).getName().compareTo(name) == 0 ) {
+				position = i;
+			}//End if
+		}//End for
+		return position;
+	}
+	
+	public Employee searchEmployee(String name) {
+		for (int i = 0 ; i<employees.size() ; i++) {
+			if (employees.get(i).getName().compareTo(name) == 0 ) {
+				return employees.get(i);
+			}//End if
+		}//End for
+		return null;
+	}
+	
+	public void removeEmployee(String name) {
+		Employee employee = searchEmployee(name);
+		if(employee != null) {
+			employees.remove(employee);
+		}
+	}
+
+	public void modifyEmployee(Employee employee, String name) {
+		int index = searchEmployeeInt(name);
+		employees.set(index, employee);
 	}
 	
 	public ArrayList<Client> getClients() {

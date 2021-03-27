@@ -39,7 +39,9 @@ public class Product {
 	
 	public void removeIngredient(String name) {
 		Ingredient ingredient = searchIngredient(name);
-		ingredients.remove(ingredient);
+		if(ingredient != null) {
+			ingredients.remove(ingredient);
+		}
 	}
 	
 	public boolean isState() {
