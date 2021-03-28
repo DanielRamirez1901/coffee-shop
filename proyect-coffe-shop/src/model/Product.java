@@ -20,7 +20,7 @@ public class Product {
 //*******************************************************************************************************************
 	
 	/**
-	*Ingredient class construct method<br>
+	*Product class construct method<br>
 	*<b>pre:</b><br>
 	*<b>post:</b><br>
 	
