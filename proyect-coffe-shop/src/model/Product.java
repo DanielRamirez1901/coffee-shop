@@ -58,7 +58,7 @@ public class Product {
 //*******************************************************************************************************************
 	
 	/**
-	*This method allows search an ingredient to the product<br>
+	*This method allows search an ingredient<br>
 	
 	*<b>pre:</b><br>
 	*<b>post:</b><br>
@@ -78,7 +78,7 @@ public class Product {
 //*******************************************************************************************************************
 
 	/**
-	*This method allows delete an ingredient to the product<br>
+	*This method allows remove an ingredient<br>
 	
 	*<b>pre:</b><br>
 	*<b>post:</b>the ingredient has been deleted to the arrayList if the conditional is satisfactorily fulfilled<br>

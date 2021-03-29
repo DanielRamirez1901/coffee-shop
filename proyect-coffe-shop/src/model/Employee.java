@@ -7,7 +7,7 @@ package model;
 public class Employee {
 	
 	//Attributes
-	private String name;////This attribute contains the employee name
+	private String name;//This attribute contains the employee name
 	private String lastName;//This attribute contains the employee last name
 	private String id;//This attribute contains the employee id
 	private String userName;//This attribute contains the system user name
