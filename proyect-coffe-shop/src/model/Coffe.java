@@ -332,7 +332,11 @@ public class Coffe {
 		int index = searchEmployeeInt(name);
 		employees.set(index, employee);
 	}//End modifyEmployee method
-        
+        /**
+        *toString class method<br>
+	*<b>pre:</b>The ArrayList<Product> products it does not have to be empty <br>
+	*<b>post:</b>order the products depending on the price<br>
+	*/
         public  void SortByPrice(){
             
             for (int i = 0; i < products.size(); i++) {
@@ -373,26 +377,7 @@ public class Coffe {
 	public void setEmployees(ArrayList<Employee> employees) {
 		this.employees = employees;
 	}
-        	/**
-	*toString class method<br>
-	*<b>pre:</b>The ArrayList<Product> products it does not have to be empty <br>
-	*<b>post:</b>order the products depending on the price<br>
-	*/
 
-        public  void SortByPrice(){
-            
-            for (int i = 0; i < products.size(); i++) {
-                int posMin =i;
-                for (int j=i+1; j< products.size(); j++) {
-                    if (products.get(j).getPrice() < products.get(posMin).getPrice()) {
-                        posMin = j;
-                    }
-                }
-            Product aux = products.get(i);    
-            products.set(i, products.get(posMin));
-            products.set(posMin, aux);
-            }
-        }
 /*Cambiar ingrediente en interfaz
 	public void changeIngredient(String name) {
 		products.get(0).modifyIngredient(new Ingredient(products.get(0).searchIngredientInt(name),false);
