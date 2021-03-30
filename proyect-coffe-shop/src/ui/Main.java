@@ -5,16 +5,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.Employee;
 
 /**
  *
- * @author amilc
- */
+*@author DanielRamirez<br>
+*@author AmilcarRodriguez<br>
+*/
 public class Main extends Application{
 	
 	private LoginScreenController loginScreenController;
-	private Employee employee;
 
 	public Main() {
 	}
