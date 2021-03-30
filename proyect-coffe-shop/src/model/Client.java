@@ -86,4 +86,24 @@ public class Client {
 	public void setOrder(Order order) {
 		this.order = order;
 	}
+	/**
+	*toString class method<br>
+	*<b>pre:</b><br>
+	*<b>post:</b>Show basic information of a employee<br>
+        * @return A string that have information of a employee<br>
+	*/
+        public String toString(){
+            
+            return "\n\t* INFRMACION DE CLIENTE:"
+                    + "\n *Nombre: "+name
+                    + "\n *Apellidos: "+lastName
+                    + "\n *N° de identificacion:"+id
+                    + "\n *Direccion: "+direction
+                    + "\n *Telefono: "+phone
+                    + "\n *Ovservaciones"+fieldOfObservations
+                    + "\n *Pedido: "+order
+                    + "\n  ";      
+                    
+        }//End toString
+        
 }//End Client class

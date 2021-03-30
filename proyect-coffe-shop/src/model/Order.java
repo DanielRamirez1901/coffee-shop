@@ -1,5 +1,6 @@
 package model;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 /**
 *This class allows the creation of an order<br>
@@ -132,7 +133,7 @@ public class Order {
 		this.observations = observations;
 	}
 
-	public ArrayList<Product> getProducts() {
+	public List<Product> getProducts() {
 		return products;
 	}
 

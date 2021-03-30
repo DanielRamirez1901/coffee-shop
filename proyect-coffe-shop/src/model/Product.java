@@ -13,6 +13,7 @@ public class Product {
 	private String productType;//This attribute contains the product Type 
 	private int size;//This attribute contains the product size
 	private boolean state;//This attribute contains the product state;
+        public int price;//This attribute contains the product price;
 	
 	//Relations
 	private ArrayList <Ingredient> ingredients;//relation to the ingredient class created in an ArrayList
@@ -31,12 +32,13 @@ public class Product {
 	*@param state Is a boolean with the product state<br>
 	*@param ingredient Is an ingredient contain in an ArrayList<br>
 	*/	
-	public Product(String name, String productType, int size, boolean state, ArrayList<Ingredient> ingredient) {
+	public Product(String name, String productType, int size, boolean state, ArrayList<Ingredient> ingredient, int price) {
 		this.name = name;
 		this.productType = productType;
 		this.size = size;
 		this.state = state;
 		this.ingredients = ingredient;
+                this.price = price;
 	}//End Product constructor
 	
 //*******************************************************************************************************************
@@ -91,6 +93,22 @@ public class Product {
 			ingredients.remove(ingredient);
 		}//End if
 	}//End removeIngredient method
+        
+        /**
+	*toString class method<br>
+	*<b>pre:</b><br>
+	*<b>post:</b>Show basic information of a product<br>
+	*/
+        public  String toString(){
+        
+            return  "\n\tPRODUCTO: "
+                    + "\n* Nombre del prducto: "+name
+                    + "\n* Tipo: "+productType
+                    + "\n* Tamaño: "+size
+                    + "\n* Estado: "+state
+                    + "\n* Ingredientes:" +ingredients
+                    + "\n* Precio: "+price;
+        }//End toString of Product
 	
 //********************************Setters & Getters*****************************************************************
 
@@ -133,4 +151,15 @@ public class Product {
 	public void setIngredient(ArrayList<Ingredient> ingredient) {
 		this.ingredients = ingredient;
 	}	
+        
+        public int getPrice() {
+            return price;
+        }
+        
+        public void setPrice(int price) {
+            this.price = price;
+        }
+        
+
+        
 }//End Product Class
