@@ -19,7 +19,7 @@ public class Product {
 	private ArrayList <Ingredient> ingredients;//relation to the ingredient class created in an ArrayList
 	
 //*******************************************************************************************************************
-	
+		
 	/**
 	*Product class construct method<br>
 	*<b>pre:</b><br>
