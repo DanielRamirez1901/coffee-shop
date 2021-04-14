@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="paneListClients" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="922.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="691.0" fitWidth="986.0" layoutX="-55.0" layoutY="-19.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/fondoLogin.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tableClients" editable="true" layoutX="69.0" layoutY="81.0" prefHeight="313.0" prefWidth="786.0" style="-fx-background-color: yellow;">
+        <columns>
+            <TableColumn fx:id="tableOrderCode" prefWidth="71.0" style="-fx-background-color: Gray;" text="Código" />
+          <TableColumn fx:id="tableOrderorder" prefWidth="118.0" style="-fx-background-color: Gray;" text="Pedido" />
+            <TableColumn fx:id="tableOrderCant" prefWidth="41.0" style="-fx-background-color: gray;" text="Cant" />
+            <TableColumn fx:id="tableOrderEmployee" prefWidth="115.0" style="-fx-background-color: gray;" text="Empleado" />
+            <TableColumn fx:id="tableOrderClient" prefWidth="100.0" style="-fx-background-color: gray;" text="Cliente" />
+            <TableColumn fx:id="tablePhoneClient" prefWidth="67.0" style="-fx-background-color: gray;" text="Fecha" />
+            <TableColumn fx:id="tableOrderHour" minWidth="0.0" prefWidth="51.0" style="-fx-background-color: gray;" text="Hora" />
+            <TableColumn fx:id="tableOrderStatus" prefWidth="86.0" style="-fx-background-color: gray;" text="Estado" />
+            <TableColumn fx:id="tableOrderObservations" prefWidth="136.0" style="-fx-background-color: gray;" text="Observaciones" />
+        </columns>
+         <effect>
+            <Lighting bumpInput="$null">
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+      </TableView>
+      <Label layoutX="409.0" layoutY="21.0" prefHeight="49.0" prefWidth="104.0" style="-fx-background-color: golden;" text="Pedidos" textFill="#cdd312">
+         <font>
+            <Font name="SimSun-ExtB" size="29.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnDeleteOrder" layoutX="181.0" layoutY="461.0" mnemonicParsing="false" style="-fx-background-color: yellow;" text="Eliminar">
+         <font>
+            <Font name="SimSun" size="12.0" />
+         </font></Button>
+      <Button fx:id="btnChangeStatus" layoutX="423.0" layoutY="461.0" mnemonicParsing="false" style="-fx-background-color: yellow;" text="Cambiar estado">
+         <font>
+            <Font name="NSimSun" size="12.0" />
+         </font></Button>
+      <Button fx:id="btnUpdateClients" layoutX="676.0" layoutY="461.0" mnemonicParsing="false" style="-fx-background-color: yellow;" text="Deshabilitar">
+         <font>
+            <Font name="SimSun" size="12.0" />
+         </font></Button>
+   </children>
+</Pane>
