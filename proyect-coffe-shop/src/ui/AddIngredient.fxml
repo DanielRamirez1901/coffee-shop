@@ -40,7 +40,8 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField alignment="CENTER" layoutX="218.0" layoutY="205.0" prefHeight="31.0" prefWidth="171.0" promptText="Nombre ingrediente" style="-fx-background-color: #f6e58d;" />
+      <TextField fx:id="txtIngredientName" alignment="CENTER" layoutX="218.0" layoutY="205.0" prefHeight="31.0" prefWidth="171.0" promptText="Nombre ingrediente" style="-fx-background-color: #f6e58d;" />
       <Button layoutX="23.0" layoutY="358.0" mnemonicParsing="false" style="-fx-background-color: #f6e58d;" text="&lt;-" />
+      <Button layoutX="235.0" layoutY="278.0" mnemonicParsing="false" onAction="#registerIngredient" prefHeight="43.0" prefWidth="137.0" style="-fx-background-color: #f6e58d;" text="Añadir ingrediente" />
    </children>
 </AnchorPane>

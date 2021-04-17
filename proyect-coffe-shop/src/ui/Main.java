@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Coffe;
 
 /**
  *
@@ -14,8 +15,11 @@ import javafx.stage.Stage;
 public class Main extends Application{
 	
 	private LoginScreenController loginScreenController;
+	private Coffe coffe;
 
 	public Main() {
+		coffe = new Coffe();
+		loginScreenController = new LoginScreenController();
 	}
 	public static void main(String[] args) {
 		launch(args);

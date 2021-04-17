@@ -27,14 +27,16 @@ public class Employee {
 	*@param userName Is a String with the system user name<br>
 	*@param password Is a String with the employee password<br>
 	*/	
-	public Employee(String name, String lastName, String id, String userName, String password) {
+	public Employee(String name, String lastName, String id) {
 		this.name = name;
 		this.lastName = lastName;
 		this.id = id;
-		this.userName = userName;
-		this.password = password;
 	}//End Employee construct
         
+	public Employee(String userName, String password) {
+		this.userName = userName;
+		this.password = password;
+	}
 	/**
 	*toString class method<br>
 	*<b>pre:</b><br>
@@ -51,6 +53,7 @@ public class Employee {
                     + "\n  ";      
                     
         }//End toString
+     
         
 //**************************************Setters & Getters*****************************************************************
   

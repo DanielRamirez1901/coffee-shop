@@ -272,8 +272,8 @@ public class Coffe {
 	*/
 	public int searchEmployeeInt(String name) {
 		int position = 0;
-		for (int i = 0 ; i<ingredients.size() ; i++) {
-			if (ingredients.get(i).getName().compareTo(name) == 0 ) {
+		for (int i = 0 ; i<employees.size() ; i++) {
+			if (employees.get(i).getName().compareTo(name) == 0 ) {
 				position = i;
 			}//End if
 		}//End for
@@ -351,6 +351,36 @@ public class Coffe {
             products.set(posMin, aux);
             }
         }
+        
+        public void addClient(Client client) {
+    		clients.add(client);
+    	}//End addEmployee method  
+       
+        public int searchClientInt(String name) {
+    		int position = 0;
+    		for (int i = 0 ; i<clients.size() ; i++) {
+    			if (clients.get(i).getName().compareTo(name) == 0 ) {
+    				position = i;
+    			}//End if
+    		}//End for
+    		return position;
+    	}//End searchEmployeeInt method
+        
+        public Client searchClient(String name) {
+    		for (int i = 0 ; i<clients.size() ; i++) {
+    			if (clients.get(i).getName().compareTo(name) == 0 ) {
+    				return clients.get(i);
+    			}//End if
+    		}//End for
+    		return null;
+    	}//End searchEmployee method
+        
+        public void removeClient(String name) {
+    		Client client = searchClient(name);
+    		if(client != null) {
+    			clients.remove(client);
+    		}//End if
+    	}//End removeEmployee method
 //**************************Setters & Getters**************************************************************************************************
         
 	public ArrayList<Client> getClients() {

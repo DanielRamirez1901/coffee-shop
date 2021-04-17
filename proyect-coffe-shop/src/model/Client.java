@@ -42,6 +42,14 @@ public class Client {
 		this.order = order;
 	}//End Client constructor
 	
+	public Client(String name, String lastName, String id, String direction, String phone, String fieldOfObservations) {
+		this.name = name;
+		this.lastName = lastName;
+		this.id = id;
+		this.direction = direction;
+		this.phone = phone;
+		this.fieldOfObservations = fieldOfObservations;
+	}
 //***********************************Setters & Getters**********************************************************************************
 
 	public String getName() {
