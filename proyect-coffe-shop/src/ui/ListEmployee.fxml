@@ -18,12 +18,12 @@
             <Image url="@images/fondoLogin.jpg" />
          </image>
       </ImageView>
-      <TableView fx:id="tableEmployee" editable="true" layoutX="34.0" layoutY="75.0" prefHeight="245.0" prefWidth="536.0" style="-fx-background-color: yellow;">
+      <TableView fx:id="tvEmployee" editable="true" layoutX="34.0" layoutY="75.0" prefHeight="245.0" prefWidth="536.0" style="-fx-background-color: yellow;">
         <columns>
             <TableColumn fx:id="tableEmployeeNumber" prefWidth="30.0" style="-fx-background-color: Gray;" text="N°" />
-          <TableColumn fx:id="tableEmployeeName" prefWidth="170.0" style="-fx-background-color: Gray;" text="Nombre" />
-          <TableColumn fx:id="tableEmployeeLastName" prefWidth="173.0" sortType="DESCENDING" style="-fx-background-color: gray;" text="Apellidos" />
-            <TableColumn fx:id="tableIdPhone" prefWidth="162.0" style="-fx-background-color: gray;" text="Id" />
+          <TableColumn fx:id="tcEmployeeName" prefWidth="170.0" style="-fx-background-color: Gray;" text="Nombre" />
+          <TableColumn fx:id="tcEmployeeLastName" prefWidth="173.0" sortType="DESCENDING" style="-fx-background-color: gray;" text="Apellidos" />
+            <TableColumn fx:id="tcIdPhone" prefWidth="162.0" style="-fx-background-color: gray;" text="Id" />
         </columns>
          <effect>
             <Lighting bumpInput="$null">

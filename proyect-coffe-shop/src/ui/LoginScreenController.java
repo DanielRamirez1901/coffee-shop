@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +21,10 @@ import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -46,6 +51,13 @@ public class LoginScreenController implements Initializable {
     //AddIngregient Attributes
     @FXML
     private TextField txtIngredientName;
+    //Ingredient List Attributes
+    @FXML
+    private TableView<Ingredient> tvIngredientList;
+    @FXML
+    private TableColumn<Ingredient, String> tcNameIngredient;
+    @FXML
+    private TableColumn<Ingredient, Boolean> tcStateIngredient;
 
     //AddEmployee Attributes
     @FXML
@@ -56,6 +68,25 @@ public class LoginScreenController implements Initializable {
     private TextField txtLastNameEmployeeAdd;
     @FXML
     private TextField txtIdEmployeeAdd;
+    //Table view Employee Attributes
+    @FXML
+    private Pane paneListEmployee;
+    @FXML
+    private TableView<Employee> tvEmployee;
+    @FXML
+    private TableColumn<Employee, ?> tableEmployeeNumber;
+    @FXML
+    private TableColumn<Employee, String> tcEmployeeName;
+    @FXML
+    private TableColumn<Employee, String> tcEmployeeLastName;
+    @FXML
+    private TableColumn<Employee, String> tcIdEmployee;
+    @FXML
+    private Button btnDeleteEmployee;
+    @FXML
+    private Button btnUpdateEmloyee;
+    @FXML
+    private Button btnDisableEmployee;
     
     //AddClient Attributes
     @FXML
@@ -165,4 +196,25 @@ public class LoginScreenController implements Initializable {
         alert.setContentText("Cliente registrado exitosamente");
     	alert.showAndWait();
     }
+    
+    public void initializeTableViewIngredient() {
+    	ObservableList<Ingredient> observableList;
+    	observableList = FXCollections.observableArrayList(coffe.getIngredients());
+    	
+		tvIngredientList.setItems(observableList);
+		tcNameIngredient.setCellValueFactory(new PropertyValueFactory<Ingredient,String>("nombre")); //the tableview search for a method called getName
+		tcStateIngredient.setCellValueFactory(new PropertyValueFactory<Ingredient,Boolean>("estado")); //the tableview search for a method called getEmail
+    }
+    
+    public void initializeTableViewEmployee() {
+    	ObservableList<Employee> observableList;
+    	observableList = FXCollections.observableArrayList(coffe.getEmployees());
+    	
+		tvEmployee.setItems(observableList);
+		tcEmployeeName.setCellValueFactory(new PropertyValueFactory<Employee,String>("nombre")); //the tableview search for a method called getName
+		tcEmployeeLastName.setCellValueFactory(new PropertyValueFactory<Employee,String>("apellido")); //the tableview search for a method called getEmail
+		tcIdEmployee.setCellValueFactory(new PropertyValueFactory<Employee,String>("id"));
+    }
+    
+    
 }

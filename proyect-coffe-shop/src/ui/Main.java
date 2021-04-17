@@ -21,6 +21,7 @@ public class Main extends Application{
 		coffe = new Coffe();
 		loginScreenController = new LoginScreenController();
 	}
+	
 	public static void main(String[] args) {
 		launch(args);
 	}

@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="415.0" fitWidth="615.0" layoutX="-9.0" layoutY="-8.0" pickOnBounds="true">
@@ -23,10 +22,10 @@
       </ImageView>
       <BorderPane layoutX="113.0" layoutY="71.0" prefHeight="259.0" prefWidth="372.0">
          <center>
-            <TableView prefHeight="226.0" prefWidth="363.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="tvIngredientList" onSort="#initializeTableViewIngredient" prefHeight="226.0" prefWidth="363.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn prefWidth="189.0" text="Nombre" />
-                  <TableColumn prefWidth="182.0" text="Estado" />
+                <TableColumn fx:id="tcNameIngredient" prefWidth="189.0" text="Nombre" />
+                  <TableColumn fx:id="tcStateIngredient" prefWidth="182.0" text="Estado" />
               </columns>
             </TableView>
          </center>

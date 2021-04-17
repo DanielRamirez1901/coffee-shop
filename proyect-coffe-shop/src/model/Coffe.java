@@ -381,6 +381,12 @@ public class Coffe {
     			clients.remove(client);
     		}//End if
     	}//End removeEmployee method
+        
+        public void modifyCliente(Client client, String name) {
+    		int index = searchClientInt(name);
+    		clients.set(index, client);
+    	}//End modifyEmployee method
+        
 //**************************Setters & Getters**************************************************************************************************
         
 	public ArrayList<Client> getClients() {
