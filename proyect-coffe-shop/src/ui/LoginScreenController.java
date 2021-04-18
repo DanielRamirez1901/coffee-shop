@@ -223,4 +223,7 @@ public class LoginScreenController implements Initializable {
 //    Eliminar(Productos, clientes, empleados, ingredientes)
 //    Modificar(Productos, clientes, empleados, ingredientes)
 //    Deshabilitar()
+    public void xd() {
+    	
+    }
 }
