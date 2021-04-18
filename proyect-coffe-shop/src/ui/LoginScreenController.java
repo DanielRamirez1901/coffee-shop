@@ -139,15 +139,15 @@ public class LoginScreenController implements Initializable {
     @FXML
     public void login(ActionEvent event) throws IOException{
         Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Información");
+        alert.setTitle("Informaciï¿½n");
         alert.setHeaderText(null);
 
       
         if(coffe.userLogin(txtUserLogin.getText(), txtUserPassword.getText()) != false) {
-            alert.setContentText("Ha iniciado sesión correctamente");
+            alert.setContentText("Ha iniciado sesiï¿½n correctamente");
             
         }else if(coffe.userLogin(txtUserLogin.getText(), txtUserPassword.getText()) == false) {
-            alert.setContentText("Usuario y/o contraseña incorrectos");
+            alert.setContentText("Usuario y/o contraseï¿½a incorrectos");
             System.out.println(txtUserLogin.getText() +" "+txtUserPassword.getText()+" "+txtUserLogin.getText()+" "+txtUserPassword.getText()+" ");
         }
 
@@ -157,7 +157,7 @@ public class LoginScreenController implements Initializable {
     @FXML
     public void registerIngredient(ActionEvent event)throws IOException{
     	Alert alert = new Alert(AlertType.INFORMATION);
-    	alert.setTitle("Información");
+    	alert.setTitle("Informaciï¿½n");
     	alert.setHeaderText(null);
     	if(!txtIngredientName.getText().equals("")) {
     		ingredient = new Ingredient(txtIngredientName.getText(), true);
@@ -172,7 +172,7 @@ public class LoginScreenController implements Initializable {
     @FXML
     public void registerEmployee(ActionEvent event)throws IOException{
     	Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Información");
+        alert.setTitle("Informaciï¿½n");
         alert.setHeaderText(null);
         if(!txtNameEmployeeAdd.getText().equals("") && !txtLastNameEmployeeAdd.getText().equals("") && !txtIdEmployeeAdd.getText().equals("")) {
         	employee = new Employee(txtNameEmployeeAdd.getText(),txtLastNameEmployeeAdd.getText(),txtIdEmployeeAdd.getText());
@@ -186,7 +186,7 @@ public class LoginScreenController implements Initializable {
     @FXML
     public void registerClient(ActionEvent event)throws IOException{
     	Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Información");
+        alert.setTitle("Informaciï¿½n");
         alert.setHeaderText(null);
         if(!txtNameClientAdd.getText().equals("") && !txtLastnameClientAdd.getText().equals("") && !txtIdClient.getText().equals("") && !txtAddressClientAdd.getText().equals("") && !txtPhoneClientAdd.getText().equals("")) {
         	client = new Client(txtNameClientAdd.getText(),txtLastnameClientAdd.getText(),txtIdClient.getText(),txtAddressClientAdd.getText(),txtPhoneClientAdd.getText(),txtaObservationsClientAdd.getText());
@@ -219,11 +219,16 @@ public class LoginScreenController implements Initializable {
 //    Lista de clientes
 //    Lista de ordenes
 //    Lista de productos
-//    Añadir producto
+//    Aï¿½adir producto
 //    Eliminar(Productos, clientes, empleados, ingredientes)
 //    Modificar(Productos, clientes, empleados, ingredientes)
 //    Deshabilitar()
+<<<<<<< Updated upstream
     public void xd() {
     	
+=======
+    public void holamen(){
+        
+>>>>>>> Stashed changes
     }
 }
