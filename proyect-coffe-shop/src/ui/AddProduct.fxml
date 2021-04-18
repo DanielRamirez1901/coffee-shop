@@ -16,7 +16,7 @@
             <Image url="@images/fondoLogin.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="146.0" layoutY="24.0" prefHeight="26.0" prefWidth="236.0" text="Añadir un producto" textFill="#cdd312">
+      <Label layoutX="142.0" layoutY="41.0" prefHeight="26.0" prefWidth="236.0" text="Añadir un producto" textFill="#cdd312">
          <font>
             <Font name="SimSun-ExtB" size="24.0" />
          </font>

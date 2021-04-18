@@ -854,7 +854,8 @@ public class LoginScreenController implements Initializable {
 		Parent add = fxmlLoader.load();
     	
 		mainPanel.getChildren().clear();
-    	mainPanel.setTop(add);
+    	mainPanel.setCenter(add);
+    	mainPanel.setVisible(true);
     	Stage st = (Stage)
     	add.getScene().getWindow();
 		st.setHeight(575);
