@@ -34,13 +34,16 @@ import model.Ingredient;
 import model.Order;
 import model.Product;
 import model.Client;
+import model.Order;
+
 /**
  * FXML Controller class
  *
-*@author DanielRamirez<br>
-*@author AmilcarRodriguez<br>
-*/
+ * @author DanielRamirez<br>
+ * @author AmilcarRodriguez<br>
+ */
 public class LoginScreenController implements Initializable {
+<<<<<<< Updated upstream
 	
 	//Add an Order Attributes
 	@FXML
@@ -66,13 +69,17 @@ public class LoginScreenController implements Initializable {
     private TextField txtQuantityProduct;
     
 	//Login Screen Attributes
+=======
+
+    //Login Screen Attributes
+>>>>>>> Stashed changes
     @FXML
     private AnchorPane login;
     @FXML
     private TextField txtUserLogin;
     @FXML
     private PasswordField txtUserPassword;
-    
+
     //AddIngregient Attributes
     @FXML
     private TextField txtIngredientName;
@@ -112,7 +119,7 @@ public class LoginScreenController implements Initializable {
     private Button btnUpdateEmloyee;
     @FXML
     private Button btnDisableEmployee;
-    
+
     //AddClient Attributes
     @FXML
     private Pane paneAddClient;
@@ -130,7 +137,7 @@ public class LoginScreenController implements Initializable {
     private Button registerClient;
     @FXML
     private TextField txtIdClient;
-    
+
     //Relations
     private Coffe coffe;
     private Ingredient ingredient;
@@ -145,41 +152,40 @@ public class LoginScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
     @FXML
     public void loadRegister(ActionEvent event) throws IOException {
-    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PersonalAdmin.fxml"));
-		
-		fxmlLoader.setController(this);    	
-		Parent addUserPane = fxmlLoader.load();
-    	
-		login.getChildren().clear();
-    	login.setTopAnchor(addUserPane, null);
-    	Stage st = (Stage)
-    	addUserPane.getScene().getWindow();
-		st.setHeight(575);
-		st.setWidth(372);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PersonalAdmin.fxml"));
+
+        fxmlLoader.setController(this);
+        Parent addUserPane = fxmlLoader.load();
+
+        login.getChildren().clear();
+        login.setTopAnchor(addUserPane, null);
+        Stage st = (Stage) addUserPane.getScene().getWindow();
+        st.setHeight(575);
+        st.setWidth(372);
 
     }
-    
+
     @FXML
-    public void login(ActionEvent event) throws IOException{
+    public void login(ActionEvent event) throws IOException {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Informaci�n");
         alert.setHeaderText(null);
 
-      
-        if(coffe.userLogin(txtUserLogin.getText(), txtUserPassword.getText()) != false) {
+        if (coffe.userLogin(txtUserLogin.getText(), txtUserPassword.getText()) != false) {
             alert.setContentText("Ha iniciado sesi�n correctamente");
-            
-        }else if(coffe.userLogin(txtUserLogin.getText(), txtUserPassword.getText()) == false) {
+
+        } else if (coffe.userLogin(txtUserLogin.getText(), txtUserPassword.getText()) == false) {
             alert.setContentText("Usuario y/o contrase�a incorrectos");
-            System.out.println(txtUserLogin.getText() +" "+txtUserPassword.getText()+" "+txtUserLogin.getText()+" "+txtUserPassword.getText()+" ");
+            System.out.println(txtUserLogin.getText() + " " + txtUserPassword.getText() + " " + txtUserLogin.getText() + " " + txtUserPassword.getText() + " ");
         }
 
         alert.showAndWait();
     }
+<<<<<<< Updated upstream
     
     @FXML
     public void registerIngredient(ActionEvent event)throws IOException{
@@ -196,62 +202,92 @@ public class LoginScreenController implements Initializable {
     	txtIngredientName.setText("");
     	alert.setContentText("Ingrediente registrado exitosamente");
     	alert.showAndWait();
+=======
 
-    }
-    
     @FXML
-    public void registerEmployee(ActionEvent event)throws IOException{
-    	Alert alert = new Alert(AlertType.INFORMATION);
+    public void registerIngredient(ActionEvent event) throws IOException {
+        Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Informaci�n");
         alert.setHeaderText(null);
-        if(!txtNameEmployeeAdd.getText().equals("") && !txtLastNameEmployeeAdd.getText().equals("") && !txtIdEmployeeAdd.getText().equals("")) {
-        	employee = new Employee(txtNameEmployeeAdd.getText(),txtLastNameEmployeeAdd.getText(),txtIdEmployeeAdd.getText());
-        	coffe.addEmployee(employee);
+        if (!txtIngredientName.getText().equals("")) {
+            ingredient = new Ingredient(txtIngredientName.getText(), true);
+            coffe.addIngredient(ingredient);
         }//End if
+        txtIngredientName.setText("");
+        alert.setContentText("Ingrediente registrado exitosamente");
+        alert.showAndWait();
+>>>>>>> Stashed changes
+
+    }
+
+    @FXML
+    public void registerEmployee(ActionEvent event) throws IOException {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Informaci�n");
+        alert.setHeaderText(null);
+        if (!txtNameEmployeeAdd.getText().equals("") && !txtLastNameEmployeeAdd.getText().equals("") && !txtIdEmployeeAdd.getText().equals("")) {
+            employee = new Employee(txtNameEmployeeAdd.getText(), txtLastNameEmployeeAdd.getText(), txtIdEmployeeAdd.getText());
+            coffe.addEmployee(employee);
+        }//End if
+<<<<<<< Updated upstream
         else {
     		ifTextIsEmpty(event);
     	}
         txtNameEmployeeAdd.setText("");txtLastNameEmployeeAdd.setText("");txtIdEmployeeAdd.setText("");
+=======
+        txtNameEmployeeAdd.setText("");
+        txtLastNameEmployeeAdd.setText("");
+        txtIdEmployeeAdd.setText("");
+>>>>>>> Stashed changes
         alert.setContentText("Empleado registrado exitosamente");
-    	alert.showAndWait();
+        alert.showAndWait();
     }
-    
+
     @FXML
-    public void registerClient(ActionEvent event)throws IOException{
-    	Alert alert = new Alert(AlertType.INFORMATION);
+    public void registerClient(ActionEvent event) throws IOException {
+        Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Informaci�n");
         alert.setHeaderText(null);
-        if(!txtNameClientAdd.getText().equals("") && !txtLastnameClientAdd.getText().equals("") && !txtIdClient.getText().equals("") && !txtAddressClientAdd.getText().equals("") && !txtPhoneClientAdd.getText().equals("")) {
-        	client = new Client(txtNameClientAdd.getText(),txtLastnameClientAdd.getText(),txtIdClient.getText(),txtAddressClientAdd.getText(),txtPhoneClientAdd.getText(),txtaObservationsClientAdd.getText());
-        	coffe.addClient(client);
+        if (!txtNameClientAdd.getText().equals("") && !txtLastnameClientAdd.getText().equals("") && !txtIdClient.getText().equals("") && !txtAddressClientAdd.getText().equals("") && !txtPhoneClientAdd.getText().equals("")) {
+            client = new Client(txtNameClientAdd.getText(), txtLastnameClientAdd.getText(), txtIdClient.getText(), txtAddressClientAdd.getText(), txtPhoneClientAdd.getText(), txtaObservationsClientAdd.getText());
+            coffe.addClient(client);
         }//End if
+<<<<<<< Updated upstream
         else {
     		ifTextIsEmpty(event);
     	}
         txtNameClientAdd.setText("");txtLastnameClientAdd.setText("");txtIdClient.setText("");txtAddressClientAdd.setText("");txtPhoneClientAdd.setText("");txtaObservationsClientAdd.setText("");
+=======
+        txtNameClientAdd.setText("");
+        txtLastnameClientAdd.setText("");
+        txtIdClient.setText("");
+        txtAddressClientAdd.setText("");
+        txtPhoneClientAdd.setText("");
+        txtaObservationsClientAdd.setText("");
+>>>>>>> Stashed changes
         alert.setContentText("Cliente registrado exitosamente");
-    	alert.showAndWait();
+        alert.showAndWait();
     }
-    
+
     public void initializeTableViewIngredient() {
-    	ObservableList<Ingredient> observableList;
-    	observableList = FXCollections.observableArrayList(coffe.getIngredients());
-    	
-		tvIngredientList.setItems(observableList);
-		tcNameIngredient.setCellValueFactory(new PropertyValueFactory<Ingredient,String>("nombre")); //the tableview search for a method called getName
-		tcStateIngredient.setCellValueFactory(new PropertyValueFactory<Ingredient,Boolean>("estado")); //the tableview search for a method called getEmail
+        ObservableList<Ingredient> observableList;
+        observableList = FXCollections.observableArrayList(coffe.getIngredients());
+
+        tvIngredientList.setItems(observableList);
+        tcNameIngredient.setCellValueFactory(new PropertyValueFactory<Ingredient, String>("nombre")); //the tableview search for a method called getName
+        tcStateIngredient.setCellValueFactory(new PropertyValueFactory<Ingredient, Boolean>("estado")); //the tableview search for a method called getEmail
     }
-    
+
     public void initializeTableViewEmployee() {
-    	ObservableList<Employee> observableList;
-    	observableList = FXCollections.observableArrayList(coffe.getEmployees());
-    	
-		tvEmployee.setItems(observableList);
-		tcEmployeeName.setCellValueFactory(new PropertyValueFactory<Employee,String>("nombre")); //the tableview search for a method called getName
-		tcEmployeeLastName.setCellValueFactory(new PropertyValueFactory<Employee,String>("apellido")); //the tableview search for a method called getEmail
-		tcIdEmployee.setCellValueFactory(new PropertyValueFactory<Employee,String>("id"));
+        ObservableList<Employee> observableList;
+        observableList = FXCollections.observableArrayList(coffe.getEmployees());
+
+        tvEmployee.setItems(observableList);
+        tcEmployeeName.setCellValueFactory(new PropertyValueFactory<Employee, String>("nombre")); //the tableview search for a method called getName
+        tcEmployeeLastName.setCellValueFactory(new PropertyValueFactory<Employee, String>("apellido")); //the tableview search for a method called getEmail
+        tcIdEmployee.setCellValueFactory(new PropertyValueFactory<Employee, String>("id"));
     }
-    
+
 //    Lista de clientes
 //    Lista de ordenes
 //    Lista de productos
@@ -259,6 +295,7 @@ public class LoginScreenController implements Initializable {
 //    Eliminar(Productos, clientes, empleados, ingredientes)
 //    Modificar(Productos, clientes, empleados, ingredientes)
 //    Deshabilitar()
+<<<<<<< Updated upstream
 
     
     
@@ -627,4 +664,24 @@ public class LoginScreenController implements Initializable {
     	alert.showAndWait();
     }
     
+=======
+    public void initializeTableViewClients() {
+        ObservableList<Client> observableList;
+        observableList = FXCollections.observableArrayList(coffe.getClients());
+
+        tableClients.setItems(observableList);
+        tableClientsNumber.setCellValueFactory(new PropertyValueFactory<Client, Integer>("N°"));//the tableview 
+        tableClientsName.setCellValueFactory(new PropertyValueFactory<Client, String>("Nombre")); //the tableview search for a method called getName
+        tableLastNameClients.setCellValueFactory(new PropertyValueFactory<Client, String>("apellido")); //the tableview search for a method called getLastName
+        tableAddressClient.setCellValueFactory(new PropertyValueFactory<Client, String>("Dirección"));//the tableview search for a method called getDirection
+        tablePhoneClient.setCellValueFactory(new PropertyValueFactory<Client, String>("Teléfono"));//the tableview search for a method called getPhone
+    }
+
+    public void initializeTableViewOrders() {
+        ObservableList<Order> observableList;
+        observableList = FXCollections.observableArrayList(coffe.g);
+
+    }
+
+>>>>>>> Stashed changes
 }
