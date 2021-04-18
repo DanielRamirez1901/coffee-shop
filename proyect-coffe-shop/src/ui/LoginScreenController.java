@@ -216,5 +216,11 @@ public class LoginScreenController implements Initializable {
 		tcIdEmployee.setCellValueFactory(new PropertyValueFactory<Employee,String>("id"));
     }
     
-    
+//    Lista de clientes
+//    Lista de ordenes
+//    Lista de productos
+//    Añadir producto
+//    Eliminar(Productos, clientes, empleados, ingredientes)
+//    Modificar(Productos, clientes, empleados, ingredientes)
+//    Deshabilitar()
 }
