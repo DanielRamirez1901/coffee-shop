@@ -12,6 +12,7 @@ public class Coffe {
 	private ArrayList <Product> products;//Relation with class Product, products are contained in an ArrayList of that type(Product)
 	private ArrayList <Ingredient> ingredients;//Relation with class Ingredient, ingredients are contained in an ArrayList of that type(Ingredient)
 	private ArrayList <Employee> employees;//Relation with class Employee, employees are contained in an ArrayList of that type(Employee)
+	private ArrayList <Order> order;
 	
 //***********************************************************************************************************************************************************
 	
@@ -386,6 +387,12 @@ public class Coffe {
     		int index = searchClientInt(name);
     		clients.set(index, client);
     	}//End modifyEmployee method
+        
+        
+        public void addOrder(Order orders) {
+    		order.add(orders);
+    	}//End addEmployee method  
+
         
 //**************************Setters & Getters**************************************************************************************************
         

@@ -23,7 +23,7 @@
             <TableColumn fx:id="tableEmployeeNumber" prefWidth="30.0" style="-fx-background-color: Gray;" text="N°" />
           <TableColumn fx:id="tcEmployeeName" prefWidth="170.0" style="-fx-background-color: Gray;" text="Nombre" />
           <TableColumn fx:id="tcEmployeeLastName" prefWidth="173.0" sortType="DESCENDING" style="-fx-background-color: gray;" text="Apellidos" />
-            <TableColumn fx:id="tcIdPhone" prefWidth="162.0" style="-fx-background-color: gray;" text="Id" />
+            <TableColumn fx:id="tcIdEmployee" prefWidth="162.0" style="-fx-background-color: gray;" text="Id" />
         </columns>
          <effect>
             <Lighting bumpInput="$null">

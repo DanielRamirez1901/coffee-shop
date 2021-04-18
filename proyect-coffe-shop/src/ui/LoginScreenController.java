@@ -31,6 +31,8 @@ import javafx.stage.Stage;
 import model.Coffe;
 import model.Employee;
 import model.Ingredient;
+import model.Order;
+import model.Product;
 import model.Client;
 /**
  * FXML Controller class
@@ -39,7 +41,30 @@ import model.Client;
 *@author AmilcarRodriguez<br>
 */
 public class LoginScreenController implements Initializable {
-
+	
+	//Add an Order Attributes
+	@FXML
+    private TextArea txtaObservationsOrder;
+    @FXML
+    private TextField txtQuantityProductsInOrder;
+    @FXML
+    private TextField txtNameProductsOrder;
+    
+	
+	//AddProduct Attributes
+	@FXML
+    private TextField txtProductSyze;
+    @FXML
+    private TextField txtProductName;
+    @FXML
+    private TextField txtProductType;
+    @FXML
+    private TextField txtProductPrice;
+    @FXML
+    private TextField txtIngredientNameP;
+    @FXML
+    private TextField txtQuantityProduct;
+    
 	//Login Screen Attributes
     @FXML
     private AnchorPane login;
@@ -111,6 +136,8 @@ public class LoginScreenController implements Initializable {
     private Ingredient ingredient;
     private Employee employee;
     private Client client;
+    private Product product;
+    private Order order;
 
     /**
      * Initializes the controller class.
@@ -163,6 +190,9 @@ public class LoginScreenController implements Initializable {
     		ingredient = new Ingredient(txtIngredientName.getText(), true);
     		coffe.addIngredient(ingredient);
     	}//End if
+    	else {
+    		ifTextIsEmpty(event);
+    	}
     	txtIngredientName.setText("");
     	alert.setContentText("Ingrediente registrado exitosamente");
     	alert.showAndWait();
@@ -178,6 +208,9 @@ public class LoginScreenController implements Initializable {
         	employee = new Employee(txtNameEmployeeAdd.getText(),txtLastNameEmployeeAdd.getText(),txtIdEmployeeAdd.getText());
         	coffe.addEmployee(employee);
         }//End if
+        else {
+    		ifTextIsEmpty(event);
+    	}
         txtNameEmployeeAdd.setText("");txtLastNameEmployeeAdd.setText("");txtIdEmployeeAdd.setText("");
         alert.setContentText("Empleado registrado exitosamente");
     	alert.showAndWait();
@@ -192,6 +225,9 @@ public class LoginScreenController implements Initializable {
         	client = new Client(txtNameClientAdd.getText(),txtLastnameClientAdd.getText(),txtIdClient.getText(),txtAddressClientAdd.getText(),txtPhoneClientAdd.getText(),txtaObservationsClientAdd.getText());
         	coffe.addClient(client);
         }//End if
+        else {
+    		ifTextIsEmpty(event);
+    	}
         txtNameClientAdd.setText("");txtLastnameClientAdd.setText("");txtIdClient.setText("");txtAddressClientAdd.setText("");txtPhoneClientAdd.setText("");txtaObservationsClientAdd.setText("");
         alert.setContentText("Cliente registrado exitosamente");
     	alert.showAndWait();
@@ -223,12 +259,372 @@ public class LoginScreenController implements Initializable {
 //    Eliminar(Productos, clientes, empleados, ingredientes)
 //    Modificar(Productos, clientes, empleados, ingredientes)
 //    Deshabilitar()
-<<<<<<< Updated upstream
-    public void xd() {
-    	
-=======
-    public void holamen(){
-        
->>>>>>> Stashed changes
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @FXML
+    public void registerProduct(ActionEvent event)throws IOException{
+    	Alert alert = new Alert(AlertType.INFORMATION);
+    	alert.setTitle("Informacion");
+    	alert.setHeaderText(null);
+    	if(!txtProductName.getText().equals("") && !txtProductType.getText().equals("") && !txtProductSyze.getText().equals("") && !txtProductPrice.getText().equals("") && !txtIngredientNameP.getText().equals("") && !txtQuantityProduct.getText().equals("")) {
+    		int productSyze = Integer.parseInt(this.txtProductSyze.getText());
+    		int productPrice = Integer.parseInt(this.txtProductPrice.getText());
+    		int nIngredients = Integer.parseInt(this.txtQuantityProduct.getText());
+    		for(int i = 0;i>(nIngredients-1);i++) {
+    			registerAnIngredientToProduct(event);
+    			if( i == nIngredients) {
+    				product = new Product(txtProductName.getText(),txtProductType.getText(),productSyze,true,productPrice);
+    				coffe.addProduct(product);
+    			}else {
+    				alert.setContentText("La cantidad de ingredientes escritos no coincide con la cantidad de ingredientes indicados anteriormente");
+    				alert.showAndWait();
+    			}
+    			txtIngredientNameP.setText("");
+    		}	
+    	}//End if
+    	else {
+    		ifTextIsEmpty(event);
+    	}
+    	txtProductName.setText("");txtProductType.setText("");txtProductSyze.setText("");txtProductPrice.setText("");txtIngredientNameP.setText("");
+    	alert.setContentText("Producto registrado exitosamente");
+    	alert.showAndWait();
     }
+    
+    @FXML
+    public void registerAnIngredientToProduct(ActionEvent event)throws IOException{
+    	Alert alert = new Alert(AlertType.INFORMATION);
+    	alert.setTitle("Informacion");
+    	alert.setHeaderText(null);
+    	Ingredient ingredientName = coffe.searchIngredient(this.txtIngredientNameP.getText());
+    	if(ingredientName!=null) {
+    		product.addIngredient(ingredientName);
+    	}else {
+    		alert.setContentText("El ingrediente no se encuentra registrado en el restaurante");
+    		alert.showAndWait();
+    	}
+    }
+
+    
+    @FXML
+    public void registerOrder(ActionEvent event)throws IOException{
+    	Alert alert = new Alert(AlertType.INFORMATION);
+    	alert.setTitle("Informacion");
+    	alert.setHeaderText(null);
+    	if(!txtQuantityProductsInOrder.getText().equals("") && !txtNameProductsOrder.getText().equals("") && !txtaObservationsOrder.getText().equals("")) {
+    		int nProducts = Integer.parseInt(this.txtQuantityProductsInOrder.getText());
+    		for(int i = 0;i>(nProducts-1);i++) {
+    			registerAnProductInOrder(event);
+    			if( i == nProducts) {
+    				order = new Order(1,txtaObservationsOrder.getText());
+    				coffe.addOrder(order);
+    			}else {
+    				alert.setContentText("La cantidad de productos escritos no coincide con la cantidad de productos indicados anteriormente");
+    				alert.showAndWait();
+    			}
+    			txtNameProductsOrder.setText("");
+    		}	
+    	}//End if
+    	else {
+    		ifTextIsEmpty(event);
+    	}
+    	txtQuantityProductsInOrder.setText("");txtNameProductsOrder.setText("");txtaObservationsOrder.setText("");
+    	alert.setContentText("Orden registrada exitosamente");
+    	alert.showAndWait();
+    }
+    
+    @FXML
+    public void registerAnProductInOrder(ActionEvent event)throws IOException{
+    	Alert alert = new Alert(AlertType.INFORMATION);
+    	alert.setTitle("Informacion");
+    	alert.setHeaderText(null);
+    	
+    		Product productName = coffe.searchProduct(this.txtNameProductsOrder.getText());
+    		if(productName!=null) {
+    			order.addProduct(productName);
+    		}else {
+    			alert.setContentText("El producto no se encuentra registrado en el restaurante");
+    			alert.showAndWait();
+    		}
+    }
+    
+    @FXML
+    public void ifTextIsEmpty(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Informacion");
+        alert.setHeaderText(null);
+        alert.setContentText("Porfavor, verifique que los campos no esten vacios");
+    	alert.showAndWait();
+    }
+    
 }

@@ -13,7 +13,7 @@ public class Product {
 	private String productType;//This attribute contains the product Type 
 	private int size;//This attribute contains the product size
 	private boolean state;//This attribute contains the product state;
-        public int price;//This attribute contains the product price;
+    public int price;//This attribute contains the product price;
 	
 	//Relations
 	private ArrayList <Ingredient> ingredients;//relation to the ingredient class created in an ArrayList
@@ -32,13 +32,13 @@ public class Product {
 	*@param state Is a boolean with the product state<br>
 	*@param ingredient Is an ingredient contain in an ArrayList<br>
 	*/	
-	public Product(String name, String productType, int size, boolean state, ArrayList<Ingredient> ingredient, int price) {
+	public Product(String name, String productType, int size, boolean state, int price) {
 		this.name = name;
 		this.productType = productType;
 		this.size = size;
 		this.state = state;
-		this.ingredients = ingredient;
-                this.price = price;
+		ingredients = new ArrayList<>();
+        this.price = price;
 	}//End Product constructor
 	
 //*******************************************************************************************************************

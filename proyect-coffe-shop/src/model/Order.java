@@ -36,12 +36,27 @@ public class Order {
 	*@param observations Is a String with the order observations<br>
 	*@param products Is a Product with the attributes of that class<br>
 	*/	
-	public Order( int state, String observations, ArrayList<Product> products) {
+	public Order( int state, String observations) {
 		orderCode = generateOrderCode();
 		this.state = state;
 		this.observations = observations;
-		this.products = products;
+		products = new ArrayList<>();
 	}//End Order method
+	
+	public void changeState(int n) {
+		if(n==1) {
+			setState(REQUESTED);
+		}else if(n==2) {
+			setState(PROCESS);
+		}else if(n==3) {
+			setState(SENT);
+		}else if(n==4) {
+			setState(DELIVERED);
+		}else if(n==5) {
+			setState(CANCELED);
+		}
+	
+	}
 	
 //***************************************************************************************************************************
 
@@ -54,7 +69,9 @@ public class Order {
 	@param product Is a Product with the attributes of that class. product =! null<br>
 	*/
 	public void addProduct(Product product) {
-		products.add(product);
+		if (product.isState()==true) {
+			products.add(product);
+		}//End if
 	}//End addProduct method
 	
 //***************************************************************************************************************************
