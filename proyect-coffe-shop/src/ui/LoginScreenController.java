@@ -41,7 +41,7 @@ import model.Client;
 *@author DanielRamirez<br>
 *@author AmilcarRodriguez<br>
 */
-public class LoginScreenController implements Initializable {
+public class LoginScreenController {
 	
 	 @FXML
 	 private BorderPane mainPanel;
@@ -143,13 +143,11 @@ public class LoginScreenController implements Initializable {
     private Product product;
     private Order order;
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+    public LoginScreenController(Coffe coffe) {
+    	this.coffe = coffe;
+   	}
+  
+   
     
     @FXML
     public void loadRegister(ActionEvent event) throws IOException {
@@ -849,26 +847,219 @@ public class LoginScreenController implements Initializable {
     @FXML
     public void loadShowProduct(ActionEvent event) throws IOException {
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShowProduct.fxml"));
-		
-		fxmlLoader.setController(this);    	
-		Parent add = fxmlLoader.load();
-    	
-		mainPanel.getChildren().clear();
+
+    	fxmlLoader.setController(this);    	
+    	Parent add = fxmlLoader.load();
+
+    	mainPanel.getChildren().clear();
     	mainPanel.setCenter(add);
     	mainPanel.setVisible(true);
     	Stage st = (Stage)
     	add.getScene().getWindow();
-		st.setHeight(575);
-		st.setWidth(372);
+    	st.setHeight(575);
+    	st.setWidth(372);
+    	
+    }
+
+    @FXML
+    public void deleteEmployee(ActionEvent event) {
+
+    	Employee e = tvEmployee.getSelectionModel().getSelectedItem();
+    	
+    	if (e == null) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setHeaderText(null);
+    		alert.setTitle("Error");
+    		alert.setContentText("Debes seleccionar una persona");
+    		alert.showAndWait();
+    	}else {
+    		coffe.removeEmployee(e);
+    		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    		alert.setHeaderText(null);
+    		alert.setTitle("Informacion");
+    		alert.setContentText("Se ha eliminado el empleado");
+    	}
+    }
+
+    @FXML
+    public void modifyEmployee(ActionEvent event) {
+
+    	Employee e = tvEmployee.getSelectionModel().getSelectedItem();
+    	if (e == null) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setHeaderText(null);
+    		alert.setTitle("Error");
+    		alert.setContentText("Debes seleccionar un empleado");
+    		alert.showAndWait();
+    	}else {
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("AddEmployee.fxml"));
+    		loader.setController(this);
+    		Parent p;
+			try {
+				p = loader.load();
+	    		mainPanel.setCenter(p);
+	    		Alert alert = new Alert(AlertType.INFORMATION);
+	    		alert.setTitle("Informacion");
+	    		alert.setHeaderText(null);
+	    		txtNameEmployeeAdd.setText(e.getName());
+	    		txtLastNameEmployeeAdd.setText(e.getLastName());
+	    		txtIdClient.setText(e.getId());
+	    		if(!txtNameEmployeeAdd.getText().equals("") && !txtLastNameEmployeeAdd.getText().equals("") && !txtIdEmployeeAdd.getText().equals("")) {
+	    			employee = new Employee(txtNameEmployeeAdd.getText(),txtLastNameEmployeeAdd.getText(),txtIdEmployeeAdd.getText());
+	    			coffe.modifyEmployee(employee, e.getName());
+	    		}//End if
+	    		else {
+	    			ifTextIsEmpty(event);
+	    		}
+	    		txtNameEmployeeAdd.setText("");txtLastNameEmployeeAdd.setText("");txtIdEmployeeAdd.setText("");
+	    		alert.setContentText("Empleado registrado exitosamente");
+	    		alert.showAndWait();
+			} catch (IOException e1) {
+			}	
+    	}
+    }
+    
+
+    @FXML
+    public void modifyAnIngredient(ActionEvent event) {
+    	Ingredient i = tvIngredientList.getSelectionModel().getSelectedItem();
+    	
+    	if(i!=null) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setHeaderText(null);
+    		alert.setTitle("Error");
+    		alert.setContentText("Debes seleccionar un ingrediente");
+    		alert.showAndWait();
+    	}else {
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("AddEmployee.fxml"));
+    		loader.setController(this);
+    		Parent p;
+    		try {
+				p = loader.load();
+	    		mainPanel.setCenter(p);
+	    		Alert alert = new Alert(AlertType.INFORMATION);
+	        	alert.setTitle("Informacion");
+	        	alert.setHeaderText(null);
+	        	txtIngredientName.setText(i.getName());
+	        	if(!txtIngredientName.getText().equals("")) {
+	        		ingredient = new Ingredient(txtIngredientName.getText(), true);
+	        		coffe.modifyIngredient(ingredient, i.getName());
+	        	}//End if
+	        	else {
+	        		ifTextIsEmpty(event);
+	        	}
+	        	txtIngredientName.setText("");
+	        	alert.setContentText("Ingrediente registrado exitosamente");
+	        	alert.showAndWait();
+
+			} catch (IOException e) {
+			}
+    	}
+    	
+    }
+    
+    @FXML
+    public void modifyAnProduct(ActionEvent event) {
+    	Product pr=null;
+    	
+    	if(pr!=null) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setHeaderText(null);
+    		alert.setTitle("Error");
+    		alert.setContentText("Debes seleccionar un ingrediente");
+    		alert.showAndWait();
+    	}else {
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("AddEmployee.fxml"));
+    		loader.setController(this);
+    		Parent p;
+    		try {
+				p = loader.load();
+	    		mainPanel.setCenter(p);
+	    		Alert alert = new Alert(AlertType.INFORMATION);
+	        	alert.setTitle("Informacion");
+	        	alert.setHeaderText(null);
+	        	txtProductName.setText(pr.getName());
+	        	txtProductType.setText(pr.getProductType());
+	        	txtProductSyze.setText(String.valueOf(pr.getSize()));
+	        	txtProductPrice.setText(String.valueOf(pr.getPrice()));
+	        	if(!txtProductName.getText().equals("") && !txtProductType.getText().equals("") && !txtProductSyze.getText().equals("") && !txtProductPrice.getText().equals("") && !txtIngredientNameP.getText().equals("") && !txtQuantityProduct.getText().equals("")) {
+	        		int productSyze = Integer.parseInt(this.txtProductSyze.getText());
+	        		int productPrice = Integer.parseInt(this.txtProductPrice.getText());
+	        		int nIngredients = Integer.parseInt(this.txtQuantityProduct.getText());
+	        		for(int i = 0;i>(nIngredients-1);i++) {
+	        			registerAnIngredientToProduct(event);
+	        			if( i == nIngredients) {
+	        				product = new Product(txtProductName.getText(),txtProductType.getText(),productSyze,true,productPrice);
+	        				coffe.modifyProduct(product, pr.getName());
+	        			}else {
+	        				alert.setContentText("La cantidad de ingredientes escritos no coincide con la cantidad de ingredientes indicados anteriormente");
+	        				alert.showAndWait();
+	        			}
+	        			txtIngredientNameP.setText("");
+	        		}	
+	        	}//End if
+	        	else {
+	        		ifTextIsEmpty(event);
+	        	}
+	        	txtProductName.setText("");txtProductType.setText("");txtProductSyze.setText("");txtProductPrice.setText("");txtIngredientNameP.setText("");
+	        	alert.setContentText("Producto registrado exitosamente");
+	        	alert.showAndWait();
+    		} catch (IOException e) {
+			}
+    	}
+    	
+    }
+    
+    @FXML
+    public void modifyAClient(ActionEvent event) {
+    	Client cl = null;
+    	
+    	if(cl!=null) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setHeaderText(null);
+    		alert.setTitle("Error");
+    		alert.setContentText("Debes seleccionar un ingrediente");
+    		alert.showAndWait();
+    	}else {
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("AddEmployee.fxml"));
+    		loader.setController(this);
+    		Parent p;
+    		try {
+				p = loader.load();
+	    		mainPanel.setCenter(p);
+	    		Alert alert = new Alert(AlertType.INFORMATION);
+	            alert.setTitle("Informacion");
+	            alert.setHeaderText(null);
+	            txtNameClientAdd.setText(cl.getName());
+	            txtLastnameClientAdd.setText(cl.getLastName());
+	            txtIdClient.setText(cl.getId());
+	            txtPhoneClientAdd.setText(cl.getPhone());
+	            txtAddressClientAdd.setText(cl.getDirection());
+	            txtaObservationsClientAdd.setText(cl.getFieldOfObservations());
+	            if(!txtNameClientAdd.getText().equals("") && !txtLastnameClientAdd.getText().equals("") && !txtIdClient.getText().equals("") && !txtAddressClientAdd.getText().equals("") && !txtPhoneClientAdd.getText().equals("")) {
+	            	client = new Client(txtNameClientAdd.getText(),txtLastnameClientAdd.getText(),txtIdClient.getText(),txtAddressClientAdd.getText(),txtPhoneClientAdd.getText(),txtaObservationsClientAdd.getText());
+	            	coffe.modifyCliente(client, cl.getName());
+	            }//End if
+	            else {
+	        		ifTextIsEmpty(event);
+	        	}
+	            txtNameClientAdd.setText("");txtLastnameClientAdd.setText("");txtIdClient.setText("");txtAddressClientAdd.setText("");txtPhoneClientAdd.setText("");txtaObservationsClientAdd.setText("");
+	            alert.setContentText("Cliente registrado exitosamente");
+	        	alert.showAndWait();
+    		} catch (IOException e) {
+			}
+    	}
+    	
     }
     
     @FXML
     public void ifTextIsEmpty(ActionEvent event) {
     	Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Informacion");
-        alert.setHeaderText(null);
-        alert.setContentText("Porfavor, verifique que los campos no esten vacios");
+    	alert.setTitle("Informacion");
+    	alert.setHeaderText(null);
+    	alert.setContentText("Porfavor, verifique que los campos no esten vacios");
     	alert.showAndWait();
     }
+
     
 }

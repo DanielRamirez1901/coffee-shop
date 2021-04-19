@@ -318,6 +318,10 @@ public class Coffe {
 		}//End if
 	}//End removeEmployee method
 
+	public void removeEmployee(Employee employee) {
+		employees.remove(employee);
+	}
+	
 //***********************************************************************************************************************************************************
 
 	/**
