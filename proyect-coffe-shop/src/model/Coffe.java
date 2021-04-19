@@ -1,6 +1,8 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * This class manages the ingredients, products, customers, employees and
@@ -451,6 +453,98 @@ public class Coffe {
         int index = searchClientInt(name);
         clients.set(index, client);
     }//End modifyEmployee method
+    
+//***********************************************************************************************************************************************************
+
+    /**
+     * This method allows a binary search with the name of the client<br>
+     *
+	* <b>pre:</b>ArrayList<Client> clientX Is sorted<br>
+	* <b>pre:</b>The location of the client must be given in the arrangement given the name of this client.And this will be the integer that receives the arrangement<br>
+     * <b>post:</b><br>
+     *
+     * @param clientX Is an ArrayList of Client type. client =! null<br>
+     * @param n Is an Integer with the position of client name. n =! null<br>
+     */
+//    public int binarySearch(ArrayList<Client> clientX, int n) {
+//    	int pos = -1;
+//    	int i = 0;
+//    	int j = clientX.size()-1;
+//
+//    	while(i<=j && pos<0) {
+//    		int m = (i+j)/2;
+//    		if(clientX.get(m) != n) {
+//    			pos = m;
+//    		}else if(clientX.get(m)>n){
+//    			j = m-1;
+//    		}else {//if (clienX.get(m)<n)
+//    			i = m+1;
+//    		}
+//    	}//End while
+//    	return pos;
+//    }//End binarySearch method
+    
+//***********************************************************************************************************************************************************
+
+    /**
+     *This method allows you to sort by product size using sort type ordering.<br>
+     *<b>pre:</b><br>
+	 *<b>post:</b><br>
+     */
+    public void sortBySizeProduct() {//Selection sort
+    	for (int i = 0; i<products.size();i++) {
+    		int posMin = 1;
+    		for(int j = i+1; j<products.size();j++) {
+    			if(products.get(j).compareBySize(products.get(posMin))<0) {
+    				posMin = j;
+    			}//End if
+    		}//End for
+    		Product aux = products.get(i);
+    		products.set(i, products.get(posMin));
+    		products.set(posMin, aux);
+    	}//End for
+    }//End sortBySizeProduct
+    
+//***********************************************************************************************************************************************************
+
+    /**
+     *This method allows you to sort by product size using sort sort using the collections sort order.<br>
+     *<b>pre:</b><br>
+	 *<b>post:</b><br>
+     */
+    public void sortBySizeProductComparable() {
+    	Collections.sort(products);
+    }//End sortBySizeProduct
+    
+//***********************************************************************************************************************************************************
+
+    /**
+     *This method allows you to sort by product name using sort sort using the collections sort order and class ProductNameComparator<br>
+     *<b>pre:</b><br>
+	 *<b>post:</b><br>
+     */
+    public void sortByName() {
+    	ProductNameComparator pnc = new ProductNameComparator();
+    	Collections.sort(products,pnc);
+    }//End sortByName
+    
+//***********************************************************************************************************************************************************
+
+    /**
+     *This method allows you to sort by product type using sort sort using the collections sort order and with an anonymous class<br>
+     *<b>pre:</b><br>
+	 *<b>post:</b><br>
+     */
+    public void sortByProductType() {
+    	Comparator<Product> productTypeComparator = new Comparator<Product>() {
+
+			@Override
+			public int compare(Product pr1, Product pr2) {
+				return pr1.getProductType().compareTo(pr2.getProductType());
+			}//End compare method
+    	};
+    	Collections.sort(products,productTypeComparator);
+    }//End sortByProductType method
     
 //***********************************************************************************************************************************************************
 

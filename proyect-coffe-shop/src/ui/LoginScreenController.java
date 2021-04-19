@@ -199,6 +199,14 @@ public class LoginScreenController implements Initializable {
     private Product product;
     private Order order;
 
+    public static void main(String[]args) {
+    	Coffe cf = new Coffe();
+    	cf.sortByName();
+    	cf.SortByPrice();
+    	cf.sortBySizeProduct();
+    	cf.sortBySizeProductComparable();
+    	cf.sortByProductType();
+    }
     /**
      * Initializes the controller class.
      */
@@ -312,6 +320,7 @@ public class LoginScreenController implements Initializable {
                 if (i == nIngredients) {
                     product = new Product(txtProductName.getText(), txtProductType.getText(), productSyze, true, productPrice);
                     coffe.addProduct(product);
+                    coffe.SortByPrice();
                 } else {
                     alert.setContentText("La cantidad de ingredientes escritos no coincide con la cantidad de ingredientes indicados anteriormente");
                     alert.showAndWait();
@@ -842,6 +851,7 @@ public class LoginScreenController implements Initializable {
                         if (i == nIngredients) {
                             product = new Product(txtProductName.getText(), txtProductType.getText(), productSyze, true, productPrice);
                             coffe.modifyProduct(product, pr.getName());
+                            coffe.SortByPrice();
                         } else {
                             alert.setContentText("La cantidad de productos escritos no coincide con la cantidad de productos indicados anteriormente");
                             alert.showAndWait();
@@ -1132,17 +1142,14 @@ public class LoginScreenController implements Initializable {
     //Falta lo siguiente
 //    Serializar
 //    Generar archivo css
-//    Ordenamiento del precio
 //    Crear interfaz para mostrar las ordenes que ha pedido un cliente y el empleado que la entregara
 //    Crear un calendario + hora para mostrar el dia y hora en la que fue atendida esa orden
-//    Segun la rubrica hasta ahora en porcentaje tenemos ganado: 71% Aprox que equivale a 3.55
-//    Objetivos a lograr indispensables para obtener el 10% mas y sacar 4 como minino:
+//    Segun la rubrica hasta ahora en porcentaje tenemos ganado: 81% Aprox que equivale a 4.2
+//    Objetivos a lograr en lo posible:
 //    	-El programa tiene una opción que hace búsqueda binaria de un cliente dado 
 //    	un nombre e indica el tiempo que tardó la búsqueda. Los clientes son insertados
-//    	en ese orden siempre para mantener la lista ordenada.
+//    	en ese orden siempre para mantener la lista ordenada.(logrado)
 //    	-El programa serializa y deserializa de toda la información 
 //    	del modelo en archivos de forma automática cuando se agrega nueva 
 //    	información y cuando el programa inicia, respectivamente
-
-
 }

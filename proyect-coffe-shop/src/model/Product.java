@@ -6,7 +6,7 @@ import java.util.ArrayList;
 *@author AmilcarRodriguez<br>
 */
 
-public class Product {
+public class Product implements Comparable<Product>{
 	
 	//Attributes
 	private String name;//This attribute contains the name of the product
@@ -76,6 +76,17 @@ public class Product {
 		return null;
 	}//End searchIngredient method
 
+//*******************************************************************************************************************
+
+	 /**
+     *This method allows you to compare by product size<br>
+     *<b>pre:</b><br>
+	 *<b>post:</b><br>
+     */
+	public int compareBySize(Product productX) {
+		return Integer.compare(size, productX.getSize());
+	}//End compareBySize method
+	
 //*******************************************************************************************************************
 
 	/**
@@ -158,4 +169,9 @@ public class Product {
         public void setPrice(int price) {
             this.price = price;
         }
+
+		@Override
+		public int compareTo(Product productX) {
+			return size-productX.getSize();
+		}
 }//End Product Class
