@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="paneListEmployee" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="444.0" fitWidth="607.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/fondoLogin.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tvEmployee" editable="true" layoutX="34.0" layoutY="75.0" prefHeight="245.0" prefWidth="536.0" style="-fx-background-color: yellow;">
+        <columns>
+            <TableColumn fx:id="tableEmployeeNumber" prefWidth="30.0" style="-fx-background-color: Gray;" text="N°" />
+          <TableColumn fx:id="tcEmployeeName" prefWidth="170.0" style="-fx-background-color: Gray;" text="Nombre" />
+          <TableColumn fx:id="tcEmployeeLastName" prefWidth="173.0" sortType="DESCENDING" style="-fx-background-color: gray;" text="Apellidos" />
+            <TableColumn fx:id="tcIdEmployee" prefWidth="162.0" style="-fx-background-color: gray;" text="Id" />
+        </columns>
+         <effect>
+            <Lighting bumpInput="$null">
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+      </TableView>
+      <Label layoutX="164.0" layoutY="14.0" prefHeight="49.0" prefWidth="280.0" style="-fx-background-color: golden;" text="Informacion de Empleado" textFill="#cdd312">
+         <font>
+            <Font name="SimSun-ExtB" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="100.0" layoutY="333.0" mnemonicParsing="false" onAction="#deleteEmployee" style="-fx-background-color: yellow;" text="Eliminar">
+         <font>
+            <Font name="SimSun" size="12.0" />
+         </font></Button>
+      <Button layoutX="266.0" layoutY="333.0" mnemonicParsing="false" onAction="#modifyEmployee" style="-fx-background-color: yellow;" text="Actualizar">
+         <font>
+            <Font name="NSimSun" size="12.0" />
+         </font></Button>
+      <Button layoutX="444.0" layoutY="333.0" mnemonicParsing="false" onAction="#disableEmployee" style="-fx-background-color: yellow;" text="Deshabilitar">
+         <font>
+            <Font name="SimSun" size="12.0" />
+         </font></Button>
+   </children>
+</Pane>
