@@ -870,16 +870,97 @@ public class LoginScreenController {
     		Alert alert = new Alert(Alert.AlertType.ERROR);
     		alert.setHeaderText(null);
     		alert.setTitle("Error");
-    		alert.setContentText("Debes seleccionar una persona");
+    		alert.setContentText("Debes seleccionar un empleado");
     		alert.showAndWait();
     	}else {
-    		coffe.removeEmployee(e);
+    		coffe.removeEmployee(e.getName());
     		Alert alert = new Alert(Alert.AlertType.INFORMATION);
     		alert.setHeaderText(null);
     		alert.setTitle("Informacion");
     		alert.setContentText("Se ha eliminado el empleado");
     	}
     }
+    
+    @FXML
+    public void deleteIngredient(ActionEvent event) {
+
+    	Ingredient ing = tvIngredientList.getSelectionModel().getSelectedItem();
+    	
+    	if (ing == null) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setHeaderText(null);
+    		alert.setTitle("Error");
+    		alert.setContentText("Debes seleccionar un ingrediente");
+    		alert.showAndWait();
+    	}else {
+    		coffe.removeIngredient(ing.getName());
+    		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    		alert.setHeaderText(null);
+    		alert.setTitle("Informacion");
+    		alert.setContentText("Se ha eliminado un ingrediente");
+    	}
+    }
+    
+    @FXML
+    public void deleteProduct(ActionEvent event) {
+
+    	Product pr = null;//Falta la table view para asi poder hacer el evento de seleccionar
+    	
+    	if (pr == null) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setHeaderText(null);
+    		alert.setTitle("Error");
+    		alert.setContentText("Debes seleccionar un ingrediente");
+    		alert.showAndWait();
+    	}else {
+    		coffe.removeProduct(pr.getName());
+    		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    		alert.setHeaderText(null);
+    		alert.setTitle("Informacion");
+    		alert.setContentText("Se ha eliminado un ingrediente");
+    	}
+    }
+    
+    @FXML
+    public void deleteClient(ActionEvent event) {
+
+    	Client cl = null;//Falta la table view para asi poder hacer el evento de seleccionar
+    	
+    	if (cl == null) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setHeaderText(null);
+    		alert.setTitle("Error");
+    		alert.setContentText("Debes seleccionar un ingrediente");
+    		alert.showAndWait();
+    	}else {
+    		coffe.removeClient(cl.getName());
+    		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    		alert.setHeaderText(null);
+    		alert.setTitle("Informacion");
+    		alert.setContentText("Se ha eliminado un ingrediente");
+    	}
+    }
+    
+    @FXML
+    public void deleteOrder(ActionEvent event) {
+
+    	Order or = null;//Falta la table view para asi poder hacer el evento de seleccionar
+    	
+    	if (or == null) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setHeaderText(null);
+    		alert.setTitle("Error");
+    		alert.setContentText("Debes seleccionar un ingrediente");
+    		alert.showAndWait();
+    	}else {
+    		coffe.removeOrder(or.getOrderCode());
+    		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    		alert.setHeaderText(null);
+    		alert.setTitle("Informacion");
+    		alert.setContentText("Se ha eliminado un ingrediente");
+    	}
+    }
+    
 
     @FXML
     public void modifyEmployee(ActionEvent event) {
@@ -960,7 +1041,7 @@ public class LoginScreenController {
     
     @FXML
     public void modifyAnProduct(ActionEvent event) {
-    	Product pr=null;
+    	Product pr = null;//Falta la table view para asi poder hacer el evento de seleccionar
     	
     	if(pr!=null) {
     		Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -1012,7 +1093,7 @@ public class LoginScreenController {
     
     @FXML
     public void modifyAClient(ActionEvent event) {
-    	Client cl = null;
+    	Client cl = null;//Falta la table view para asi poder hacer el evento de seleccionar
     	
     	if(cl!=null) {
     		Alert alert = new Alert(Alert.AlertType.ERROR);

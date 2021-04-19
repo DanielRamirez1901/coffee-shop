@@ -317,11 +317,6 @@ public class Coffe {
 			employees.remove(employee);
 		}//End if
 	}//End removeEmployee method
-
-	public void removeEmployee(Employee employee) {
-		employees.remove(employee);
-	}
-	
 //***********************************************************************************************************************************************************
 
 	/**
@@ -395,8 +390,23 @@ public class Coffe {
         
         public void addOrder(Order orders) {
     		order.add(orders);
-    	}//End addEmployee method  
+    	} 
 
+        public Order searchOrder(String code) {
+    		for (int i = 0 ; i<order.size() ; i++) {
+    			if (order.get(i).getOrderCode().compareTo(code) == 0 ) {
+    				return order.get(i);
+    			}//End if
+    		}//End for
+    		return null;
+    	}
+        
+        public void removeOrder(String code) {
+    		Order orderA = searchOrder(code);
+    		if(orderA != null) {
+    			order.remove(orderA);
+    		}//End if
+    	}
         
 //**************************Setters & Getters**************************************************************************************************
         
