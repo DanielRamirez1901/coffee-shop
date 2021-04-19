@@ -12,6 +12,7 @@ public class Employee {
 	private String id;//This attribute contains the employee id
 	private String userName;//This attribute contains the system user name
 	private String password;//This attribute contains the system user password
+	private Boolean state;
 	
 //**********************************************************************************************************************************
 	
@@ -27,7 +28,7 @@ public class Employee {
 	*@param userName Is a String with the system user name<br>
 	*@param password Is a String with the employee password<br>
 	*/	
-	public Employee(String name, String lastName, String id) {
+	public Employee(String name, String lastName, String id,Boolean state) {
 		this.name = name;
 		this.lastName = lastName;
 		this.id = id;
@@ -95,5 +96,17 @@ public class Employee {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}	
+	}
+
+	public Boolean getState() {
+		return state;
+	}
+
+	public void setState(Boolean state) {
+		this.state = state;
+	}
+
+	
+	
+	
 }//End Employee class

@@ -259,7 +259,7 @@ public class LoginScreenController implements Initializable {
         alert.setTitle("Informaci�n");
         alert.setHeaderText(null);
         if (!txtNameEmployeeAdd.getText().equals("") && !txtLastNameEmployeeAdd.getText().equals("") && !txtIdEmployeeAdd.getText().equals("")) {
-            employee = new Employee(txtNameEmployeeAdd.getText(), txtLastNameEmployeeAdd.getText(), txtIdEmployeeAdd.getText());
+            employee = new Employee(txtNameEmployeeAdd.getText(), txtLastNameEmployeeAdd.getText(), txtIdEmployeeAdd.getText(),true);
             coffe.addEmployee(employee);
         }//End if
         else {
@@ -750,7 +750,7 @@ public class LoginScreenController implements Initializable {
                 txtLastNameEmployeeAdd.setText(e.getLastName());
                 txtIdClient.setText(e.getId());
                 if (!txtNameEmployeeAdd.getText().equals("") && !txtLastNameEmployeeAdd.getText().equals("") && !txtIdEmployeeAdd.getText().equals("")) {
-                    employee = new Employee(txtNameEmployeeAdd.getText(), txtLastNameEmployeeAdd.getText(), txtIdEmployeeAdd.getText());
+                    employee = new Employee(txtNameEmployeeAdd.getText(), txtLastNameEmployeeAdd.getText(), txtIdEmployeeAdd.getText(),true);
                     coffe.modifyEmployee(employee, e.getName());
                 }//End if
                 else {
@@ -972,11 +972,29 @@ public class LoginScreenController implements Initializable {
     public void initializeTableViewEmployee() {
         ObservableList<Employee> observableList;
         observableList = FXCollections.observableArrayList(coffe.getEmployees());
-
         tvEmployee.setItems(observableList);
         tcEmployeeName.setCellValueFactory(new PropertyValueFactory<Employee, String>("nombre")); //the tableview search for a method called getName
         tcEmployeeLastName.setCellValueFactory(new PropertyValueFactory<Employee, String>("apellido")); //the tableview search for a method called getEmail
         tcIdEmployee.setCellValueFactory(new PropertyValueFactory<Employee, String>("id"));
     }
+  
+    @FXML
+    public void disableEmployee(ActionEvent event) {
 
+        Employee emp = tvEmployee.getSelectionModel().getSelectedItem();
+
+        if (emp == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("Debes seleccionar un ingrediente");
+            alert.showAndWait();
+        } else {
+        	emp.setState(false);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setTitle("Informacion");
+            alert.setContentText("Se ha deshabilitado este empleado");
+        }
+    }
 }
