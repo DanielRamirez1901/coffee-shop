@@ -1,12 +1,15 @@
 package model;
+
+import java.io.Serializable;
+
 /**
 *This class allows the creation of an ingredient<br>
 *@author DanielRamirez<br>
 *@author AmilcarRodriguez<br>
 */
 
-public class Ingredient {
-	
+public class Ingredient implements Serializable{
+	public final static long serialVersion = 1;
 	//Attributes
 	private String name;//This attribute contains the name of the ingredient
 	private boolean state;//This attribute contains the state of the ingredient

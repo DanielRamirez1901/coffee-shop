@@ -1,4 +1,5 @@
 package model;
+import java.io.Serializable;
 import java.util.ArrayList;
 /**
 *This class allows the creation of an product<br>
@@ -6,8 +7,8 @@ import java.util.ArrayList;
 *@author AmilcarRodriguez<br>
 */
 
-public class Product implements Comparable<Product>{
-	
+public class Product implements Comparable<Product>,  Serializable{
+	public final static long serialVersion = 1;
 	//Attributes
 	private String name;//This attribute contains the name of the product
 	private String productType;//This attribute contains the product Type 

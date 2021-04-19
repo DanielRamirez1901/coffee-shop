@@ -1,5 +1,8 @@
 package model;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -20,7 +23,14 @@ public class Coffe {
     private ArrayList<Employee> employees;//Relation with class Employee, employees are contained in an ArrayList of that type(Employee)
     private ArrayList<Order> order;//Relation with class Order, order are contained in an ArrayList of that type(Order)
 
+    //Constants
+    public static final String SAVE_DATA_EMPLOYEE = "data/Emploee.da";
+    public static final String SAVE_DATA_CLIENTS = "data/Clients.da";
+    public static final String SAVE_DATA_INGREDIENTS = "data/Ingredients.da";
+    public static final String SAVE_DATA_ORDERS = "data/Orders.da";
+    public static final String SAVE_DATA_PRODUCTS = "data/Product.da";
 //***********************************************************************************************************************************************************
+
     /**
      * Coffe class construct method<br>
      * <b>pre:</b><br>
@@ -42,7 +52,7 @@ public class Coffe {
     /**
      * This method allows adding a product to the coffee<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b>the product has been added to the ArrayList<br>
      *
      * @param product Is a Product with the attributes of that class<br>
@@ -55,7 +65,7 @@ public class Coffe {
     /**
      * This method allows search a product in the coffe class<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b><br>
      *
      * @param name Is a String that contain the product name<br>
@@ -76,7 +86,7 @@ public class Coffe {
     /**
      * This method allows search a product in the coffe class<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b><br>
      *
      * @param name Is a String that contain the product name<br>
@@ -97,7 +107,7 @@ public class Coffe {
     /**
      * This method allows modifying the products attributes<br>
      *
-	* <b>pre:</b>the product must be initialized and created<br>
+     * <b>pre:</b>the product must be initialized and created<br>
      * <b>post:</b>the product has been modified<br>
      *
      * @param product Is a product of Product type. product =! null<br>
@@ -113,7 +123,7 @@ public class Coffe {
     /**
      * This method allows remove a product<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b>the product has been deleted to the arrayList if the
      * conditional is satisfactorily fulfilled<br>
      *
@@ -130,7 +140,7 @@ public class Coffe {
     /**
      * This method allows adding an ingredient to the coffee<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b>the ingredient has been added to the ArrayList<br>
      *
      * @param ingredient Is a Ingredient with the attributes of that class<br>
@@ -143,7 +153,7 @@ public class Coffe {
     /**
      * This method allows search an ingredient in the coffe class<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b><br>
      *
      * @param name Is a String that contain the ingredient name<br>
@@ -164,7 +174,7 @@ public class Coffe {
     /**
      * This method allows search an ingredient in the coffe class<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b><br>
      *
      * @param name Is a String that contain the ingredient name<br>
@@ -185,7 +195,7 @@ public class Coffe {
     /**
      * This method allows remove an ingredient<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b>the ingredient has been deleted to the arrayList if the
      * conditional is satisfactorily fulfilled<br>
      *
@@ -202,7 +212,7 @@ public class Coffe {
     /**
      * This method allows modifying the ingredients attributes<br>
      *
-	* <b>pre:</b>the ingredient must be initialized and created<br>
+     * <b>pre:</b>the ingredient must be initialized and created<br>
      * <b>post:</b>the ingredient has been modified<br>
      *
      * @param ingredient Is an ingredient of Ingredient type. ingredient =!
@@ -218,7 +228,7 @@ public class Coffe {
     /**
      * This method allows search a system user in the coffe class<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b><br>
      *
      * @param name Is a String that contain the user name<br>
@@ -239,7 +249,7 @@ public class Coffe {
     /**
      * This method allows login to the system user<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b><br>
      *
      * @return true if the user name and password are similar to the user name
@@ -255,7 +265,7 @@ public class Coffe {
     /**
      * This method allows adding an employee to the coffee<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b>the employee has been added to the ArrayList<br>
      *
      * @param employee Is an Employee with the attributes of that class<br>
@@ -268,7 +278,7 @@ public class Coffe {
     /**
      * This method allows search an employee in the coffe class<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b><br>
      *
      * @param name Is a String that contain the employee name<br>
@@ -289,7 +299,7 @@ public class Coffe {
     /**
      * This method allows search an employee in the coffe class<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b><br>
      *
      * @param name Is a String that contain the employee name<br>
@@ -310,7 +320,7 @@ public class Coffe {
     /**
      * This method allows remove an employee<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b>the employee has been deleted to the arrayList if the
      * conditional is satisfactorily fulfilled<br>
      *
@@ -327,20 +337,19 @@ public class Coffe {
     /**
      * This method allows modifying the employees attributes<br>
      *
-	* <b>pre:</b>the employee must be initialized and created<br>
+     * <b>pre:</b>the employee must be initialized and created<br>
      * <b>post:</b>the employee has been modified<br>
      *
      * @param employee Is an employee of Employee type. employee =! null<br>
-     * @param name Is a string with the employee name. name =! "" ,
-     * employee =! ""<br>
+     * @param name Is a string with the employee name. name =! "" , employee =!
+     * ""<br>
      */
     public void modifyEmployee(Employee employee, String name) {
         int index = searchEmployeeInt(name);
         employees.set(index, employee);
     }//End modifyEmployee method
-    
-//***********************************************************************************************************************************************************
 
+//***********************************************************************************************************************************************************
     /**
      * toString class method<br>
      * <b>pre:</b>The ArrayList<Product> products it does not have to be empty
@@ -361,13 +370,12 @@ public class Coffe {
             products.set(posMin, aux);
         }
     }
-    
-//***********************************************************************************************************************************************************
 
+//***********************************************************************************************************************************************************
     /**
      * This method allows adding a client to the coffee<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b>the client has been added to the ArrayList<br>
      *
      * @param client Is an Client with the attributes of that class<br>
@@ -375,13 +383,12 @@ public class Coffe {
     public void addClient(Client client) {
         clients.add(client);
     }//End addClient method 
-    
- //***********************************************************************************************************************************************************
 
+    //***********************************************************************************************************************************************************
     /**
      * This method allows search a client in the coffe class<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b><br>
      *
      * @param name Is a String that contain the client name<br>
@@ -397,13 +404,12 @@ public class Coffe {
         }//End for
         return position;
     }//End searchClientInt method
-    
+
 //***********************************************************************************************************************************************************
-    
     /**
      * This method allows search a client in the coffe class<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b><br>
      *
      * @param name Is a String that contain the client name<br>
@@ -419,13 +425,12 @@ public class Coffe {
         }//End for
         return null;
     }//End searchClient method
-    
-//***********************************************************************************************************************************************************
 
+//***********************************************************************************************************************************************************
     /**
      * This method allows remove a client<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b>the client has been deleted to the arrayList if the
      * conditional is satisfactorily fulfilled<br>
      *
@@ -439,11 +444,10 @@ public class Coffe {
     }//End removeClient method
 
 //***********************************************************************************************************************************************************
-    
     /**
      * This method allows modifying the client attributes<br>
      *
-	* <b>pre:</b>the client must be initialized and created<br>
+     * <b>pre:</b>the client must be initialized and created<br>
      * <b>post:</b>the client has been modified<br>
      *
      * @param client Is an client of Client type. client =! null<br>
@@ -453,14 +457,15 @@ public class Coffe {
         int index = searchClientInt(name);
         clients.set(index, client);
     }//End modifyEmployee method
-    
-//***********************************************************************************************************************************************************
 
+//***********************************************************************************************************************************************************
     /**
      * This method allows a binary search with the name of the client<br>
      *
-	* <b>pre:</b>ArrayList<Client> clientX Is sorted<br>
-	* <b>pre:</b>The location of the client must be given in the arrangement given the name of this client.And this will be the integer that receives the arrangement<br>
+     * <b>pre:</b>ArrayList<Client> clientX Is sorted<br>
+     * <b>pre:</b>The location of the client must be given in the arrangement
+     * given the name of this client.And this will be the integer that receives
+     * the arrangement<br>
      * <b>post:</b><br>
      *
      * @param clientX Is an ArrayList of Client type. client =! null<br>
@@ -483,75 +488,73 @@ public class Coffe {
 //    	}//End while
 //    	return pos;
 //    }//End binarySearch method
-    
 //***********************************************************************************************************************************************************
-
     /**
-     *This method allows you to sort by product size using sort type ordering.<br>
-     *<b>pre:</b><br>
-	 *<b>post:</b><br>
+     * This method allows you to sort by product size using sort type
+     * ordering.<br>
+     * <b>pre:</b><br>
+     * <b>post:</b><br>
      */
     public void sortBySizeProduct() {//Selection sort
-    	for (int i = 0; i<products.size();i++) {
-    		int posMin = 1;
-    		for(int j = i+1; j<products.size();j++) {
-    			if(products.get(j).compareBySize(products.get(posMin))<0) {
-    				posMin = j;
-    			}//End if
-    		}//End for
-    		Product aux = products.get(i);
-    		products.set(i, products.get(posMin));
-    		products.set(posMin, aux);
-    	}//End for
+        for (int i = 0; i < products.size(); i++) {
+            int posMin = 1;
+            for (int j = i + 1; j < products.size(); j++) {
+                if (products.get(j).compareBySize(products.get(posMin)) < 0) {
+                    posMin = j;
+                }//End if
+            }//End for
+            Product aux = products.get(i);
+            products.set(i, products.get(posMin));
+            products.set(posMin, aux);
+        }//End for
     }//End sortBySizeProduct
-    
-//***********************************************************************************************************************************************************
 
+//***********************************************************************************************************************************************************
     /**
-     *This method allows you to sort by product size using sort sort using the collections sort order.<br>
-     *<b>pre:</b><br>
-	 *<b>post:</b><br>
+     * This method allows you to sort by product size using sort sort using the
+     * collections sort order.<br>
+     * <b>pre:</b><br>
+     * <b>post:</b><br>
      */
     public void sortBySizeProductComparable() {
-    	Collections.sort(products);
+        Collections.sort(products);
     }//End sortBySizeProduct
-    
-//***********************************************************************************************************************************************************
 
+//***********************************************************************************************************************************************************
     /**
-     *This method allows you to sort by product name using sort sort using the collections sort order and class ProductNameComparator<br>
-     *<b>pre:</b><br>
-	 *<b>post:</b><br>
+     * This method allows you to sort by product name using sort sort using the
+     * collections sort order and class ProductNameComparator<br>
+     * <b>pre:</b><br>
+     * <b>post:</b><br>
      */
     public void sortByName() {
-    	ProductNameComparator pnc = new ProductNameComparator();
-    	Collections.sort(products,pnc);
+        ProductNameComparator pnc = new ProductNameComparator();
+        Collections.sort(products, pnc);
     }//End sortByName
-    
-//***********************************************************************************************************************************************************
 
+//***********************************************************************************************************************************************************
     /**
-     *This method allows you to sort by product type using sort sort using the collections sort order and with an anonymous class<br>
-     *<b>pre:</b><br>
-	 *<b>post:</b><br>
+     * This method allows you to sort by product type using sort sort using the
+     * collections sort order and with an anonymous class<br>
+     * <b>pre:</b><br>
+     * <b>post:</b><br>
      */
     public void sortByProductType() {
-    	Comparator<Product> productTypeComparator = new Comparator<Product>() {
+        Comparator<Product> productTypeComparator = new Comparator<Product>() {
 
-			@Override
-			public int compare(Product pr1, Product pr2) {
-				return pr1.getProductType().compareTo(pr2.getProductType());
-			}//End compare method
-    	};
-    	Collections.sort(products,productTypeComparator);
+            @Override
+            public int compare(Product pr1, Product pr2) {
+                return pr1.getProductType().compareTo(pr2.getProductType());
+            }//End compare method
+        };
+        Collections.sort(products, productTypeComparator);
     }//End sortByProductType method
-    
-//***********************************************************************************************************************************************************
 
+//***********************************************************************************************************************************************************
     /**
      * This method allows adding an order to the coffee<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b>the order has been added to the ArrayList<br>
      *
      * @param orders Is an Order with the attributes of that class<br>
@@ -561,17 +564,16 @@ public class Coffe {
     }//End addOrder method
 
 //***********************************************************************************************************************************************************
-    
     /**
      * This method allows search an order in the coffe class<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b><br>
      *
      * @param code Is a String that contain the order code<br>
      * @return order code in a position i of the iteration but if the
-     * conditional is not met, it returns a null value, this means the order
-     * was not found<br>
+     * conditional is not met, it returns a null value, this means the order was
+     * not found<br>
      */
     public Order searchOrder(String code) {
         for (int i = 0; i < order.size(); i++) {
@@ -583,11 +585,10 @@ public class Coffe {
     }//End searchOrder method
 
 //***********************************************************************************************************************************************************
-
     /**
      * This method allows remove a client<br>
      *
-	* <b>pre:</b><br>
+     * <b>pre:</b><br>
      * <b>post:</b>the client has been deleted to the arrayList if the
      * conditional is satisfactorily fulfilled<br>
      *
@@ -639,5 +640,35 @@ public class Coffe {
 
     public void setOrder(ArrayList<Order> order) {
         this.order = order;
+    }
+
+    public void saveDataEmployee() throws IOException {
+        ObjectOutputStream employee = new ObjectOutputStream(new FileOutputStream(SAVE_DATA_EMPLOYEE));
+        employee.writeObject(employees);
+        employee.close();
+    }
+
+    public void saveDataClient() throws IOException {
+        ObjectOutputStream client = new ObjectOutputStream(new FileOutputStream(SAVE_DATA_CLIENTS));
+        client.writeObject(clients);
+        client.close();
+    }
+
+    public void saveDataProducts() throws IOException {
+        ObjectOutputStream product = new ObjectOutputStream(new FileOutputStream(SAVE_DATA_PRODUCTS));
+        product.writeObject(products);
+        product.close();
+    }
+
+    public void saveDataIngredients() throws IOException {
+        ObjectOutputStream ingredient = new ObjectOutputStream(new FileOutputStream(SAVE_DATA_INGREDIENTS));
+        ingredient.writeObject(ingredients);
+        ingredient.close();
+    }
+
+    public void saveDataOrders() throws IOException {
+        ObjectOutputStream orders = new ObjectOutputStream(new FileOutputStream(SAVE_DATA_ORDERS));
+        orders.writeObject(order);
+        orders.close();
     }
 }//End Coffe class

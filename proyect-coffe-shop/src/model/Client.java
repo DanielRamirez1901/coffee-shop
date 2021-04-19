@@ -1,12 +1,15 @@
 package model;
+
+import java.io.Serializable;
+
 /**
 *This class allows the creation of a client<br>
 *@author DanielRamirez<br>
 *@author AmilcarRodriguez<br>
 */
 
-public class Client {
-	
+public class Client implements Serializable{
+	public final static long serialVersion = 1;
 	//Attributes
 	private String name;//This attribute contains the client name
 	private String lastName;//This attribute contains the client last name

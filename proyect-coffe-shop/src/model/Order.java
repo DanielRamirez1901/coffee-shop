@@ -1,4 +1,5 @@
 package model;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -7,8 +8,8 @@ import java.util.UUID;
 *@author DanielRamirez<br>
 *@author AmilcarRodriguez<br>
 */
-public class Order {
-	
+public class Order implements Serializable{
+	public final static long serialVersion = 1;
 	//Constants
 	public static final int REQUESTED = 1;//This constant will save the order status as requested
 	public static final int PROCESS = 2;//This constant will save the order status as process
