@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="393.0" prefWidth="426.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="403.0" fitWidth="431.0" layoutX="-2.0" layoutY="-1.0" pickOnBounds="true">
+         <image>
+            <Image url="@images/fondoLogin.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="88.0" layoutY="23.0" text="Ingrese el numero segun la siguiente lista" textFill="#cdd312">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="numberChangeStateOrder" layoutX="129.0" layoutY="287.0" />
+      <Label layoutX="97.0" layoutY="62.0" text="[1] Si la orden esta solicitada" textFill="#cdd312">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="97.0" layoutY="102.0" text="[2] Si la orden esta en proceso" textFill="#cdd312">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="97.0" layoutY="141.0" text="[3] Si la orden esta siendo enviada" textFill="#cdd312">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="97.0" layoutY="186.0" text="[4] Si la orden fue entregada" textFill="#cdd312">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="98.0" layoutY="223.0" text="[5] Si la orden fue cancelada" textFill="#cdd312">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

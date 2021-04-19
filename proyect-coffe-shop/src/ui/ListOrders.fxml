@@ -47,13 +47,9 @@
          <font>
             <Font name="SimSun" size="12.0" />
          </font></Button>
-      <Button layoutX="423.0" layoutY="461.0" mnemonicParsing="false" onAction="#modifyAnOrder" style="-fx-background-color: yellow;" text="Cambiar estado">
+      <Button layoutX="423.0" layoutY="461.0" mnemonicParsing="false" onAction="#chageStateOrder" style="-fx-background-color: yellow;" text="Cambiar estado">
          <font>
             <Font name="NSimSun" size="12.0" />
-         </font></Button>
-      <Button layoutX="676.0" layoutY="461.0" mnemonicParsing="false" style="-fx-background-color: yellow;" text="Deshabilitar">
-         <font>
-            <Font name="SimSun" size="12.0" />
          </font></Button>
    </children>
 </Pane>
