@@ -38,15 +38,15 @@
             <Font name="SimSun-ExtB" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="btnDeleteEmployee" layoutX="100.0" layoutY="333.0" mnemonicParsing="false" style="-fx-background-color: yellow;" text="Eliminar">
+      <Button layoutX="100.0" layoutY="333.0" mnemonicParsing="false" onAction="#deleteEmployee" style="-fx-background-color: yellow;" text="Eliminar">
          <font>
             <Font name="SimSun" size="12.0" />
          </font></Button>
-      <Button fx:id="btnUpdateEmloyee" layoutX="266.0" layoutY="333.0" mnemonicParsing="false" style="-fx-background-color: yellow;" text="Actualizar">
+      <Button layoutX="266.0" layoutY="333.0" mnemonicParsing="false" onAction="#modifyEmployee" style="-fx-background-color: yellow;" text="Actualizar">
          <font>
             <Font name="NSimSun" size="12.0" />
          </font></Button>
-      <Button fx:id="btnDisableEmployee" layoutX="444.0" layoutY="333.0" mnemonicParsing="false" style="-fx-background-color: yellow;" text="Deshabilitar">
+      <Button layoutX="444.0" layoutY="333.0" mnemonicParsing="false" style="-fx-background-color: yellow;" text="Deshabilitar">
          <font>
             <Font name="SimSun" size="12.0" />
          </font></Button>

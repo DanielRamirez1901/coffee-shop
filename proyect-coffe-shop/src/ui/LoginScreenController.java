@@ -318,13 +318,7 @@ public class LoginScreenController implements Initializable {
         alert.setContentText("Cliente registrado exitosamente");
         alert.showAndWait();
     }
-//    Lista de clientes
-//    Lista de ordenes
-//    Lista de productos
-//    A�adir producto
-//    Eliminar(Productos, clientes, empleados, ingredientes)
-//    Modificar(Productos, clientes, empleados, ingredientes)
-//    Deshabilitar()
+
     @FXML
     public void registerProduct(ActionEvent event) throws IOException {
         Alert alert = new Alert(AlertType.INFORMATION);
@@ -640,6 +634,8 @@ public class LoginScreenController implements Initializable {
         st.setWidth(372);
 
     }
+    
+    //--------------------------------------------------------------------------
 
     @FXML
     public void deleteEmployee(ActionEvent event) {
@@ -740,6 +736,8 @@ public class LoginScreenController implements Initializable {
             alert.setContentText("Se ha eliminado un ingrediente");
         }
     }
+    
+    //--------------------------------------------------------------------------
 
     @FXML
     public void modifyEmployee(ActionEvent event) {

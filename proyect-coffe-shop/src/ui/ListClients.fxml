@@ -39,11 +39,11 @@
             <Font name="SimSun-ExtB" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="btnDeleteClient" layoutX="100.0" layoutY="333.0" mnemonicParsing="false" style="-fx-background-color: yellow;" text="Eliminar">
+      <Button layoutX="100.0" layoutY="333.0" mnemonicParsing="false" onAction="#deleteClient" style="-fx-background-color: yellow;" text="Eliminar">
          <font>
             <Font name="SimSun" size="12.0" />
          </font></Button>
-      <Button fx:id="btnUpdateClients" layoutX="266.0" layoutY="333.0" mnemonicParsing="false" style="-fx-background-color: yellow;" text="Actualizar">
+      <Button layoutX="266.0" layoutY="333.0" mnemonicParsing="false" onAction="#modifyAClient" style="-fx-background-color: yellow;" text="Actualizar">
          <font>
             <Font name="NSimSun" size="12.0" />
          </font></Button>

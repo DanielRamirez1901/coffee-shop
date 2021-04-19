@@ -37,7 +37,7 @@ public class Product {
 		this.productType = productType;
 		this.size = size;
 		this.state = state;
-		ingredients = new ArrayList<>();
+		ingredients = new ArrayList<Ingredient>();
         this.price = price;
 	}//End Product constructor
 	

@@ -40,7 +40,7 @@ public class Order {
 		orderCode = generateOrderCode();
 		this.state = state;
 		this.observations = observations;
-		products = new ArrayList<>();
+		products = new ArrayList<Product>();
 	}//End Order method
 	
 	public void changeState(int n) {
