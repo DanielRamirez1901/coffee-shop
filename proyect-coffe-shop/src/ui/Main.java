@@ -19,7 +19,7 @@ public class Main extends Application{
 
 	public Main() {
 		coffe = new Coffe();
-		loginScreenController = new LoginScreenController();
+		loginScreenController = new LoginScreenController(coffe);
 	}
 	
 	public static void main(String[] args) {
