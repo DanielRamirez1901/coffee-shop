@@ -110,12 +110,6 @@ public class LoginScreenController implements Initializable {
     private TableColumn<Employee, String> tcEmployeeLastName;
     @FXML
     private TableColumn<Employee, String> tcIdEmployee;
-    @FXML
-    private Button btnDeleteEmployee;
-    @FXML
-    private Button btnUpdateEmloyee;
-    @FXML
-    private Button btnDisableEmployee;
 
     //Table view Clients Attributes
     @FXML
@@ -147,8 +141,6 @@ public class LoginScreenController implements Initializable {
     @FXML
     private TextArea txtaObservationsClientAdd;
     @FXML
-    private Button registerClient;
-    @FXML
     private TextField txtIdClient;
 
     //Table view Orders Attributes
@@ -174,12 +166,7 @@ public class LoginScreenController implements Initializable {
     private TableColumn<Order, String> tableOrderStatus;
     @FXML
     private TableColumn<Order, String> tableOrderObservations;
-    @FXML
-    private Button btnDeleteOrder;
-    @FXML
-    private Button btnChangeStatus;
-    @FXML
-    private Button btnUpdateOrder;
+
 
     //Table view Orders Attributes
     @FXML
