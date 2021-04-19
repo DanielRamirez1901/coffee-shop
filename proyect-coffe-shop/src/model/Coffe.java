@@ -497,6 +497,7 @@ public class Coffe {
 //    	}//End while
 //    	return pos;
 //    }//End binarySearch method
+    
 //***********************************************************************************************************************************************************
     /**
      * This method allows you to sort by product size using sort type
