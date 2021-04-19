@@ -34,7 +34,6 @@ public class Order {
 	
 	*@param state Is a integer with the order state<br>
 	*@param observations Is a String with the order observations<br>
-	*@param products Is a Product with the attributes of that class<br>
 	*/	
 	public Order( int state, String observations) {
 		orderCode = generateOrderCode();
@@ -109,7 +108,12 @@ public class Order {
 		return uuid.toString();
 	}//End generateOrderCode method
 	
-
+	/**
+	 *This method allows you to change the order status<br>
+	 *<b>pre:</b><br>
+	 *<b>post:</b>
+	 *@param n is a Integer that contains the option to which you want to change the order status. n != null<br>
+	 */
 	public void changeState(int n) {
 		if(n==1) {
 			setState(REQUESTED);
@@ -122,8 +126,7 @@ public class Order {
 		}else if(n==5) {
 			setState(CANCELED);
 		}
-	}
-
+	}//End changeState method
 	
 //*****************************************Setters & Getters*****************************************************************
 	

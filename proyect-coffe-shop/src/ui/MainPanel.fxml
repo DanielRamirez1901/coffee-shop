@@ -11,8 +11,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
+<<<<<<< Updated upstream
 
 <Pane prefHeight="474.0" prefWidth="539.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+=======
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+>>>>>>> Stashed changes
    <children>
       <ImageView fitHeight="480.0" fitWidth="539.0" pickOnBounds="true">
          <image>
@@ -25,6 +29,7 @@
          <top>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
+<<<<<<< Updated upstream
                   <MenuBar fx:id="MenuOption" style="-fx-background-color: #f6e58d;">
                     <menus>
                       <Menu mnemonicParsing="false" text="Opciones">
@@ -39,6 +44,19 @@
                       </Menu>
                     </menus>
                   </MenuBar>
+=======
+                  <ImageView fitHeight="509.0" fitWidth="575.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/Lacasa%20dorada.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="128.0" fitWidth="408.0" layoutX="84.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/Welcome.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="262.0" layoutY="470.0" mnemonicParsing="false" onAction="#loadLoginScreen" style="-fx-background-color: gray;" text="LOGIN" textFill="WHITE" />
+>>>>>>> Stashed changes
                </children>
             </VBox>
          </top>

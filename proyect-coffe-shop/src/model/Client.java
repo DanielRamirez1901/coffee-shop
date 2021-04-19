@@ -42,6 +42,12 @@ public class Client {
 		this.order = order;
 	}//End Client constructor
 	
+	/**
+	*Client class construct method without parameters<br>
+	*<b>pre:</b><br>
+	*<b>post:</b><br>
+
+	*/	
 	public Client(String name, String lastName, String id, String direction, String phone, String fieldOfObservations) {
 		this.name = name;
 		this.lastName = lastName;
@@ -49,7 +55,7 @@ public class Client {
 		this.direction = direction;
 		this.phone = phone;
 		this.fieldOfObservations = fieldOfObservations;
-	}
+	}//End client method
 //***********************************Setters & Getters**********************************************************************************
 
 	public String getName() {

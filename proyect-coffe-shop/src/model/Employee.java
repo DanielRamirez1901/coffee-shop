@@ -12,7 +12,7 @@ public class Employee {
 	private String id;//This attribute contains the employee id
 	private String userName;//This attribute contains the system user name
 	private String password;//This attribute contains the system user password
-	private Boolean state;
+	private Boolean state;//This attribute contains the employee state
 	
 //**********************************************************************************************************************************
 	
@@ -27,6 +27,7 @@ public class Employee {
 	*@param id Is a String with the employee id<br>
 	*@param userName Is a String with the system user name<br>
 	*@param password Is a String with the employee password<br>
+	*@param state Is a Boolean with the employee state<br>
 	*/	
 	public Employee(String name, String lastName, String id,Boolean state) {
 		this.name = name;
@@ -34,27 +35,21 @@ public class Employee {
 		this.id = id;
 	}//End Employee construct
         
+//**********************************************************************************************************************************
+
+	/**
+	*Employee class construct method(system user)<br>
+	*<b>pre:</b><br>
+	*<b>post:</b><br>
+	
+	*@param userName Is a String with the system user name<br>
+	*@param password Is a String with the employee password<br>
+	*/	
 	public Employee(String userName, String password) {
 		this.userName = userName;
 		this.password = password;
 	}
-	/**
-	*toString class method<br>
-	*<b>pre:</b><br>
-	*<b>post:</b>Show basic information of a employee<br>
-        * @return A string that have information of a employee<br>
-	*/
-        public String toString(){
-            
-            return "\n\t* INFRMACION DE EMPLEADO:"
-                    + "\n *Nombre: "+name
-                    + "\n *Apellidos: "+lastName
-                    + "\n *N° de identificacion:"+id
-                    + "\n *Nombre de usuario: "+userName
-                    + "\n  ";      
-                    
-        }//End toString
-     
+
         
 //**************************************Setters & Getters*****************************************************************
   
@@ -106,7 +101,22 @@ public class Employee {
 		this.state = state;
 	}
 
-	
-	
-	
+//**********************************************************************************************************************************
+
+	/**
+	 *toString class method<br>
+	 *<b>pre:</b><br>
+	 *<b>post:</b>Show basic information of a employee<br>
+	 * @return A string that have information of a employee<br>
+	 */
+	public String toString(){
+
+		return "\n\t* INFRMACION DE EMPLEADO:"
+				+ "\n *Nombre: "+name
+				+ "\n *Apellidos: "+lastName
+				+ "\n *N° de identificacion:"+id
+				+ "\n *Nombre de usuario: "+userName
+				+ "\n  ";      
+
+	}//End toString
 }//End Employee class

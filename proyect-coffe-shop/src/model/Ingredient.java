@@ -42,7 +42,5 @@ public class Ingredient {
 
 	public void setState(boolean state) {
 		this.state = state;
-	}
-        
-        
+	}     
 }//End of Ingredient class

@@ -16,7 +16,7 @@ public class Coffe {
     private ArrayList<Product> products;//Relation with class Product, products are contained in an ArrayList of that type(Product)
     private ArrayList<Ingredient> ingredients;//Relation with class Ingredient, ingredients are contained in an ArrayList of that type(Ingredient)
     private ArrayList<Employee> employees;//Relation with class Employee, employees are contained in an ArrayList of that type(Employee)
-    private ArrayList<Order> order;
+    private ArrayList<Order> order;//Relation with class Order, order are contained in an ArrayList of that type(Order)
 
 //***********************************************************************************************************************************************************
     /**
@@ -205,8 +205,7 @@ public class Coffe {
      *
      * @param ingredient Is an ingredient of Ingredient type. ingredient =!
      * null<br>
-     * @param name Is a string with the ingredient name. ingredient =! null ,
-     * ingredient =! ""<br>
+     * @param name Is a string with the ingredient name. name =! ""<br>
      */
     public void modifyIngredient(Ingredient ingredient, String name) {
         int index = searchIngredientInt(name);
@@ -330,13 +329,15 @@ public class Coffe {
      * <b>post:</b>the employee has been modified<br>
      *
      * @param employee Is an employee of Employee type. employee =! null<br>
-     * @param name Is a string with the employee name. employee =! null ,
+     * @param name Is a string with the employee name. name =! "" ,
      * employee =! ""<br>
      */
     public void modifyEmployee(Employee employee, String name) {
         int index = searchEmployeeInt(name);
         employees.set(index, employee);
     }//End modifyEmployee method
+    
+//***********************************************************************************************************************************************************
 
     /**
      * toString class method<br>
@@ -358,11 +359,33 @@ public class Coffe {
             products.set(posMin, aux);
         }
     }
+    
+//***********************************************************************************************************************************************************
 
+    /**
+     * This method allows adding a client to the coffee<br>
+     *
+	* <b>pre:</b><br>
+     * <b>post:</b>the client has been added to the ArrayList<br>
+     *
+     * @param client Is an Client with the attributes of that class<br>
+     */
     public void addClient(Client client) {
         clients.add(client);
-    }//End addEmployee method  
+    }//End addClient method 
+    
+ //***********************************************************************************************************************************************************
 
+    /**
+     * This method allows search a client in the coffe class<br>
+     *
+	* <b>pre:</b><br>
+     * <b>post:</b><br>
+     *
+     * @param name Is a String that contain the client name<br>
+     * @return position Returns the position in the arrayList where the client
+     * was found<br>
+     */
     public int searchClientInt(String name) {
         int position = 0;
         for (int i = 0; i < clients.size(); i++) {
@@ -371,8 +394,21 @@ public class Coffe {
             }//End if
         }//End for
         return position;
-    }//End searchEmployeeInt method
-
+    }//End searchClientInt method
+    
+//***********************************************************************************************************************************************************
+    
+    /**
+     * This method allows search a client in the coffe class<br>
+     *
+	* <b>pre:</b><br>
+     * <b>post:</b><br>
+     *
+     * @param name Is a String that contain the client name<br>
+     * @return clients name in a position i of the iteration but if the
+     * conditional is not met, it returns a null value, this means the client
+     * was not found<br>
+     */
     public Client searchClient(String name) {
         for (int i = 0; i < clients.size(); i++) {
             if (clients.get(i).getName().compareTo(name) == 0) {
@@ -380,24 +416,69 @@ public class Coffe {
             }//End if
         }//End for
         return null;
-    }//End searchEmployee method
+    }//End searchClient method
+    
+//***********************************************************************************************************************************************************
 
+    /**
+     * This method allows remove a client<br>
+     *
+	* <b>pre:</b><br>
+     * <b>post:</b>the client has been deleted to the arrayList if the
+     * conditional is satisfactorily fulfilled<br>
+     *
+     * @param name Is a string with the client name. client =! ""<br>
+     */
     public void removeClient(String name) {
         Client client = searchClient(name);
         if (client != null) {
             clients.remove(client);
         }//End if
-    }//End removeEmployee method
+    }//End removeClient method
 
-    public void modifyCliente(Client client, String name) {
+//***********************************************************************************************************************************************************
+    
+    /**
+     * This method allows modifying the client attributes<br>
+     *
+	* <b>pre:</b>the client must be initialized and created<br>
+     * <b>post:</b>the client has been modified<br>
+     *
+     * @param client Is an client of Client type. client =! null<br>
+     * @param name Is a string with the client name. name =! ""<br>
+     */
+    public void modifyClient(Client client, String name) {
         int index = searchClientInt(name);
         clients.set(index, client);
     }//End modifyEmployee method
+    
+//***********************************************************************************************************************************************************
 
+    /**
+     * This method allows adding an order to the coffee<br>
+     *
+	* <b>pre:</b><br>
+     * <b>post:</b>the order has been added to the ArrayList<br>
+     *
+     * @param orders Is an Order with the attributes of that class<br>
+     */
     public void addOrder(Order orders) {
         order.add(orders);
-    }
+    }//End addOrder method
 
+//***********************************************************************************************************************************************************
+    
+    /**
+     * This method allows search an order in the coffe class<br>
+     *
+	* <b>pre:</b><br>
+     * <b>post:</b><br>
+     *
+     * @param code Is a String that contain the order code<br>
+     * @return order code in a position i of the iteration but if the
+     * conditional is not met, it returns a null value, this means the order
+     * was not found<br>
+     */
     public Order searchOrder(String code) {
         for (int i = 0; i < order.size(); i++) {
             if (order.get(i).getOrderCode().compareTo(code) == 0) {
@@ -405,8 +486,19 @@ public class Coffe {
             }//End if
         }//End for
         return null;
-    }
+    }//End searchOrder method
 
+//***********************************************************************************************************************************************************
+
+    /**
+     * This method allows remove a client<br>
+     *
+	* <b>pre:</b><br>
+     * <b>post:</b>the client has been deleted to the arrayList if the
+     * conditional is satisfactorily fulfilled<br>
+     *
+     * @param name Is a string with the client name. client =! ""<br>
+     */
     public void removeOrder(String code) {
         Order orderA = searchOrder(code);
         if (orderA != null) {
@@ -454,10 +546,4 @@ public class Coffe {
     public void setOrder(ArrayList<Order> order) {
         this.order = order;
     }
-
-    /*Cambiar ingrediente en interfaz
-	public void changeIngredient(String name) {
-		products.get(0).modifyIngredient(new Ingredient(products.get(0).searchIngredientInt(name),false);
-	}
-     */
 }//End Coffe class

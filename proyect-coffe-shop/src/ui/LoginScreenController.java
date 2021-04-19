@@ -5,8 +5,7 @@
  */
 package ui;
 
-import java.awt.Button;
-import java.awt.SecondaryLoop;
+
 import java.awt.TextArea;
 import java.io.IOException;
 import java.net.URL;
@@ -26,7 +25,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -39,61 +37,64 @@ import model.Client;
 
 
 /**
+<<<<<<< Updated upstream
  * FXML Controller class uthor DanielRamirez<br>
  *
+=======
+ * FXML Controller class
+ * @author DanielRamirez<br>
+>>>>>>> Stashed changes
  * @author AmilcarRodriguez<br>
  */
 public class LoginScreenController implements Initializable {
 
     @FXML
-    private BorderPane mainPanel;
+    private BorderPane mainPanel;//Contains the panel in which all interfaces will run
     @FXML
-    private BorderPane secundaryPanel;
+    private BorderPane secundaryPanel;//Contains the secondary panel in which certain interfaces will run
 
     //Add an Order Attributes
     @FXML
-    private TextArea txtaObservationsOrder;
+    private TextArea txtaObservationsOrder;//Contains the observations of an order
     @FXML
-    private TextField txtQuantityProductsInOrder;
+    private TextField txtQuantityProductsInOrder;//Contains the amount of products that will be added to the order
     @FXML
-    private TextField txtNameProductsOrder;
+    private TextField txtNameProductsOrder;//Contains the name of the product that will be added in that order
     
     //Change state Order
     @FXML
-    private TextField numberChangeStateOrder;
+    private TextField numberChangeStateOrder;//Contains the number that will decide which new state will contain the order
 
     //AddProduct Attributes
     @FXML
-    private TextField txtProductSyze;
+    private TextField txtProductSyze;//Contains the product size
     @FXML
-    private TextField txtProductName;
+    private TextField txtProductName;//Contains the product Name
     @FXML
-    private TextField txtProductType;
+    private TextField txtProductType;//Contains the product type
     @FXML
-    private TextField txtProductPrice;
+    private TextField txtProductPrice;//Contains the product price
     @FXML
-    private TextField txtIngredientNameP;
+    private TextField txtIngredientNameP;//Contains the ingredient name
     @FXML
-    private TextField txtQuantityProduct;
+    private TextField txtQuantityProduct;//Contains the amount of ingredients that will be added to the product
 
     //Login Screen Attributes
     @FXML
-    private AnchorPane login;
+    private TextField txtUserLogin;//Contains the system user name
     @FXML
-    private TextField txtUserLogin;
-    @FXML
-    private PasswordField txtUserPassword;
+    private PasswordField txtUserPassword;//Contains the password of the system user
 
     //AddIngregient Attributes
     @FXML
-    private TextField txtIngredientName;
+    private TextField txtIngredientName;//Contains the ingredient name
     //Ingredient List Attributes
     @FXML
-    private TableView<Ingredient> tvIngredientList;
+    private TableView<Ingredient> tvIngredientList;//Contains the ingredient table
     @FXML
-    private TableColumn<Ingredient, String> tcNameIngredient;
+    private TableColumn<Ingredient, String> tcNameIngredient;//Contains the ingredient name added in that table
     @FXML
-    private TableColumn<Ingredient, Boolean> tcStateIngredient;
+    private TableColumn<Ingredient, Boolean> tcStateIngredient;//Contains the ingredient state added in that table
 
     //AddEmployee Attributes
     @FXML
@@ -211,21 +212,6 @@ public class LoginScreenController implements Initializable {
     }
 
     @FXML
-    public void loadRegister(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PersonalAdmin.fxml"));
-
-        fxmlLoader.setController(this);
-        Parent addUserPane = fxmlLoader.load();
-
-        login.getChildren().clear();
-        login.setTopAnchor(addUserPane, null);
-        Stage st = (Stage) addUserPane.getScene().getWindow();
-        st.setHeight(575);
-        st.setWidth(372);
-
-    }
-
-    @FXML
     public void login(ActionEvent event) throws IOException {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Informaci�n");
@@ -238,7 +224,7 @@ public class LoginScreenController implements Initializable {
             alert.setContentText("Usuario y/o contrase�a incorrectos");
             System.out.println(txtUserLogin.getText() + " " + txtUserPassword.getText() + " " + txtUserLogin.getText() + " " + txtUserPassword.getText() + " ");
         }
-
+        loadInitialMenu(event);
         alert.showAndWait();
     }
 
@@ -544,7 +530,7 @@ public class LoginScreenController implements Initializable {
         fxmlLoader.setController(this);
         Parent add = fxmlLoader.load();
 
-        mainPanel.getChildren().clear();
+        mainPanel.getChildren().clear();	
         mainPanel.setCenter(add);
         mainPanel.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
@@ -756,7 +742,7 @@ public class LoginScreenController implements Initializable {
             alert.setContentText("Debes seleccionar un empleado");
             alert.showAndWait();
         } else {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddEmployee.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("modifyEmployee.fxml"));
             loader.setController(this);
             Parent p;
             try {
@@ -796,7 +782,7 @@ public class LoginScreenController implements Initializable {
             alert.setContentText("Debes seleccionar un ingrediente");
             alert.showAndWait();
         } else {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddEmployee.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("modifyIngredient.fxml"));
             loader.setController(this);
             Parent p;
             try {
@@ -814,7 +800,7 @@ public class LoginScreenController implements Initializable {
                     ifTextIsEmpty(event);
                 }
                 txtIngredientName.setText("");
-                alert.setContentText("Ingrediente registrado exitosamente");
+                alert.setContentText("Ingrediente modificado exitosamente");
                 alert.showAndWait();
 
             } catch (IOException e) {
@@ -831,10 +817,10 @@ public class LoginScreenController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
-            alert.setContentText("Debes seleccionar un ingrediente");
+            alert.setContentText("Debes seleccionar un producto");
             alert.showAndWait();
         } else {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddEmployee.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("modifyProduct.fxml"));
             loader.setController(this);
             Parent p;
             try {
@@ -857,10 +843,9 @@ public class LoginScreenController implements Initializable {
                             product = new Product(txtProductName.getText(), txtProductType.getText(), productSyze, true, productPrice);
                             coffe.modifyProduct(product, pr.getName());
                         } else {
-                            alert.setContentText("La cantidad de ingredientes escritos no coincide con la cantidad de ingredientes indicados anteriormente");
+                            alert.setContentText("La cantidad de productos escritos no coincide con la cantidad de productos indicados anteriormente");
                             alert.showAndWait();
                         }
-                        txtIngredientNameP.setText("");
                     }
                 }//End if
                 else {
@@ -881,16 +866,16 @@ public class LoginScreenController implements Initializable {
 
     @FXML
     public void modifyAClient(ActionEvent event) {
-        Client cl = tableClients.getSelectionModel().getSelectedItem();;//Falta la table view para asi poder hacer el evento de seleccionar
+        Client cl = tableClients.getSelectionModel().getSelectedItem();
 
         if (cl != null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
-            alert.setContentText("Debes seleccionar un ingrediente");
+            alert.setContentText("Debes seleccionar un cliente");
             alert.showAndWait();
         } else {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddEmployee.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("modifyClient.fxml"));
             loader.setController(this);
             Parent p;
             try {
@@ -907,7 +892,7 @@ public class LoginScreenController implements Initializable {
                 txtaObservationsClientAdd.setText(cl.getFieldOfObservations());
                 if (!txtNameClientAdd.getText().equals("") && !txtLastnameClientAdd.getText().equals("") && !txtIdClient.getText().equals("") && !txtAddressClientAdd.getText().equals("") && !txtPhoneClientAdd.getText().equals("")) {
                     client = new Client(txtNameClientAdd.getText(), txtLastnameClientAdd.getText(), txtIdClient.getText(), txtAddressClientAdd.getText(), txtPhoneClientAdd.getText(), txtaObservationsClientAdd.getText());
-                    coffe.modifyCliente(client, cl.getName());
+                    coffe.modifyClient(client, cl.getName());
                 }//End if
                 else {
                     ifTextIsEmpty(event);
@@ -1139,8 +1124,10 @@ public class LoginScreenController implements Initializable {
     			alert.setHeaderText(null);
     			alert.setTitle("Informacion");
     			alert.setContentText("Se ha cambiado el estado de la orden");
+    			loadListOrders(event);	
     		} catch (IOException e) {
     		}
     	}
     }
+    
 }

@@ -30,7 +30,6 @@ public class Product {
 	*@param productType Is a String with the product type<br>
 	*@param size Is a integer with the product size<br>
 	*@param state Is a boolean with the product state<br>
-	*@param ingredient Is an ingredient contain in an ArrayList<br>
 	*/	
 	public Product(String name, String productType, int size, boolean state, int price) {
 		this.name = name;
@@ -159,7 +158,4 @@ public class Product {
         public void setPrice(int price) {
             this.price = price;
         }
-        
-
-        
 }//End Product Class
