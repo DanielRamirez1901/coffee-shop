@@ -38,8 +38,8 @@ import model.Client;
 import model.Order;
 
 /**
- * FXML Controller class
- * uthor DanielRamirez<br>
+ * FXML Controller class uthor DanielRamirez<br>
+ *
  * @author AmilcarRodriguez<br>
  */
 public class LoginScreenController implements Initializable {
@@ -167,7 +167,6 @@ public class LoginScreenController implements Initializable {
     @FXML
     private TableColumn<Order, String> tableOrderObservations;
 
-
     //Table view Orders Attributes
     @FXML
     private TableView<Product> tableProducts;
@@ -259,7 +258,7 @@ public class LoginScreenController implements Initializable {
         alert.setTitle("Informaci�n");
         alert.setHeaderText(null);
         if (!txtNameEmployeeAdd.getText().equals("") && !txtLastNameEmployeeAdd.getText().equals("") && !txtIdEmployeeAdd.getText().equals("")) {
-            employee = new Employee(txtNameEmployeeAdd.getText(), txtLastNameEmployeeAdd.getText(), txtIdEmployeeAdd.getText(),true);
+            employee = new Employee(txtNameEmployeeAdd.getText(), txtLastNameEmployeeAdd.getText(), txtIdEmployeeAdd.getText(), true);
             coffe.addEmployee(employee);
         }//End if
         else {
@@ -530,7 +529,9 @@ public class LoginScreenController implements Initializable {
         Parent add = fxmlLoader.load();
 
         mainPanel.getChildren().clear();
-        mainPanel.setTop(add);
+        mainPanel.setCenter(add);
+        mainPanel.setVisible(true);
+
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
@@ -621,9 +622,8 @@ public class LoginScreenController implements Initializable {
         st.setWidth(372);
 
     }
-    
-    //--------------------------------------------------------------------------
 
+    //--------------------------------------------------------------------------
     @FXML
     public void deleteEmployee(ActionEvent event) {
 
@@ -723,9 +723,8 @@ public class LoginScreenController implements Initializable {
             alert.setContentText("Se ha eliminado un ingrediente");
         }
     }
-    
-    //--------------------------------------------------------------------------
 
+    //--------------------------------------------------------------------------
     @FXML
     public void modifyEmployee(ActionEvent event) {
 
@@ -750,7 +749,7 @@ public class LoginScreenController implements Initializable {
                 txtLastNameEmployeeAdd.setText(e.getLastName());
                 txtIdClient.setText(e.getId());
                 if (!txtNameEmployeeAdd.getText().equals("") && !txtLastNameEmployeeAdd.getText().equals("") && !txtIdEmployeeAdd.getText().equals("")) {
-                    employee = new Employee(txtNameEmployeeAdd.getText(), txtLastNameEmployeeAdd.getText(), txtIdEmployeeAdd.getText(),true);
+                    employee = new Employee(txtNameEmployeeAdd.getText(), txtLastNameEmployeeAdd.getText(), txtIdEmployeeAdd.getText(), true);
                     coffe.modifyEmployee(employee, e.getName());
                 }//End if
                 else {
@@ -977,7 +976,7 @@ public class LoginScreenController implements Initializable {
         tcEmployeeLastName.setCellValueFactory(new PropertyValueFactory<Employee, String>("apellido")); //the tableview search for a method called getEmail
         tcIdEmployee.setCellValueFactory(new PropertyValueFactory<Employee, String>("id"));
     }
-  
+
     @FXML
     public void disableEmployee(ActionEvent event) {
 
@@ -990,11 +989,69 @@ public class LoginScreenController implements Initializable {
             alert.setContentText("Debes seleccionar un ingrediente");
             alert.showAndWait();
         } else {
-        	emp.setState(false);
+            emp.setState(false);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
-            alert.setTitle("Informacion");
+            alert.setTitle("Información");
             alert.setContentText("Se ha deshabilitado este empleado");
         }
+    }
+
+    //Menu Pane
+
+    @FXML
+    void btnMenuAdmin(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PersonalAdmin.fxml"));
+
+        fxmlLoader.setController(this);
+        Parent add = fxmlLoader.load();
+
+        mainPanel.getChildren().clear();
+        mainPanel.setTop(add);
+
+    }
+
+    @FXML
+    void btnMenuInicio(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InitialMenu.fxml"));
+
+        fxmlLoader.setController(this);
+        Parent add = fxmlLoader.load();
+
+        mainPanel.getChildren().clear();
+        mainPanel.setTop(add);
+    }
+
+    @FXML
+    void btnMenuHelp(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(""));
+
+        fxmlLoader.setController(this);
+        Parent add = fxmlLoader.load();
+
+        mainPanel.getChildren().clear();
+        mainPanel.setTop(add);
+    }
+
+    @FXML
+    void btnMenuOrder(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuOrder.fxml"));
+
+        fxmlLoader.setController(this);
+        Parent add = fxmlLoader.load();
+
+        mainPanel.getChildren().clear();
+        mainPanel.setTop(add);
+    }
+
+    @FXML
+    void btnMenuProductsIngredients(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PrAndIng.fxml"));
+
+        fxmlLoader.setController(this);
+        Parent add = fxmlLoader.load();
+
+        mainPanel.getChildren().clear();
+        mainPanel.setTop(add);
     }
 }
