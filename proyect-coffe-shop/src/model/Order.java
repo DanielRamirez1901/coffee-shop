@@ -43,21 +43,6 @@ public class Order {
 		products = new ArrayList<Product>();
 	}//End Order method
 	
-	public void changeState(int n) {
-		if(n==1) {
-			setState(REQUESTED);
-		}else if(n==2) {
-			setState(PROCESS);
-		}else if(n==3) {
-			setState(SENT);
-		}else if(n==4) {
-			setState(DELIVERED);
-		}else if(n==5) {
-			setState(CANCELED);
-		}
-	
-	}
-	
 //***************************************************************************************************************************
 
 	/**
@@ -123,6 +108,22 @@ public class Order {
 		UUID uuid = UUID.randomUUID();
 		return uuid.toString();
 	}//End generateOrderCode method
+	
+
+	public void changeState(int n) {
+		if(n==1) {
+			setState(REQUESTED);
+		}else if(n==2) {
+			setState(PROCESS);
+		}else if(n==3) {
+			setState(SENT);
+		}else if(n==4) {
+			setState(DELIVERED);
+		}else if(n==5) {
+			setState(CANCELED);
+		}
+	}
+
 	
 //*****************************************Setters & Getters*****************************************************************
 	
