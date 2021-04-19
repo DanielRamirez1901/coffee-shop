@@ -42,7 +42,7 @@ public class Main extends Application{
      */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainPanel.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("mainPanel.fxml"));
 
 		fxmlLoader.setController(loginScreenController);
 		
