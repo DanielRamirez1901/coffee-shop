@@ -6,6 +6,7 @@
 package ui;
 
 import java.awt.Button;
+import java.awt.SecondaryLoop;
 import java.awt.TextArea;
 import java.io.IOException;
 import java.net.URL;
@@ -35,7 +36,7 @@ import model.Ingredient;
 import model.Order;
 import model.Product;
 import model.Client;
-import model.Order;
+
 
 /**
  * FXML Controller class uthor DanielRamirez<br>
@@ -46,6 +47,8 @@ public class LoginScreenController implements Initializable {
 
     @FXML
     private BorderPane mainPanel;
+    @FXML
+    private BorderPane secundaryPanel;
 
     //Add an Order Attributes
     @FXML
@@ -54,6 +57,10 @@ public class LoginScreenController implements Initializable {
     private TextField txtQuantityProductsInOrder;
     @FXML
     private TextField txtNameProductsOrder;
+    
+    //Change state Order
+    @FXML
+    private TextField numberChangeStateOrder;
 
     //AddProduct Attributes
     @FXML
@@ -403,7 +410,8 @@ public class LoginScreenController implements Initializable {
         Parent add = fxmlLoader.load();
 
         mainPanel.getChildren().clear();
-        mainPanel.setTop(add);
+        mainPanel.setCenter(add);
+        mainPanel.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
@@ -417,7 +425,8 @@ public class LoginScreenController implements Initializable {
         Parent add = fxmlLoader.load();
 
         mainPanel.getChildren().clear();
-        mainPanel.setTop(add);
+        mainPanel.setCenter(add);
+        mainPanel.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
@@ -431,7 +440,8 @@ public class LoginScreenController implements Initializable {
         Parent add = fxmlLoader.load();
 
         mainPanel.getChildren().clear();
-        mainPanel.setTop(add);
+        mainPanel.setCenter(add);
+        mainPanel.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
@@ -445,7 +455,8 @@ public class LoginScreenController implements Initializable {
         Parent add = fxmlLoader.load();
 
         mainPanel.getChildren().clear();
-        mainPanel.setTop(add);
+        mainPanel.setCenter(add);
+        mainPanel.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
@@ -459,7 +470,8 @@ public class LoginScreenController implements Initializable {
         Parent add = fxmlLoader.load();
 
         mainPanel.getChildren().clear();
-        mainPanel.setTop(add);
+        mainPanel.setCenter(add);
+        mainPanel.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
@@ -473,7 +485,8 @@ public class LoginScreenController implements Initializable {
         Parent add = fxmlLoader.load();
 
         mainPanel.getChildren().clear();
-        mainPanel.setTop(add);
+        mainPanel.setCenter(add);
+        mainPanel.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
@@ -487,7 +500,8 @@ public class LoginScreenController implements Initializable {
         Parent add = fxmlLoader.load();
 
         mainPanel.getChildren().clear();
-        mainPanel.setTop(add);
+        mainPanel.setCenter(add);
+        mainPanel.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
@@ -501,7 +515,8 @@ public class LoginScreenController implements Initializable {
         Parent add = fxmlLoader.load();
 
         mainPanel.getChildren().clear();
-        mainPanel.setTop(add);
+        mainPanel.setCenter(add);
+        mainPanel.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
@@ -515,7 +530,8 @@ public class LoginScreenController implements Initializable {
         Parent add = fxmlLoader.load();
 
         mainPanel.getChildren().clear();
-        mainPanel.setTop(add);
+        mainPanel.setCenter(add);
+        mainPanel.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
@@ -531,7 +547,6 @@ public class LoginScreenController implements Initializable {
         mainPanel.getChildren().clear();
         mainPanel.setCenter(add);
         mainPanel.setVisible(true);
-
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
@@ -545,7 +560,8 @@ public class LoginScreenController implements Initializable {
         Parent add = fxmlLoader.load();
 
         mainPanel.getChildren().clear();
-        mainPanel.setTop(add);
+        mainPanel.setCenter(add);
+        mainPanel.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
@@ -559,7 +575,8 @@ public class LoginScreenController implements Initializable {
         Parent add = fxmlLoader.load();
 
         mainPanel.getChildren().clear();
-        mainPanel.setTop(add);
+        mainPanel.setCenter(add);
+        mainPanel.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
@@ -573,7 +590,8 @@ public class LoginScreenController implements Initializable {
         Parent add = fxmlLoader.load();
 
         mainPanel.getChildren().clear();
-        mainPanel.setTop(add);
+        mainPanel.setCenter(add);
+        mainPanel.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
@@ -587,7 +605,8 @@ public class LoginScreenController implements Initializable {
         Parent add = fxmlLoader.load();
 
         mainPanel.getChildren().clear();
-        mainPanel.setTop(add);
+        mainPanel.setCenter(add);
+        mainPanel.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
@@ -601,7 +620,8 @@ public class LoginScreenController implements Initializable {
         Parent add = fxmlLoader.load();
 
         mainPanel.getChildren().clear();
-        mainPanel.setTop(add);
+        mainPanel.setCenter(add);
+        mainPanel.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
@@ -741,7 +761,7 @@ public class LoginScreenController implements Initializable {
             Parent p;
             try {
                 p = loader.load();
-                mainPanel.setCenter(p);
+                secundaryPanel.setCenter(p);
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Informacion");
                 alert.setHeaderText(null);
@@ -781,7 +801,7 @@ public class LoginScreenController implements Initializable {
             Parent p;
             try {
                 p = loader.load();
-                mainPanel.setCenter(p);
+                secundaryPanel.setCenter(p);
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Informacion");
                 alert.setHeaderText(null);
@@ -819,7 +839,7 @@ public class LoginScreenController implements Initializable {
             Parent p;
             try {
                 p = loader.load();
-                mainPanel.setCenter(p);
+                secundaryPanel.setCenter(p);
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Informacion");
                 alert.setHeaderText(null);
@@ -875,7 +895,7 @@ public class LoginScreenController implements Initializable {
             Parent p;
             try {
                 p = loader.load();
-                mainPanel.setCenter(p);
+                secundaryPanel.setCenter(p);
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Informacion");
                 alert.setHeaderText(null);
@@ -986,7 +1006,7 @@ public class LoginScreenController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
-            alert.setContentText("Debes seleccionar un ingrediente");
+            alert.setContentText("Debes seleccionar un empleado");
             alert.showAndWait();
         } else {
             emp.setState(false);
@@ -1053,5 +1073,74 @@ public class LoginScreenController implements Initializable {
 
         mainPanel.getChildren().clear();
         mainPanel.setTop(add);
+    }
+
+    @FXML
+    public void disableProduct(ActionEvent event) {
+
+        Product pr = tableProducts.getSelectionModel().getSelectedItem();
+
+        if (pr == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("Debes seleccionar un producto");
+            alert.showAndWait();
+        } else {
+        	pr.setState(false);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setTitle("Informacion");
+            alert.setContentText("Se ha deshabilitado este producto");
+        }
+    }
+    
+    @FXML
+    public void disableIngredient(ActionEvent event) {
+
+        Ingredient ing = tvIngredientList.getSelectionModel().getSelectedItem();
+
+        if (ing == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("Debes seleccionar un ingrediente");
+            alert.showAndWait();
+        } else {
+        	ing.setState(false);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setTitle("Informacion");
+            alert.setContentText("Se ha deshabilitado este ingrediente");
+        }
+    }
+    
+    @FXML
+    public void chageStateOrder(ActionEvent event) {
+
+    	Order ord = tableOrders.getSelectionModel().getSelectedItem();
+
+    	if (ord == null) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setHeaderText(null);
+    		alert.setTitle("Error");
+    		alert.setContentText("Debes seleccionar una orden");
+    		alert.showAndWait();
+    	} else {
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("ChangeStateOrder.fxml"));
+    		loader.setController(this);
+    		Parent p;
+    		try {
+    			p = loader.load();
+    			mainPanel.setCenter(p);
+    			int number = Integer.parseInt(numberChangeStateOrder.getText());
+    			ord.changeState(number);
+    			Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    			alert.setHeaderText(null);
+    			alert.setTitle("Informacion");
+    			alert.setContentText("Se ha cambiado el estado de la orden");
+    		} catch (IOException e) {
+    		}
+    	}
     }
 }
