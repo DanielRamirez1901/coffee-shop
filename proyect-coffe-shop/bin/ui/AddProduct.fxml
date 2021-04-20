@@ -9,73 +9,32 @@
 <?import javafx.scene.text.Font?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="511.0" prefWidth="519.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="txtProductSyze" fitHeight="520.0" fitWidth="527.0" pickOnBounds="true">
+      <ImageView fitHeight="412.0" fitWidth="600.0" layoutY="-6.0" pickOnBounds="true">
          <image>
             <Image url="@images/fondoLogin.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="142.0" layoutY="41.0" prefHeight="26.0" prefWidth="236.0" text="Añadir un producto" textFill="#cdd312">
+      <Label layoutX="215.0" layoutY="26.0" text="AÑADIR UN PRODUCTO" textFill="#ccae62">
          <font>
-            <Font name="SimSun-ExtB" size="24.0" />
+            <Font size="19.0" />
          </font>
       </Label>
-      <Label layoutX="87.0" layoutY="110.0" prefHeight="26.0" prefWidth="83.0" text="Nombre" textFill="#cdd312">
-         <font>
-            <Font name="SimSun-ExtB" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="87.0" layoutY="154.0" prefHeight="26.0" prefWidth="57.0" text="Tipo" textFill="#cdd312">
-         <font>
-            <Font name="SimSun-ExtB" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="87.0" layoutY="201.0" prefHeight="26.0" prefWidth="83.0" text="Tamaño" textFill="#cdd312">
-         <font>
-            <Font name="SimSun-ExtB" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="87.0" layoutY="247.0" prefHeight="26.0" prefWidth="236.0" text="Precio" textFill="#cdd312">
-         <font>
-            <Font name="SimSun-ExtB" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="78.0" layoutY="354.0" prefHeight="26.0" prefWidth="286.0" text="Nombre del Ingrediente" textFill="#cdd312">
-         <font>
-            <Font name="SimSun-ExtB" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtProductName" layoutX="173.0" layoutY="111.0" style="-fx-background-color: gray;" />
-      <TextField fx:id="txtProductType" layoutX="173.0" layoutY="155.0" style="-fx-background-color: gray;" />
-      <TextField fx:id="txtProductSyze" layoutX="173.0" layoutY="202.0" style="-fx-background-color: gray;" />
-      <TextField fx:id="txtProductPrice" layoutX="173.0" layoutY="248.0" style="-fx-background-color: gray;" />
-      <TextField fx:id="txtIngredientNameP" layoutX="173.0" layoutY="380.0" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: gray;" />
-      <Button layoutX="217.0" layoutY="430.0" mnemonicParsing="false" onAction="#registerProduct" style="-fx-background-color: #ccae62;" text="Añadir">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <Label layoutX="78.0" layoutY="286.0" prefHeight="26.0" prefWidth="311.0" text="Cantidad de ingredientes " textFill="#cdd312">
-         <font>
-            <Font name="SimSun-ExtB" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="78.0" layoutY="312.0" prefHeight="26.0" prefWidth="83.0" text="a agregar" textFill="#cdd312">
-         <font>
-            <Font name="SimSun-ExtB" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtQuantityProduct" layoutX="173.0" layoutY="313.0" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: gray;" />
-      <Button layoutX="334.0" layoutY="378.0" mnemonicParsing="false" onAction="#registerAnIngredientToProduct" style="-fx-background-color: #ccae62;" text="Añadir este ingrediente">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="25.0" fitWidth="200.0" layoutX="166.0" layoutY="472.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/logo%20casa%20dorada.png" />
-         </image>
-      </ImageView>
+      <Label layoutX="164.0" layoutY="83.0" text="NOMBRE" textFill="#ccae62" />
+      <Label layoutX="175.0" layoutY="128.0" text="TIPO" textFill="#ccae62" />
+      <Label layoutX="163.0" layoutY="178.0" text="TAMAÑO" textFill="#ccae62" />
+      <Label layoutX="168.0" layoutY="220.0" text="PRECIO" textFill="#ccae62" />
+      <Label layoutX="84.0" layoutY="260.0" text="CANTIDAD DE INGREDIENTES" textFill="#ccae62" />
+      <Label layoutX="176.0" layoutY="272.0" text="A AGREGAR" textFill="#ccae62" />
+      <Label layoutX="87.0" layoutY="316.0" text="NOMBRE DEL INGREDIENTE" textFill="#ccae62" />
+      <TextField fx:id="txtProductName" layoutX="243.0" layoutY="79.0" style="-fx-background-color: gray;" />
+      <TextField fx:id="txtProductType" layoutX="243.0" layoutY="124.0" style="-fx-background-color: gray;" />
+      <TextField fx:id="txtProductSize" layoutX="243.0" layoutY="174.0" style="-fx-background-color: gray;" />
+      <TextField fx:id="txtProductPrice" layoutX="243.0" layoutY="216.0" style="-fx-background-color: gray;" />
+      <TextField fx:id="txtQuantityProduct" layoutX="243.0" layoutY="265.0" style="-fx-background-color: gray;" />
+      <TextField fx:id="txtIngredientNameP" layoutX="243.0" layoutY="312.0" style="-fx-background-color: gray;" />
+      <Button layoutX="466.0" layoutY="312.0" mnemonicParsing="false" onAction="#registerAnIngredientToProduct" style="-fx-background-color: #ccae62;" text="AÑADIR" />
+      <Button layoutX="282.0" layoutY="361.0" mnemonicParsing="false" onAction="#registerProduct" style="-fx-background-color: #ccae62;" text="GUARDAR" />
    </children>
 </Pane>

@@ -30,8 +30,8 @@
             </TableView>
          </center>
       </BorderPane>
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" style="-fx-background-color: #ccae62;" text="&lt;-" />
-      <Button layoutX="113.0" layoutY="361.0" mnemonicParsing="false" style="-fx-background-color: #ccae62;" text="Modificar" />
-      <Button layoutX="200.0" layoutY="361.0" mnemonicParsing="false" style="-fx-background-color: #ccae62;" text="Eliminar" />
+      <Button layoutX="113.0" layoutY="361.0" mnemonicParsing="false" onAction="#modifyAnIngredient" style="-fx-background-color: #ccae62;" text="Modificar" />
+      <Button layoutX="200.0" layoutY="361.0" mnemonicParsing="false" onAction="#deleteIngredient" style="-fx-background-color: #ccae62;" text="Eliminar" />
+      <Button layoutX="274.0" layoutY="361.0" mnemonicParsing="false" onAction="#disableIngredient" style="-fx-background-color: #ccae62;" text="Deshabilitar" />
    </children>
 </AnchorPane>

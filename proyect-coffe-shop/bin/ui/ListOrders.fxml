@@ -11,14 +11,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="paneListClients" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="922.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="922.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="691.0" fitWidth="986.0" layoutX="-55.0" layoutY="-19.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/fondoLogin.jpg" />
          </image>
       </ImageView>
-      <TableView fx:id="tableClients" editable="true" layoutX="69.0" layoutY="81.0" prefHeight="313.0" prefWidth="786.0" style="-fx-background-color: yellow;">
+      <TableView fx:id="tableOrders" editable="true" layoutX="69.0" layoutY="81.0" prefHeight="313.0" prefWidth="786.0" style="-fx-background-color: yellow;">
         <columns>
             <TableColumn fx:id="tableOrderCode" prefWidth="71.0" style="-fx-background-color: Gray;" text="Código" />
           <TableColumn fx:id="tableOrderorder" prefWidth="118.0" style="-fx-background-color: Gray;" text="Pedido" />
@@ -43,11 +43,11 @@
             <Font name="SimSun-ExtB" size="29.0" />
          </font>
       </Label>
-      <Button layoutX="181.0" layoutY="461.0" mnemonicParsing="false" onAction="#deleteOrder" style="-fx-background-color: yellow;" text="Eliminar">
+      <Button layoutX="130.0" layoutY="439.0" mnemonicParsing="false" onAction="#deleteOrder" style="-fx-background-color: yellow;" text="Eliminar">
          <font>
             <Font name="SimSun" size="12.0" />
          </font></Button>
-      <Button layoutX="423.0" layoutY="461.0" mnemonicParsing="false" onAction="#chageStateOrder" style="-fx-background-color: yellow;" text="Cambiar estado">
+      <Button layoutX="217.0" layoutY="439.0" mnemonicParsing="false" onAction="#chageStateOrder" style="-fx-background-color: yellow;" text="Cambiar estado">
          <font>
             <Font name="NSimSun" size="12.0" />
          </font></Button>

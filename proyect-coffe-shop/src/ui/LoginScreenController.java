@@ -53,41 +53,50 @@ public class LoginScreenController implements Initializable {
     @FXML
     private BorderPane secundaryPanel;//Contains the secondary panel in which certain interfaces will run
 
+    //Menu order attributes
+    
+    
     //Add an Order Attributes
     @FXML
-    private TextArea txtaObservationsOrder;//Contains the observations of an order
+    private TextField txtQuantityProductsInOrder;
+
     @FXML
-    private TextField txtQuantityProductsInOrder;//Contains the amount of products that will be added to the order
+    private TextField txtNameProductsOrder;
+
     @FXML
-    private TextField txtNameProductsOrder;//Contains the name of the product that will be added in that order
-    
+    private TextField txtObservationsOrder;
+
     //Change state Order
     @FXML
     private TextField numberChangeStateOrder;//Contains the number that will decide which new state will contain the order
 
     //AddProduct Attributes
-    @FXML
-    private TextField txtProductSyze;//Contains the product size
-    @FXML
-    private TextField txtProductName;//Contains the product Name
-    @FXML
-    private TextField txtProductType;//Contains the product type
-    @FXML
-    private TextField txtProductPrice;//Contains the product price
-    @FXML
-    private TextField txtIngredientNameP;//Contains the ingredient name
-    @FXML
-    private TextField txtQuantityProduct;//Contains the amount of ingredients that will be added to the product
 
+    @FXML
+    private TextField txtProductName;
+
+    @FXML
+    private TextField txtProductType;
+
+    @FXML
+    private TextField txtProductSize;
+
+    @FXML
+    private TextField txtProductPrice;
+
+    @FXML
+    private TextField txtQuantityProduct;
+
+    @FXML
+    private TextField txtIngredientNameP;
+    
     //Login Screen Attributes
     @FXML
     private TextField txtUserLogin;
 
     @FXML
     private PasswordField txtUserPassword;
-    //Contains the password of the system user
-    //Contains the system user name
-    //AddIngregient Attributes
+
     @FXML
     private TextField txtIngredientName;//Contains the ingredient name
     //Ingredient List Attributes
@@ -122,8 +131,7 @@ public class LoginScreenController implements Initializable {
     private TableColumn<Employee, String> tcIdEmployee;
 
     //Table view Clients Attributes
-    @FXML
-    private Pane paneListClients;
+ 
     @FXML
     private TableView<Client> tableClients;
     @FXML
@@ -139,23 +147,25 @@ public class LoginScreenController implements Initializable {
 
     //AddClient Attributes
     @FXML
-    private Pane paneAddClient;
-    @FXML
     private TextField txtNameClientAdd;
+
     @FXML
     private TextField txtLastnameClientAdd;
+
     @FXML
     private TextField txtAddressClientAdd;
+
     @FXML
     private TextField txtPhoneClientAdd;
+
     @FXML
-    private TextArea txtaObservationsClientAdd;
+    private TextField txtObservationsArea;
+
     @FXML
     private TextField txtIdClient;
 
     //Table view Orders Attributes
-    @FXML
-    private Pane paneListOrders;
+
     @FXML
     private TableView<Order> tableOrders;
     @FXML
@@ -177,7 +187,7 @@ public class LoginScreenController implements Initializable {
     @FXML
     private TableColumn<Order, String> tableOrderObservations;
 
-    //Table view Orders Attributes
+    //Table view Products Attributes
     @FXML
     private TableView<Product> tableProducts;
     @FXML
@@ -192,6 +202,8 @@ public class LoginScreenController implements Initializable {
     private TableColumn<Product, String> tableProductIngredient;
     @FXML
     private TableColumn<Product, String> tableProductStatus;
+    
+    
 
     //Relations
     private Coffe coffe;
@@ -301,7 +313,7 @@ public class LoginScreenController implements Initializable {
         alert.setTitle("Informaci�n");
         alert.setHeaderText(null);
         if (!txtNameClientAdd.getText().equals("") && !txtLastnameClientAdd.getText().equals("") && !txtIdClient.getText().equals("") && !txtAddressClientAdd.getText().equals("") && !txtPhoneClientAdd.getText().equals("")) {
-            client = new Client(txtNameClientAdd.getText(), txtLastnameClientAdd.getText(), txtIdClient.getText(), txtAddressClientAdd.getText(), txtPhoneClientAdd.getText(), txtaObservationsClientAdd.getText());
+            client = new Client(txtNameClientAdd.getText(), txtLastnameClientAdd.getText(), txtIdClient.getText(), txtAddressClientAdd.getText(), txtPhoneClientAdd.getText(), txtObservationsArea.getText());
             coffe.addClient(client);
         }//End if
         else {
@@ -312,14 +324,14 @@ public class LoginScreenController implements Initializable {
         txtIdClient.setText("");
         txtAddressClientAdd.setText("");
         txtPhoneClientAdd.setText("");
-        txtaObservationsClientAdd.setText("");
+        txtObservationsArea.setText("");
 
         txtNameClientAdd.setText("");
         txtLastnameClientAdd.setText("");
         txtIdClient.setText("");
         txtAddressClientAdd.setText("");
         txtPhoneClientAdd.setText("");
-        txtaObservationsClientAdd.setText("");
+        txtObservationsArea.setText("");
 
         alert.setContentText("Cliente registrado exitosamente");
         alert.showAndWait();
@@ -330,13 +342,13 @@ public class LoginScreenController implements Initializable {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Informacion");
         alert.setHeaderText(null);
-        if (!txtProductName.getText().equals("") && !txtProductType.getText().equals("") && !txtProductSyze.getText().equals("") && !txtProductPrice.getText().equals("") && !txtIngredientNameP.getText().equals("") && !txtQuantityProduct.getText().equals("")) {
-            int productSyze = Integer.parseInt(this.txtProductSyze.getText());
+        if (!txtProductName.getText().equals("") && !txtProductType.getText().equals("") && !txtProductSize.getText().equals("") && !txtProductPrice.getText().equals("") && !txtIngredientNameP.getText().equals("") && !txtQuantityProduct.getText().equals("")) {
+            int productSyze = Integer.parseInt(this.txtProductSize.getText());
             int productPrice = Integer.parseInt(this.txtProductPrice.getText());
             int nIngredients = Integer.parseInt(this.txtQuantityProduct.getText());
             for (int i = 0; i > (nIngredients - 1); i++) {
                 registerAnIngredientToProduct(event);
-                if (i == nIngredients) {
+                if (i == nIngredients && coffe.searchIngredient(txtIngredientNameP.getText())!=null) {
                     product = new Product(txtProductName.getText(), txtProductType.getText(), productSyze, true, productPrice);
                     coffe.addProduct(product);
                     coffe.SortByPrice();
@@ -352,7 +364,7 @@ public class LoginScreenController implements Initializable {
         }
         txtProductName.setText("");
         txtProductType.setText("");
-        txtProductSyze.setText("");
+        txtProductSize.setText("");
         txtProductPrice.setText("");
         txtIngredientNameP.setText("");
         alert.setContentText("Producto registrado exitosamente");
@@ -378,12 +390,12 @@ public class LoginScreenController implements Initializable {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Informacion");
         alert.setHeaderText(null);
-        if (!txtQuantityProductsInOrder.getText().equals("") && !txtNameProductsOrder.getText().equals("") && !txtaObservationsOrder.getText().equals("")) {
+        if (!txtQuantityProductsInOrder.getText().equals("") && !txtNameProductsOrder.getText().equals("")) {
             int nProducts = Integer.parseInt(this.txtQuantityProductsInOrder.getText());
             for (int i = 0; i > (nProducts - 1); i++) {
                 registerAnProductInOrder(event);
                 if (i == nProducts) {
-                    order = new Order(1, txtaObservationsOrder.getText());
+                    order = new Order(1, txtObservationsOrder.getText());
                     coffe.addOrder(order);
                 } else {
                     alert.setContentText("La cantidad de productos escritos no coincide con la cantidad de productos indicados anteriormente");
@@ -397,7 +409,7 @@ public class LoginScreenController implements Initializable {
         }
         txtQuantityProductsInOrder.setText("");
         txtNameProductsOrder.setText("");
-        txtaObservationsOrder.setText("");
+        txtObservationsOrder.setText("");
         alert.setContentText("Orden registrada exitosamente");
         alert.showAndWait();
     }
@@ -707,14 +719,14 @@ public class LoginScreenController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
-            alert.setContentText("Debes seleccionar un ingrediente");
+            alert.setContentText("Debes seleccionar un producto");
             alert.showAndWait();
         } else {
             coffe.removeProduct(pr.getName());
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
             alert.setTitle("Informacion");
-            alert.setContentText("Se ha eliminado un ingrediente");
+            alert.setContentText("Se ha eliminado un producto");
         }
     }
 
@@ -727,14 +739,14 @@ public class LoginScreenController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
-            alert.setContentText("Debes seleccionar un ingrediente");
+            alert.setContentText("Debes seleccionar un cliente");
             alert.showAndWait();
         } else {
             coffe.removeClient(cl.getName());
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
             alert.setTitle("Informacion");
-            alert.setContentText("Se ha eliminado un ingrediente");
+            alert.setContentText("Se ha eliminado un cliente");
         }
     }
 
@@ -747,14 +759,14 @@ public class LoginScreenController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
-            alert.setContentText("Debes seleccionar un ingrediente");
+            alert.setContentText("Debes seleccionar una orden");
             alert.showAndWait();
         } else {
             coffe.removeOrder(or.getOrderCode());
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
             alert.setTitle("Informacion");
-            alert.setContentText("Se ha eliminado un ingrediente");
+            alert.setContentText("Se ha eliminado la orden");
         }
     }
 
@@ -803,7 +815,7 @@ public class LoginScreenController implements Initializable {
     public void modifyAnIngredient(ActionEvent event) {
         Ingredient i = tvIngredientList.getSelectionModel().getSelectedItem();
 
-        if (i != null) {
+        if (i == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
@@ -841,7 +853,7 @@ public class LoginScreenController implements Initializable {
     public void modifyAnProduct(ActionEvent event) {
         Product pr = tableProducts.getSelectionModel().getSelectedItem();
 
-        if (pr != null) {
+        if (pr == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
@@ -859,10 +871,10 @@ public class LoginScreenController implements Initializable {
                 alert.setHeaderText(null);
                 txtProductName.setText(pr.getName());
                 txtProductType.setText(pr.getProductType());
-                txtProductSyze.setText(String.valueOf(pr.getSize()));
+                txtProductSize.setText(String.valueOf(pr.getSize()));
                 txtProductPrice.setText(String.valueOf(pr.getPrice()));
-                if (!txtProductName.getText().equals("") && !txtProductType.getText().equals("") && !txtProductSyze.getText().equals("") && !txtProductPrice.getText().equals("") && !txtIngredientNameP.getText().equals("") && !txtQuantityProduct.getText().equals("")) {
-                    int productSyze = Integer.parseInt(this.txtProductSyze.getText());
+                if (!txtProductName.getText().equals("") && !txtProductType.getText().equals("") && !txtProductSize.getText().equals("") && !txtProductPrice.getText().equals("") && !txtIngredientNameP.getText().equals("") && !txtQuantityProduct.getText().equals("")) {
+                    int productSyze = Integer.parseInt(this.txtProductSize.getText());
                     int productPrice = Integer.parseInt(this.txtProductPrice.getText());
                     int nIngredients = Integer.parseInt(this.txtQuantityProduct.getText());
                     for (int i = 0; i > (nIngredients - 1); i++) {
@@ -882,7 +894,7 @@ public class LoginScreenController implements Initializable {
                 }
                 txtProductName.setText("");
                 txtProductType.setText("");
-                txtProductSyze.setText("");
+                txtProductSize.setText("");
                 txtProductPrice.setText("");
                 txtIngredientNameP.setText("");
                 alert.setContentText("Producto registrado exitosamente");
@@ -897,7 +909,7 @@ public class LoginScreenController implements Initializable {
     public void modifyAClient(ActionEvent event) {
         Client cl = tableClients.getSelectionModel().getSelectedItem();
 
-        if (cl != null) {
+        if (cl == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
@@ -918,9 +930,9 @@ public class LoginScreenController implements Initializable {
                 txtIdClient.setText(cl.getId());
                 txtPhoneClientAdd.setText(cl.getPhone());
                 txtAddressClientAdd.setText(cl.getDirection());
-                txtaObservationsClientAdd.setText(cl.getFieldOfObservations());
+                txtObservationsArea.setText(cl.getFieldOfObservations());
                 if (!txtNameClientAdd.getText().equals("") && !txtLastnameClientAdd.getText().equals("") && !txtIdClient.getText().equals("") && !txtAddressClientAdd.getText().equals("") && !txtPhoneClientAdd.getText().equals("")) {
-                    client = new Client(txtNameClientAdd.getText(), txtLastnameClientAdd.getText(), txtIdClient.getText(), txtAddressClientAdd.getText(), txtPhoneClientAdd.getText(), txtaObservationsClientAdd.getText());
+                    client = new Client(txtNameClientAdd.getText(), txtLastnameClientAdd.getText(), txtIdClient.getText(), txtAddressClientAdd.getText(), txtPhoneClientAdd.getText(), txtObservationsArea.getText());
                     coffe.modifyClient(client, cl.getName());
                 }//End if
                 else {
@@ -931,8 +943,8 @@ public class LoginScreenController implements Initializable {
                 txtIdClient.setText("");
                 txtAddressClientAdd.setText("");
                 txtPhoneClientAdd.setText("");
-                txtaObservationsClientAdd.setText("");
-                alert.setContentText("Cliente registrado exitosamente");
+                txtObservationsArea.setText("");
+                alert.setContentText("Cliente modificado exitosamente");
                 alert.showAndWait();
             } catch (IOException e) {
             }
@@ -1030,64 +1042,6 @@ public class LoginScreenController implements Initializable {
             alert.setContentText("Se ha deshabilitado este empleado");
         }
     }
-
-    //Menu Pane
-//
-//    @FXML
-//    void btnMenuAdmin(ActionEvent event) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PersonalAdmin.fxml"));
-//
-//        fxmlLoader.setController(this);
-//        Parent add = fxmlLoader.load();
-//
-//        mainPanelB.getChildren().clear();
-//        mainPanelB.setTop(add);
-//
-//    }
-//
-//    @FXML
-//    void btnMenuInicio(ActionEvent event) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InitialMenu.fxml"));
-//
-//        fxmlLoader.setController(this);
-//        Parent add = fxmlLoader.load();
-//
-//        mainPanelB.getChildren().clear();
-//        mainPanelB.setTop(add);
-//    }
-//
-//    @FXML
-//    void btnMenuHelp(ActionEvent event) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(""));
-//
-//        fxmlLoader.setController(this);
-//        Parent add = fxmlLoader.load();
-//
-//        mainPanelB.getChildren().clear();
-//        mainPanelB.setTop(add);
-//    }
-//
-//    @FXML
-//    void btnMenuOrder(ActionEvent event) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuOrder.fxml"));
-//
-//        fxmlLoader.setController(this);
-//        Parent add = fxmlLoader.load();
-//
-//        mainPanelB.getChildren().clear();
-//        mainPanelB.setTop(add);
-//    }
-//
-//    @FXML
-//    void btnMenuProductsIngredients(ActionEvent event) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PrAndIng.fxml"));
-//
-//        fxmlLoader.setController(this);
-//        Parent add = fxmlLoader.load();
-//
-//        mainPanelB.getChildren().clear();
-//        mainPanelB.setTop(add);
-//    }
 
     @FXML
     public void disableProduct(ActionEvent event) {

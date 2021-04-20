@@ -7,35 +7,18 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane fx:id="paneAdminPersonal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="423.0" fitWidth="633.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/fondoLogin.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="212.0" layoutY="14.0" prefHeight="56.0" prefWidth="176.0" text="Administrar" textFill="#cdd312" wrapText="true">
+      <Label layoutX="212.0" layoutY="14.0" prefHeight="56.0" prefWidth="176.0" text="Administrar" textFill="#ccae62" wrapText="true">
          <font>
             <Font name="SimSun-ExtB" size="31.0" />
          </font>
       </Label>
-      <Button layoutX="118.0" layoutY="164.0" mnemonicParsing="false" onAction="#btnClients" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: yellow;" text="Clientes">
-         <font>
-            <Font name="Rockwell" size="12.0" />
-         </font>
-      </Button>
-      <Button layoutX="409.0" layoutY="165.0" mnemonicParsing="false" onAction="#btnEmployee" style="-fx-background-color: yellow;" text="Empleados">
-         <font>
-            <Font name="Rockwell" size="12.0" />
-         </font>
-      </Button>
-      <Button layoutX="99.0" layoutY="333.0" mnemonicParsing="false" onAction="#btnListClients" style="-fx-background-color: yellow;" text="Lista de clientes">
-         <font>
-            <Font name="Rockwell" size="12.0" />
-         </font>
-      </Button>
-      <Button layoutX="400.0" layoutY="333.0" mnemonicParsing="false" onAction="#btnListEmployee" style="-fx-background-color: yellow;" text="Lista de empleados" />
       <ImageView fitHeight="81.0" fitWidth="72.0" layoutX="115.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/cliente.png" />
@@ -51,15 +34,19 @@
             <Image url="@images/lista-clientes.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="72.0" fitWidth="129.0" layoutX="388.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="72.0" fitWidth="129.0" layoutX="384.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/lista-empleados.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="210.0" layoutY="218.0" text="Datos guardados" textFill="#cdd312">
+      <Label layoutX="210.0" layoutY="218.0" text="Datos guardados" textFill="#ccae62">
          <font>
             <Font name="SimSun-ExtB" size="24.0" />
          </font>
       </Label>
+      <Button layoutX="114.0" layoutY="169.0" mnemonicParsing="false" onAction="#loadAddClient" prefHeight="36.0" prefWidth="78.0" style="-fx-background-color: #ccae62;" text="CLIENTE" />
+      <Button layoutX="404.0" layoutY="169.0" mnemonicParsing="false" onAction="#loadAddEmployee" prefHeight="36.0" prefWidth="88.0" style="-fx-background-color: #ccae62;" text="EMPLEADOS" textFill="#030000" />
+      <Button layoutX="89.0" layoutY="333.0" mnemonicParsing="false" onAction="#loadListClients" prefHeight="36.0" prefWidth="129.0" style="-fx-background-color: #ccae62;" text="LISTA DE CLIENTES" />
+      <Button layoutX="378.0" layoutY="333.0" mnemonicParsing="false" onAction="#loadListEmployee" prefHeight="36.0" prefWidth="140.0" style="-fx-background-color: #ccae62;" text="LISTA DE EMPLEADOS" />
    </children>
 </Pane>

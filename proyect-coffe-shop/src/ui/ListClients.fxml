@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="paneListClients" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="444.0" fitWidth="607.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -46,10 +46,6 @@
       <Button layoutX="266.0" layoutY="333.0" mnemonicParsing="false" onAction="#modifyAClient" style="-fx-background-color: yellow;" text="Actualizar">
          <font>
             <Font name="NSimSun" size="12.0" />
-         </font></Button>
-      <Button fx:id="btnUpdateClients" layoutX="444.0" layoutY="333.0" mnemonicParsing="false" onAction="#disableClient" style="-fx-background-color: yellow;" text="Deshabilitar">
-         <font>
-            <Font name="SimSun" size="12.0" />
          </font></Button>
    </children>
 </Pane>

@@ -52,7 +52,6 @@ public class Employee implements Serializable{
 		this.userName = userName;
 		this.password = password;
 	}
-
         
 //**************************************Setters & Getters*****************************************************************
   
