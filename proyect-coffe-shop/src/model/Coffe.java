@@ -32,6 +32,7 @@ public class Coffe {
     public final static String SAVE_DATA_INGREDIENTS = "dataIngredients.txt";
     public final static String SAVE_DATA_ORDERS = "dataOrder.txt";
     public final static String SAVE_DATA_PRODUCTS = "dataProducts.txt";
+    
 //***********************************************************************************************************************************************************
 
     public boolean loadData() throws IOException, ClassNotFoundException {
@@ -630,6 +631,72 @@ public class Coffe {
             order.remove(orderA);
         }//End if
     }
+//***************************"Save data"********************************************************************************************************************************
+    /**
+     * This method allows remove a client<br>
+     *
+     * <b>pre:</b><br>
+     * <b>post:</b>objects are saved in a archive dataEmployee.txt in the file src<br>
+     *
+     */
+    public void saveDataEmployee() throws IOException {
+        ObjectOutputStream employee = new ObjectOutputStream(new FileOutputStream(SAVE_DATA_EMPLOYEE));
+        employee.writeObject(employees);
+        employee.close();
+    }
+//***********************************************************************************************************************************************************
+    /**
+     * This method allows remove a client<br>
+     *
+     * <b>pre:</b><br>
+     * <b>post:</b>objects are saved in a archive dataClient.txt in the file src<br>
+     *
+     */
+    public void saveDataClient() throws IOException {
+        ObjectOutputStream client = new ObjectOutputStream(new FileOutputStream(SAVE_DATA_CLIENTS));
+        client.writeObject(clients);
+        client.close();
+    }
+//***********************************************************************************************************************************************************
+    /**
+     * This method allows remove a client<br>
+     *
+     * <b>pre:</b><br>
+     * <b>post:</b>objects are saved in a archive dataProducts.txt in the file src<br>
+     *
+     */
+    public void saveDataProducts() throws IOException {
+        ObjectOutputStream product = new ObjectOutputStream(new FileOutputStream(SAVE_DATA_PRODUCTS));
+        product.writeObject(products);
+        product.close();
+    }
+//***********************************************************************************************************************************************************
+    /**
+     * This method allows remove a client<br>
+     *
+     * <b>pre:</b><br>
+     * <b>post:</b>objects are saved in a archive dataIngredients.txt in the file src<br>
+     *
+     */
+    public void saveDataIngredients() throws IOException {
+        ObjectOutputStream ingredient = new ObjectOutputStream(new FileOutputStream(SAVE_DATA_INGREDIENTS));
+        ingredient.writeObject(ingredients);
+        ingredient.close();
+    }
+//***********************************************************************************************************************************************************
+    /**
+     * This method allows remove a client<br>
+     *
+     * <b>pre:</b><br>
+     * <b>post:</b>objects are saved in a archive dataOrders.txt in the file src<br>
+     *
+     */
+    public void saveDataOrders() throws IOException {
+        ObjectOutputStream orders = new ObjectOutputStream(new FileOutputStream(SAVE_DATA_ORDERS));
+        orders.writeObject(order);
+        orders.close();
+    }
+//End Coffe class
 
 //**************************Setters & Getters**************************************************************************************************
     public ArrayList<Client> getClients() {
@@ -671,34 +738,4 @@ public class Coffe {
     public void setOrder(ArrayList<Order> order) {
         this.order = order;
     }
-
-    public void saveDataEmployee() throws IOException {
-        ObjectOutputStream employee = new ObjectOutputStream(new FileOutputStream(SAVE_DATA_EMPLOYEE));
-        employee.writeObject(employees);
-        employee.close();
-    }
-
-    public void saveDataClient() throws IOException {
-        ObjectOutputStream client = new ObjectOutputStream(new FileOutputStream(SAVE_DATA_CLIENTS));
-        client.writeObject(clients);
-        client.close();
-    }
-
-    public void saveDataProducts() throws IOException {
-        ObjectOutputStream product = new ObjectOutputStream(new FileOutputStream(SAVE_DATA_PRODUCTS));
-        product.writeObject(products);
-        product.close();
-    }
-
-    public void saveDataIngredients() throws IOException {
-        ObjectOutputStream ingredient = new ObjectOutputStream(new FileOutputStream(SAVE_DATA_INGREDIENTS));
-        ingredient.writeObject(ingredients);
-        ingredient.close();
-    }
-
-    public void saveDataOrders() throws IOException {
-        ObjectOutputStream orders = new ObjectOutputStream(new FileOutputStream(SAVE_DATA_ORDERS));
-        orders.writeObject(order);
-        orders.close();
-    }
-}//End Coffe class
+}
