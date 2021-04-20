@@ -499,16 +499,22 @@ public class LoginScreenController implements Initializable {
     @FXML
     public void loadAddProduct(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddProduct.fxml"));
+        FXMLLoader fxmlloader2 = new FXMLLoader(getClass().getResource("optionsMenu.fxml"));
 
         fxmlLoader.setController(this);
         Parent add = fxmlLoader.load();
-
+        fxmlloader2.setController(this);
+        Parent add2 = fxmlloader2.load();
+        
         mainPanelB.getChildren().clear();
         mainPanelB.setCenter(add);
+        mainPanelB.setTop(add2);
         mainPanelB.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
+        Stage st2 = (Stage) add2.getScene().getWindow();
+        st2.setWidth(600);
     }
 
     @FXML
@@ -529,46 +535,64 @@ public class LoginScreenController implements Initializable {
     @FXML
     public void loadListClients(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ListClients.fxml"));
-
+        FXMLLoader fxmlloader2 = new FXMLLoader(getClass().getResource("optionsMenu.fxml"));
+        
         fxmlLoader.setController(this);
         Parent add = fxmlLoader.load();
-
+        fxmlloader2.setController(this);
+        Parent add2 = fxmlloader2.load();
+        
         mainPanelB.getChildren().clear();
         mainPanelB.setCenter(add);
+        mainPanelB.setTop(add2);
         mainPanelB.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
+        Stage st2 = (Stage) add2.getScene().getWindow();
+        st2.setWidth(600);
     }
 
     @FXML
     public void loadListEmployee(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ListEmployee.fxml"));
-
+        FXMLLoader fxmlloader2 = new FXMLLoader(getClass().getResource("optionsMenu.fxml"));
+        
         fxmlLoader.setController(this);
         Parent add = fxmlLoader.load();
+        fxmlloader2.setController(this);
+        Parent add2 = fxmlloader2.load();
 
         mainPanelB.getChildren().clear();
         mainPanelB.setCenter(add);
+        mainPanelB.setTop(add2);
         mainPanelB.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
+        Stage st2 = (Stage) add2.getScene().getWindow();
+        st2.setWidth(600);
     }
 
     @FXML
     public void loadListOrders(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ListOrders.fxml"));
-
+        FXMLLoader fxmlloader2 = new FXMLLoader(getClass().getResource("optionsMenu.fxml"));
+        
         fxmlLoader.setController(this);
         Parent add = fxmlLoader.load();
+        fxmlloader2.setController(this);
+        Parent add2 = fxmlloader2.load();
 
         mainPanelB.getChildren().clear();
         mainPanelB.setCenter(add);
+        mainPanelB.setTop(add2);
         mainPanelB.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
+        Stage st2 = (Stage) add2.getScene().getWindow();
+        st2.setWidth(600);
     }
 
     @FXML
@@ -582,8 +606,9 @@ public class LoginScreenController implements Initializable {
         mainPanelB.setCenter(add);
         mainPanelB.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
-        st.setHeight(575);
-        st.setWidth(372);
+        st.setHeight(460);
+        st.setWidth(600);
+
     }
 
 //    @FXML

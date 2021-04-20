@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="518.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="515.0" fitWidth="519.0" layoutY="-5.0" pickOnBounds="true">
@@ -25,6 +24,6 @@
             <Font size="17.0" />
          </font>
       </Button>
-      <BorderPane fx:id="mainPanelB" prefHeight="14.0" prefWidth="17.0" visible="false" />
+      <BorderPane fx:id="mainPanelB" prefHeight="200.0" prefWidth="519.0" visible="false" />
    </children>
 </Pane>
