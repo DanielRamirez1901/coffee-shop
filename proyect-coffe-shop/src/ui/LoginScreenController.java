@@ -8,6 +8,7 @@ package ui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -383,6 +384,7 @@ public class LoginScreenController implements Initializable {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Informacion");
         alert.setHeaderText(null);
+        ArrayList<Client> clientA = null;
         if (!txtQuantityProductsInOrder.getText().equals("") && !txtNameProductsOrder.getText().equals("")) {
             int nProducts = Integer.parseInt(this.txtQuantityProductsInOrder.getText());
             for (int i = 0; i > (nProducts - 1); i++) {
@@ -390,6 +392,7 @@ public class LoginScreenController implements Initializable {
                 if (i == nProducts) {
                     order = new Order(1, txtObservationsOrder.getText());
                     coffe.addOrder(order);
+                    coffe.binarySearch(clientA, txtNameClientAdd.getText());
                     alert.setContentText("Orden registrada exitosamente");
                     alert.showAndWait();
                 } else {

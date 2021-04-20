@@ -278,16 +278,6 @@ public class Coffe {
         return ((searchUsername(name) != null) && (searchUsername(name).getPassword().compareTo(password) == 0)) ? true : false;
     }//End userLogin method
 
-    public Employee checkUser(String username, String password) {
-        Employee emp = null;
-        for (int i = 0; i < employees.size(); i++) {
-            if (employees.get(i).getName().equals(username) && employees.get(i).getPassword().equals(password)) {
-                emp = employees.get(i);
-            }
-        }
-        return emp;
-    }
-
 //***********************************************************************************************************************************************************
     /**
      * This method allows adding an employee to the coffee<br>
