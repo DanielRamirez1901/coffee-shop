@@ -37,7 +37,7 @@ import model.Client;
 /**
  * <<<<<<< Updated upstream FXML Controller class author DanielRamirez<br>
  *
- * ======= FXML Controller class
+ * FXML Controller class
  *
  * @author DanielRamirez<br>
  * @author AmilcarRodriguez<br>
@@ -49,9 +49,6 @@ public class LoginScreenController implements Initializable {
     @FXML
     private BorderPane secundaryPanel;//Contains the secondary panel in which certain interfaces will run
 
-    //Menu order attributes
-    
-    
     //Add an Order Attributes
     @FXML
     private TextField txtQuantityProductsInOrder;
@@ -269,60 +266,74 @@ public class LoginScreenController implements Initializable {
     }
 
     @FXML
-    public void registerIngredient(ActionEvent event) throws IOException {
+    public void registerIngredient(ActionEvent event) {
         Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Informaci�n");
+        alert.setTitle("Informacion");
         alert.setHeaderText(null);
-        if (!txtIngredientName.getText().equals("")) {
-            ingredient = new Ingredient(txtIngredientName.getText(), true);
-            coffe.addIngredient(ingredient);
-            alert.setContentText("Ingrediente registrado exitosamente");
+        try {
+        	 if (!txtIngredientName.getText().equals("")) {
+                 ingredient = new Ingredient(txtIngredientName.getText(), true);
+                 coffe.addIngredient(ingredient);
+                 alert.setContentText("Ingrediente registrado exitosamente");
+                 alert.showAndWait();
+             }//End if
+             else {
+                 ifTextIsEmpty(event);
+             }
+        }catch(IOException e) {
+        	alert.setContentText("Error al cargar archivo");
             alert.showAndWait();
-        }//End if
-        else {
-            ifTextIsEmpty(event);
-        }
+        } 
         txtIngredientName.setText("");
       
     }
 
     @FXML
-    public void registerEmployee(ActionEvent event) throws IOException {
+    public void registerEmployee(ActionEvent event){
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Informaci�n");
         alert.setHeaderText(null);
-        if (!txtNameEmployeeAdd.getText().equals("") && !txtLastNameEmployeeAdd.getText().equals("") && !txtIdEmployeeAdd.getText().equals("")) {
-            employee = new Employee(txtNameEmployeeAdd.getText(), txtLastNameEmployeeAdd.getText(), txtIdEmployeeAdd.getText(), true);
-            coffe.addEmployee(employee);
-            alert.setContentText("Empleado registrado exitosamente");
+        try {
+            if (!txtNameEmployeeAdd.getText().equals("") && !txtLastNameEmployeeAdd.getText().equals("") && !txtIdEmployeeAdd.getText().equals("")) {
+                employee = new Employee(txtNameEmployeeAdd.getText(), txtLastNameEmployeeAdd.getText(), txtIdEmployeeAdd.getText(), true);
+                coffe.addEmployee(employee);
+                alert.setContentText("Empleado registrado exitosamente");
+                alert.showAndWait();
+            }//End if
+            else {
+                ifTextIsEmpty(event);
+            }
+        }catch(IOException e) {
+        	alert.setContentText("Error al cargar archivo");
             alert.showAndWait();
-        }//End if
-        else {
-            ifTextIsEmpty(event);
-        }
+        } 
         txtNameEmployeeAdd.setText("");
         txtLastNameEmployeeAdd.setText("");
         txtIdEmployeeAdd.setText("");
         txtNameEmployeeAdd.setText("");
         txtLastNameEmployeeAdd.setText("");
         txtIdEmployeeAdd.setText("");
-        
     }
 
     @FXML
-    public void registerClient(ActionEvent event) throws IOException {
+    public void registerClient(ActionEvent event){
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Informaci�n");
         alert.setHeaderText(null);
-        if (!txtNameClientAdd.getText().equals("") && !txtLastnameClientAdd.getText().equals("") && !txtIdClient.getText().equals("") && !txtAddressClientAdd.getText().equals("") && !txtPhoneClientAdd.getText().equals("")) {
-            client = new Client(txtNameClientAdd.getText(), txtLastnameClientAdd.getText(), txtIdClient.getText(), txtAddressClientAdd.getText(), txtPhoneClientAdd.getText(), txtObservationsArea.getText());
-            coffe.addClient(client);
-            alert.setContentText("Cliente registrado exitosamente");
+        try {
+        	 if (!txtNameClientAdd.getText().equals("") && !txtLastnameClientAdd.getText().equals("") && !txtIdClient.getText().equals("") && !txtAddressClientAdd.getText().equals("") && !txtPhoneClientAdd.getText().equals("")) {
+                 client = new Client(txtNameClientAdd.getText(), txtLastnameClientAdd.getText(), txtIdClient.getText(), txtAddressClientAdd.getText(), txtPhoneClientAdd.getText(), txtObservationsArea.getText());
+                 coffe.addClient(client);
+                 alert.setContentText("Cliente registrado exitosamente");
+                 alert.showAndWait();
+             }//End if
+             else {
+                 ifTextIsEmpty(event);
+             }
+        }catch(IOException e) {
+        	alert.setContentText("Error al cargar archivo");
             alert.showAndWait();
-        }//End if
-        else {
-            ifTextIsEmpty(event);
-        }
+        } 
         txtNameClientAdd.setText("");
         txtLastnameClientAdd.setText("");
         txtIdClient.setText("");
@@ -332,32 +343,37 @@ public class LoginScreenController implements Initializable {
     }
 
     @FXML
-    public void registerProduct(ActionEvent event) throws IOException {
+    public void registerProduct(ActionEvent event) {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Informacion");
         alert.setHeaderText(null);
-        if (!txtProductName.getText().equals("") && !txtProductType.getText().equals("") && !txtProductSize.getText().equals("") && !txtProductPrice.getText().equals("") && !txtIngredientNameP.getText().equals("") && !txtQuantityProduct.getText().equals("")) {
-            int productSyze = Integer.parseInt(this.txtProductSize.getText());
-            int productPrice = Integer.parseInt(this.txtProductPrice.getText());
-            int nIngredients = Integer.parseInt(this.txtQuantityProduct.getText());
-            for (int i = 0; i > (nIngredients - 1); i++) {
-                registerAnIngredientToProduct(event);
-                if (i == nIngredients && coffe.searchIngredient(txtIngredientNameP.getText())!=null) {
-                    product = new Product(txtProductName.getText(), txtProductType.getText(), productSyze, true, productPrice);
-                    coffe.addProduct(product);
-                    coffe.SortByPrice();
-                    alert.setContentText("Producto registrado exitosamente");
-                    alert.showAndWait();
-                } else {
-                    alert.setContentText("La cantidad de ingredientes escritos no coincide con la cantidad de ingredientes indicados anteriormente");
-                    alert.showAndWait();    
+        try {
+            if (!txtProductName.getText().equals("") && !txtProductType.getText().equals("") && !txtProductSize.getText().equals("") && !txtProductPrice.getText().equals("") && !txtIngredientNameP.getText().equals("") && !txtQuantityProduct.getText().equals("")) {
+                int productSyze = Integer.parseInt(this.txtProductSize.getText());
+                int productPrice = Integer.parseInt(this.txtProductPrice.getText());
+                int nIngredients = Integer.parseInt(this.txtQuantityProduct.getText());
+                for (int i = 0; i > (nIngredients - 1); i++) {
+                    registerAnIngredientToProduct(event);
+                    if (i == nIngredients && coffe.searchIngredient(txtIngredientNameP.getText())!=null) {
+                        product = new Product(txtProductName.getText(), txtProductType.getText(), productSyze, true, productPrice);
+                        coffe.addProduct(product);
+                        coffe.SortByPrice();
+                        alert.setContentText("Producto registrado exitosamente");
+                        alert.showAndWait();
+                    } else {
+                        alert.setContentText("La cantidad de ingredientes escritos no coincide con la cantidad de ingredientes indicados anteriormente");
+                        alert.showAndWait();    
+                    }
+                    txtIngredientNameP.setText("");
                 }
-                txtIngredientNameP.setText("");
-            }
-        }//End if
-        else {
-            ifTextIsEmpty(event);
-        }
+            }//End if
+            else {
+                ifTextIsEmpty(event);
+            }	
+        }catch(IOException e) {
+        	alert.setContentText("Error al cargar archivo");
+            alert.showAndWait();
+        } 
         txtProductName.setText("");
         txtProductType.setText("");
         txtProductSize.setText("");
@@ -380,31 +396,36 @@ public class LoginScreenController implements Initializable {
     }
 
     @FXML
-    public void registerOrder(ActionEvent event) throws IOException {
+    public void registerOrder(ActionEvent event){
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Informacion");
         alert.setHeaderText(null);
         ArrayList<Client> clientA = null;
-        if (!txtQuantityProductsInOrder.getText().equals("") && !txtNameProductsOrder.getText().equals("")) {
-            int nProducts = Integer.parseInt(this.txtQuantityProductsInOrder.getText());
-            for (int i = 0; i > (nProducts - 1); i++) {
-                registerAnProductInOrder(event);
-                if (i == nProducts) {
-                    order = new Order(1, txtObservationsOrder.getText());
-                    coffe.addOrder(order);
-                    coffe.binarySearch(clientA, txtNameClientAdd.getText());
-                    alert.setContentText("Orden registrada exitosamente");
-                    alert.showAndWait();
-                } else {
-                    alert.setContentText("La cantidad de productos escritos no coincide con la cantidad de productos indicados anteriormente");
-                    alert.showAndWait();
-                }
-                txtNameProductsOrder.setText("");
-            }
-        }//End if
-        else {
-            ifTextIsEmpty(event);
-        }
+        try {
+        	 if (!txtQuantityProductsInOrder.getText().equals("") && !txtNameProductsOrder.getText().equals("")) {
+                 int nProducts = Integer.parseInt(this.txtQuantityProductsInOrder.getText());
+                 for (int i = 0; i > (nProducts - 1); i++) {
+                     registerAnProductInOrder(event);
+                     if (i == nProducts) {
+                         order = new Order(1, txtObservationsOrder.getText());
+                         coffe.addOrder(order);
+                         coffe.binarySearch(clientA, txtNameClientAdd.getText());
+                         alert.setContentText("Orden registrada exitosamente");
+                         alert.showAndWait();
+                     } else {
+                         alert.setContentText("La cantidad de productos escritos no coincide con la cantidad de productos indicados anteriormente");
+                         alert.showAndWait();
+                     }
+                     txtNameProductsOrder.setText("");
+                 }
+             }//End if
+             else {
+                 ifTextIsEmpty(event);
+             }	
+        }catch(IOException e) {
+        	alert.setContentText("Error al cargar archivo");
+            alert.showAndWait();
+        } 
         txtQuantityProductsInOrder.setText("");
         txtNameProductsOrder.setText("");
         txtObservationsOrder.setText("");
@@ -1095,63 +1116,6 @@ public class LoginScreenController implements Initializable {
         }
     }
 
-    //Menu Pane
-//
-//    @FXML
-//    void btnMenuAdmin(ActionEvent event) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PersonalAdmin.fxml"));
-//
-//        fxmlLoader.setController(this);
-//        Parent add = fxmlLoader.load();
-//
-//        mainPanelB.getChildren().clear();
-//        mainPanelB.setTop(add);
-//
-//    }
-//
-//    @FXML
-//    void btnMenuInicio(ActionEvent event) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InitialMenu.fxml"));
-//
-//        fxmlLoader.setController(this);
-//        Parent add = fxmlLoader.load();
-//
-//        mainPanelB.getChildren().clear();
-//        mainPanelB.setTop(add);
-//    }
-//
-//    @FXML
-//    void btnMenuHelp(ActionEvent event) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(""));
-//
-//        fxmlLoader.setController(this);
-//        Parent add = fxmlLoader.load();
-//
-//        mainPanelB.getChildren().clear();
-//        mainPanelB.setTop(add);
-//    }
-//
-//    @FXML
-//    void btnMenuOrder(ActionEvent event) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuOrder.fxml"));
-//
-//        fxmlLoader.setController(this);
-//        Parent add = fxmlLoader.load();
-//
-//        mainPanelB.getChildren().clear();
-//        mainPanelB.setTop(add);
-//    }
-//
-//    @FXML
-//    void btnMenuProductsIngredients(ActionEvent event) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PrAndIng.fxml"));
-//
-//        fxmlLoader.setController(this);
-//        Parent add = fxmlLoader.load();
-//
-//        mainPanelB.getChildren().clear();
-//        mainPanelB.setTop(add);
-//    }
     @FXML
     public void disableProduct(ActionEvent event) {
 
@@ -1222,17 +1186,4 @@ public class LoginScreenController implements Initializable {
         }
     }
 
-//Falta lo siguiente
-//    Serializar
-//    Generar archivo css
-//    Crear interfaz para mostrar las ordenes que ha pedido un cliente y el empleado que la entregara
-//    Crear un calendario + hora para mostrar el dia y hora en la que fue atendida esa orden
-//    Segun la rubrica hasta ahora en porcentaje tenemos ganado: 81% Aprox que equivale a 4.2
-//    Objetivos a lograr en lo posible:
-//    	-El programa tiene una opci�n que hace b�squeda binaria de un cliente dado 
-//    	un nombre e indica el tiempo que tard� la b�squeda. Los clientes son insertados
-//    	en ese orden siempre para mantener la lista ordenada.(logrado)
-//    	-El programa serializa y deserializa de toda la informaci�n 
-//    	del modelo en archivos de forma autom�tica cuando se agrega nueva 
-//    	informaci�n y cuando el programa inicia, respectivamente
 }

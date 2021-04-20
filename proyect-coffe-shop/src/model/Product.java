@@ -15,7 +15,7 @@ public class Product implements Comparable<Product>,  Serializable{
 	private String productType;//This attribute contains the product Type 
 	private int size;//This attribute contains the product size
 	private boolean state;//This attribute contains the product state;
-    public int price;//This attribute contains the product price;
+    private int price;//This attribute contains the product price;
 	
 	//Relations
 	private ArrayList <Ingredient> ingredients;//relation to the ingredient class created in an ArrayList
