@@ -8,7 +8,7 @@ import java.io.Serializable;
 *@author AmilcarRodriguez<br>
 */
 public class Employee implements Serializable{
-	public final static long serialVersion = 1;
+	public final static long serialVersionUID = 1;
 	//Attributes
 	private String name;//This attribute contains the employee name
 	private String lastName;//This attribute contains the employee last name

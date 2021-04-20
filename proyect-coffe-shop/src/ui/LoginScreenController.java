@@ -60,14 +60,9 @@ public class LoginScreenController implements Initializable {
     private TextField txtQuantityProductsInOrder;
 
     @FXML
-    private TextField txtNameProductsOrder;
-
-    @FXML
-<<<<<<< Updated upstream
     private TextField txtObservationsOrder;
-=======
+
     private TextField txtNameProductsOrder;//Contains the name of the product that will be added in that order
->>>>>>> Stashed changes
 
     //Change state Order
     @FXML
@@ -272,7 +267,7 @@ public class LoginScreenController implements Initializable {
         txtUserPassword.setText("");
         
         } catch (IOException ex) {
-            ex.printStackTrace();
+            System.out.println("Error al encontrar archivo");
         }
     }
 
@@ -465,6 +460,10 @@ public class LoginScreenController implements Initializable {
         Stage st = (Stage) add.getScene().getWindow();
         st.setHeight(575);
         st.setWidth(372);
+    }
+    @FXML
+    public void loadData(ActionEvent event) throws IOException, ClassNotFoundException {
+        coffe.loadData();
     }
 
     @FXML
@@ -1051,8 +1050,6 @@ public class LoginScreenController implements Initializable {
         }
     }
 
-<<<<<<< Updated upstream
-=======
     //Menu Pane
 //
 //    @FXML
@@ -1110,7 +1107,6 @@ public class LoginScreenController implements Initializable {
 //        mainPanelB.getChildren().clear();
 //        mainPanelB.setTop(add);
 //    }
->>>>>>> Stashed changes
     @FXML
     public void disableProduct(ActionEvent event) {
 

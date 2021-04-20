@@ -1,7 +1,10 @@
 package model;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,12 +27,24 @@ public class Coffe {
     private ArrayList<Order> order;//Relation with class Order, order are contained in an ArrayList of that type(Order)
 
     //Constants
-    public static final String SAVE_DATA_EMPLOYEE = "data/Employee.da";
-    public static final String SAVE_DATA_CLIENTS = "data/Clients.da";
-    public static final String SAVE_DATA_INGREDIENTS = "data/Ingredients.da";
-    public static final String SAVE_DATA_ORDERS = "data/Orders.da";
-    public static final String SAVE_DATA_PRODUCTS = "data/Product.da";
+    public final static String SAVE_DATA_EMPLOYEE = "dataEmployee.txt";
+    public final static String SAVE_DATA_CLIENTS = "dataClients.txt";
+    public final static String SAVE_DATA_INGREDIENTS = "dataIngredients.txt";
+    public final static String SAVE_DATA_ORDERS = "dataOrder.txt";
+    public final static String SAVE_DATA_PRODUCTS = "dataProducts.txt";
 //***********************************************************************************************************************************************************
+
+    public boolean loadData() throws IOException, ClassNotFoundException {
+        File f = new File(SAVE_DATA_EMPLOYEE);
+        boolean loaded = false;
+        if (f.exists()) {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
+            employees = (ArrayList)ois.readObject();
+            ois.close();
+            loaded = true;
+        }
+        return loaded;
+    }
 
     /**
      * Coffe class construct method<br>
@@ -59,7 +74,7 @@ public class Coffe {
      */
     public void addProduct(Product product) throws IOException {
         products.add(product);
-        
+
     }//End addProduct method
 
 //***********************************************************************************************************************************************************
@@ -280,6 +295,7 @@ public class Coffe {
      * <b>post:</b>the employee has been added to the ArrayList<br>
      *
      * @param employee Is an Employee with the attributes of that class<br>
+     * @throws java.io.IOException
      */
     public void addEmployee(Employee employee) throws IOException {
         employees.add(employee);
