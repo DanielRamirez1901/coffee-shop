@@ -34,8 +34,7 @@ public class Coffe {
     public final static String SAVE_DATA_PRODUCTS = "dataProducts.txt";
 //***********************************************************************************************************************************************************
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-	public boolean loadData() throws IOException, ClassNotFoundException {
+    public boolean loadData() throws IOException, ClassNotFoundException {
         File f = new File(SAVE_DATA_EMPLOYEE);
         boolean loaded = false;
         if (f.exists()) {
@@ -72,9 +71,11 @@ public class Coffe {
      * <b>post:</b>the product has been added to the ArrayList<br>
      *
      * @param product Is a Product with the attributes of that class<br>
+     * @throws java.io.IOException
      */
     public void addProduct(Product product) throws IOException {
         products.add(product);
+        saveDataProducts();
 
     }//End addProduct method
 
@@ -161,9 +162,11 @@ public class Coffe {
      * <b>post:</b>the ingredient has been added to the ArrayList<br>
      *
      * @param ingredient Is a Ingredient with the attributes of that class<br>
+     * @throws java.io.IOException
      */
-    public void addIngredient(Ingredient ingredient) {
+    public void addIngredient(Ingredient ingredient) throws IOException {
         ingredients.add(ingredient);
+        saveDataIngredients();
     }
 
 //***********************************************************************************************************************************************************
@@ -391,6 +394,7 @@ public class Coffe {
     }
 
 //***********************************************************************************************************************************************************
+    
     /**
      * This method allows adding a client to the coffee<br>
      *
@@ -398,9 +402,11 @@ public class Coffe {
      * <b>post:</b>the client has been added to the ArrayList<br>
      *
      * @param client Is an Client with the attributes of that class<br>
+     * @throws java.io.IOException
      */
-    public void addClient(Client client) {
+    public void addClient(Client client) throws IOException {
         clients.add(client);
+        saveDataClient();
     }//End addClient method 
 
     //***********************************************************************************************************************************************************
@@ -531,6 +537,7 @@ public class Coffe {
     }//End sortBySizeProduct
 
 //***********************************************************************************************************************************************************
+    
     /**
      * This method allows you to sort by product size using sort sort using the
      * collections sort order.<br>
@@ -541,6 +548,7 @@ public class Coffe {
         Collections.sort(products);
     }//End sortBySizeProduct
 
+    
 //***********************************************************************************************************************************************************
     /**
      * This method allows you to sort by product name using sort sort using the
@@ -580,8 +588,9 @@ public class Coffe {
      *
      * @param orders Is an Order with the attributes of that class<br>
      */
-    public void addOrder(Order orders) {
+    public void addOrder(Order orders) throws IOException {
         order.add(orders);
+        saveDataOrders();
     }//End addOrder method
 
 //***********************************************************************************************************************************************************
