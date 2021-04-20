@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="439.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox layoutX="-8.0" prefHeight="33.0" prefWidth="456.0">
@@ -15,14 +14,14 @@
               <menus>
                 <Menu mnemonicParsing="false" text="Principal">
                   <items>
-                    <MenuItem mnemonicParsing="false" style="-fx-focus-traversable: gray;" text="Menu principal" />
+                    <MenuItem mnemonicParsing="false" onAction="#loadInitialMenu" style="-fx-focus-traversable: gray;" text="Menu principal" />
                   </items>
                 </Menu>
                   <Menu mnemonicParsing="false" text="Administracion">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Personal" />
-                        <MenuItem mnemonicParsing="false" text="Productos" />
-                        <MenuItem mnemonicParsing="false" text="Pedidos" />
+                      <MenuItem mnemonicParsing="false" onAction="#loadPersonalAdmin" text="Personal" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadPrAndIng" text="Productos" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadMenuOrder" text="Pedidos" />
                     </items>
                   </Menu>
               </menus>

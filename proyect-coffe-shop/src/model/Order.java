@@ -8,6 +8,7 @@ import java.util.UUID;
 *@author DanielRamirez<br>
 *@author AmilcarRodriguez<br>
 */
+@SuppressWarnings("serial")
 public class Order implements Serializable{
 	public final static long serialVersion = 1;
 	//Constants

@@ -8,6 +8,7 @@ import java.io.Serializable;
 *@author AmilcarRodriguez<br>
 */
 
+@SuppressWarnings("serial")
 public class Ingredient implements Serializable{
 	public final static long serialVersion = 1;
 	//Attributes

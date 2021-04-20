@@ -20,5 +20,6 @@
       <Button layoutX="213.0" layoutY="157.0" mnemonicParsing="false" onAction="#loadPersonalAdmin" style="-fx-background-color: #fdcb6e;" text="ADMINISTRAR PERSONAL" />
       <Button layoutX="211.0" layoutY="213.0" mnemonicParsing="false" onAction="#loadPrAndIng" style="-fx-background-color: #fdcb6e;" text="ADMINISTRAR PRODUCTO" />
       <Button layoutX="258.0" layoutY="266.0" mnemonicParsing="false" onAction="#loadMenuOrder" style="-fx-background-color: #fdcb6e;" text="PEDIDOS" />
+      <Button layoutX="239.0" layoutY="326.0" mnemonicParsing="false" onAction="#loadData" style="-fx-background-color: #fdcb6e;" text="CARGAR DATOS" />
    </children>
 </Pane>

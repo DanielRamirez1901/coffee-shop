@@ -7,6 +7,7 @@ import java.util.ArrayList;
 *@author AmilcarRodriguez<br>
 */
 
+@SuppressWarnings("serial")
 public class Product implements Comparable<Product>,  Serializable{
 	public final static long serialVersion = 1;
 	//Attributes

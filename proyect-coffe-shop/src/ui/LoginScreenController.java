@@ -5,13 +5,10 @@
  */
 package ui;
 
-import java.awt.TextArea;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -37,12 +34,11 @@ import model.Product;
 import model.Client;
 
 /**
- * <<<<<<< Updated upstream FXML Controller class uthor DanielRamirez<br>
+ * <<<<<<< Updated upstream FXML Controller class author DanielRamirez<br>
  *
  * ======= FXML Controller class
  *
  * @author DanielRamirez<br>
- * >>>>>>> Stashed changes
  * @author AmilcarRodriguez<br>
  */
 public class LoginScreenController implements Initializable {
@@ -279,13 +275,14 @@ public class LoginScreenController implements Initializable {
         if (!txtIngredientName.getText().equals("")) {
             ingredient = new Ingredient(txtIngredientName.getText(), true);
             coffe.addIngredient(ingredient);
+            alert.setContentText("Ingrediente registrado exitosamente");
+            alert.showAndWait();
         }//End if
         else {
             ifTextIsEmpty(event);
         }
         txtIngredientName.setText("");
-        alert.setContentText("Ingrediente registrado exitosamente");
-        alert.showAndWait();
+      
     }
 
     @FXML
@@ -296,6 +293,8 @@ public class LoginScreenController implements Initializable {
         if (!txtNameEmployeeAdd.getText().equals("") && !txtLastNameEmployeeAdd.getText().equals("") && !txtIdEmployeeAdd.getText().equals("")) {
             employee = new Employee(txtNameEmployeeAdd.getText(), txtLastNameEmployeeAdd.getText(), txtIdEmployeeAdd.getText(), true);
             coffe.addEmployee(employee);
+            alert.setContentText("Empleado registrado exitosamente");
+            alert.showAndWait();
         }//End if
         else {
             ifTextIsEmpty(event);
@@ -303,12 +302,10 @@ public class LoginScreenController implements Initializable {
         txtNameEmployeeAdd.setText("");
         txtLastNameEmployeeAdd.setText("");
         txtIdEmployeeAdd.setText("");
-
         txtNameEmployeeAdd.setText("");
         txtLastNameEmployeeAdd.setText("");
         txtIdEmployeeAdd.setText("");
-        alert.setContentText("Empleado registrado exitosamente");
-        alert.showAndWait();
+        
     }
 
     @FXML
@@ -319,6 +316,8 @@ public class LoginScreenController implements Initializable {
         if (!txtNameClientAdd.getText().equals("") && !txtLastnameClientAdd.getText().equals("") && !txtIdClient.getText().equals("") && !txtAddressClientAdd.getText().equals("") && !txtPhoneClientAdd.getText().equals("")) {
             client = new Client(txtNameClientAdd.getText(), txtLastnameClientAdd.getText(), txtIdClient.getText(), txtAddressClientAdd.getText(), txtPhoneClientAdd.getText(), txtObservationsArea.getText());
             coffe.addClient(client);
+            alert.setContentText("Cliente registrado exitosamente");
+            alert.showAndWait();
         }//End if
         else {
             ifTextIsEmpty(event);
@@ -329,16 +328,6 @@ public class LoginScreenController implements Initializable {
         txtAddressClientAdd.setText("");
         txtPhoneClientAdd.setText("");
         txtObservationsArea.setText("");
-
-        txtNameClientAdd.setText("");
-        txtLastnameClientAdd.setText("");
-        txtIdClient.setText("");
-        txtAddressClientAdd.setText("");
-        txtPhoneClientAdd.setText("");
-        txtObservationsArea.setText("");
-
-        alert.setContentText("Cliente registrado exitosamente");
-        alert.showAndWait();
     }
 
     @FXML
@@ -356,9 +345,11 @@ public class LoginScreenController implements Initializable {
                     product = new Product(txtProductName.getText(), txtProductType.getText(), productSyze, true, productPrice);
                     coffe.addProduct(product);
                     coffe.SortByPrice();
+                    alert.setContentText("Producto registrado exitosamente");
+                    alert.showAndWait();
                 } else {
                     alert.setContentText("La cantidad de ingredientes escritos no coincide con la cantidad de ingredientes indicados anteriormente");
-                    alert.showAndWait();
+                    alert.showAndWait();    
                 }
                 txtIngredientNameP.setText("");
             }
@@ -371,8 +362,6 @@ public class LoginScreenController implements Initializable {
         txtProductSize.setText("");
         txtProductPrice.setText("");
         txtIngredientNameP.setText("");
-        alert.setContentText("Producto registrado exitosamente");
-        alert.showAndWait();
     }
 
     @FXML
@@ -401,6 +390,8 @@ public class LoginScreenController implements Initializable {
                 if (i == nProducts) {
                     order = new Order(1, txtObservationsOrder.getText());
                     coffe.addOrder(order);
+                    alert.setContentText("Orden registrada exitosamente");
+                    alert.showAndWait();
                 } else {
                     alert.setContentText("La cantidad de productos escritos no coincide con la cantidad de productos indicados anteriormente");
                     alert.showAndWait();
@@ -414,8 +405,7 @@ public class LoginScreenController implements Initializable {
         txtQuantityProductsInOrder.setText("");
         txtNameProductsOrder.setText("");
         txtObservationsOrder.setText("");
-        alert.setContentText("Orden registrada exitosamente");
-        alert.showAndWait();
+
     }
 
     @FXML
@@ -435,31 +425,43 @@ public class LoginScreenController implements Initializable {
     @FXML
     public void loadAddAnOrder(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddAnOrder.fxml"));
+        FXMLLoader fxmlloader2 = new FXMLLoader(getClass().getResource("optionsMenu.fxml"));
 
         fxmlLoader.setController(this);
         Parent add = fxmlLoader.load();
+        fxmlloader2.setController(this);
+        Parent add2 = fxmlloader2.load();
 
         mainPanelB.getChildren().clear();
         mainPanelB.setCenter(add);
+        mainPanelB.setTop(add2);
         mainPanelB.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
-        st.setHeight(575);
-        st.setWidth(372);
+        st.setHeight(400);
+        st.setWidth(600);
+        Stage st2 = (Stage) add2.getScene().getWindow();
+        st2.setWidth(600);
     }
 
     @FXML
     public void loadAddClient(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddClient.fxml"));
-
+        FXMLLoader fxmlloader2 = new FXMLLoader(getClass().getResource("optionsMenu.fxml"));
+        
         fxmlLoader.setController(this);
         Parent add = fxmlLoader.load();
-
+        fxmlloader2.setController(this);
+        Parent add2 = fxmlloader2.load();
+        
         mainPanelB.getChildren().clear();
         mainPanelB.setCenter(add);
+        mainPanelB.setTop(add2);
         mainPanelB.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
-        st.setHeight(575);
-        st.setWidth(372);
+        st.setHeight(400);
+        st.setWidth(600);
+        Stage st2 = (Stage) add2.getScene().getWindow();
+        st2.setWidth(600);
     }
     @FXML
     public void loadData(ActionEvent event) throws IOException, ClassNotFoundException {
@@ -469,31 +471,43 @@ public class LoginScreenController implements Initializable {
     @FXML
     public void loadAddEmployee(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddEmployee.fxml"));
+        FXMLLoader fxmlloader2 = new FXMLLoader(getClass().getResource("optionsMenu.fxml"));
 
         fxmlLoader.setController(this);
         Parent add = fxmlLoader.load();
+        fxmlloader2.setController(this);
+        Parent add2 = fxmlloader2.load();
 
         mainPanelB.getChildren().clear();
         mainPanelB.setCenter(add);
+        mainPanelB.setTop(add2);
         mainPanelB.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
-        st.setHeight(575);
-        st.setWidth(372);
+        st.setHeight(400);
+        st.setWidth(600);
+        Stage st2 = (Stage) add2.getScene().getWindow();
+        st2.setWidth(600);
     }
 
     @FXML
     public void loadAddIngredient(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddIngredient.fxml"));
+        FXMLLoader fxmlloader2 = new FXMLLoader(getClass().getResource("optionsMenu.fxml"));
 
         fxmlLoader.setController(this);
         Parent add = fxmlLoader.load();
-
+        fxmlloader2.setController(this);
+        Parent add2 = fxmlloader2.load();
+        
         mainPanelB.getChildren().clear();
         mainPanelB.setCenter(add);
+        mainPanelB.setTop(add2);
         mainPanelB.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
-        st.setHeight(575);
-        st.setWidth(372);
+        st.setHeight(400);
+        st.setWidth(600);
+        Stage st2 = (Stage) add2.getScene().getWindow();
+        st2.setWidth(600);
     }
 
     @FXML
@@ -511,8 +525,8 @@ public class LoginScreenController implements Initializable {
         mainPanelB.setTop(add2);
         mainPanelB.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
-        st.setHeight(575);
-        st.setWidth(372);
+        st.setHeight(400);
+        st.setWidth(600);
         Stage st2 = (Stage) add2.getScene().getWindow();
         st2.setWidth(600);
     }
@@ -528,8 +542,8 @@ public class LoginScreenController implements Initializable {
         mainPanelB.setCenter(add);
         mainPanelB.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
-        st.setHeight(575);
-        st.setWidth(372);
+        st.setHeight(400);
+        st.setWidth(600);
     }
 
     @FXML
@@ -547,8 +561,8 @@ public class LoginScreenController implements Initializable {
         mainPanelB.setTop(add2);
         mainPanelB.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
-        st.setHeight(575);
-        st.setWidth(372);
+        st.setHeight(400);
+        st.setWidth(600);
         Stage st2 = (Stage) add2.getScene().getWindow();
         st2.setWidth(600);
     }
@@ -568,8 +582,8 @@ public class LoginScreenController implements Initializable {
         mainPanelB.setTop(add2);
         mainPanelB.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
-        st.setHeight(575);
-        st.setWidth(372);
+        st.setHeight(400);
+        st.setWidth(600);
         Stage st2 = (Stage) add2.getScene().getWindow();
         st2.setWidth(600);
     }
@@ -589,10 +603,10 @@ public class LoginScreenController implements Initializable {
         mainPanelB.setTop(add2);
         mainPanelB.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
-        st.setHeight(575);
-        st.setWidth(372);
+        st.setHeight(528);
+        st.setWidth(922);
         Stage st2 = (Stage) add2.getScene().getWindow();
-        st2.setWidth(600);
+        st2.setWidth(922);
     }
 
     @FXML
@@ -610,21 +624,7 @@ public class LoginScreenController implements Initializable {
         st.setWidth(600);
 
     }
-
-//    @FXML
-//    public void loadMainPanel(ActionEvent event) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("mainPanel.fxml"));
-//
-//        fxmlLoader.setController(this);
-//        Parent add = fxmlLoader.load();
-//
-//        mainPanel.getChildren().clear();
-//        mainPanel.setCenter(add);
-//        mainPanel.setVisible(true);
-//        Stage st = (Stage) add.getScene().getWindow();
-//        st.setHeight(575);
-//        st.setWidth(372);
-//    }
+    
     @FXML
     public void loadMenuOrder(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuOrder.fxml"));
@@ -636,8 +636,8 @@ public class LoginScreenController implements Initializable {
         mainPanelB.setCenter(add);
         mainPanelB.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
-        st.setHeight(575);
-        st.setWidth(372);
+        st.setHeight(400);
+        st.setWidth(600);
     }
 
     @FXML
@@ -651,8 +651,8 @@ public class LoginScreenController implements Initializable {
         mainPanelB.setCenter(add);
         mainPanelB.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
-        st.setHeight(575);
-        st.setWidth(372);
+        st.setHeight(400);
+        st.setWidth(600);
     }
 
     @FXML
@@ -661,43 +661,57 @@ public class LoginScreenController implements Initializable {
 
         fxmlLoader.setController(this);
         Parent add = fxmlLoader.load();
+        
 
         mainPanelB.getChildren().clear();
         mainPanelB.setCenter(add);
         mainPanelB.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
-        st.setHeight(575);
-        st.setWidth(372);
+        st.setHeight(422);
+        st.setWidth(605);
+    
     }
 
     @FXML
     public void loadShowIngredient(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShowIngredient.fxml"));
+        FXMLLoader fxmlloader2 = new FXMLLoader(getClass().getResource("optionsMenu.fxml"));
 
         fxmlLoader.setController(this);
         Parent add = fxmlLoader.load();
+        fxmlloader2.setController(this);
+        Parent add2 = fxmlloader2.load();
 
         mainPanelB.getChildren().clear();
         mainPanelB.setCenter(add);
+        mainPanelB.setTop(add2);
         mainPanelB.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
-        st.setHeight(575);
-        st.setWidth(372);
+        st.setHeight(400);
+        st.setWidth(600);
+        Stage st2 = (Stage) add2.getScene().getWindow();
+        st2.setWidth(600);
     }
 
     @FXML
     public void loadShowProduct(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShowProduct.fxml"));
+        FXMLLoader fxmlloader2 = new FXMLLoader(getClass().getResource("optionsMenu.fxml"));
 
         fxmlLoader.setController(this);
         Parent add = fxmlLoader.load();
+        fxmlloader2.setController(this);
+        Parent add2 = fxmlloader2.load();
 
         mainPanelB.getChildren().clear();
         mainPanelB.setCenter(add);
+        mainPanelB.setTop(add2);
         mainPanelB.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
-        st.setHeight(575);
-        st.setWidth(372);
+        st.setHeight(400);
+        st.setWidth(600);
+        Stage st2 = (Stage) add2.getScene().getWindow();
+        st2.setWidth(600);
 
     }
 
@@ -829,15 +843,17 @@ public class LoginScreenController implements Initializable {
                 if (!txtNameEmployeeAdd.getText().equals("") && !txtLastNameEmployeeAdd.getText().equals("") && !txtIdEmployeeAdd.getText().equals("")) {
                     employee = new Employee(txtNameEmployeeAdd.getText(), txtLastNameEmployeeAdd.getText(), txtIdEmployeeAdd.getText(), true);
                     coffe.modifyEmployee(employee, e.getName());
+                    alert.setContentText("Empleado registrado exitosamente");
+                    alert.showAndWait();
+                    loadListClients(event);
                 }//End if
                 else {
                     ifTextIsEmpty(event);
-                }
+                } 
                 txtNameEmployeeAdd.setText("");
                 txtLastNameEmployeeAdd.setText("");
                 txtIdEmployeeAdd.setText("");
-                alert.setContentText("Empleado registrado exitosamente");
-                alert.showAndWait();
+               
             } catch (IOException e1) {
             }
         }
@@ -867,14 +883,14 @@ public class LoginScreenController implements Initializable {
                 if (!txtIngredientName.getText().equals("")) {
                     ingredient = new Ingredient(txtIngredientName.getText(), true);
                     coffe.modifyIngredient(ingredient, i.getName());
+                    alert.setContentText("Ingrediente modificado exitosamente");
+                    alert.showAndWait();
                 }//End if
                 else {
                     ifTextIsEmpty(event);
                 }
                 txtIngredientName.setText("");
-                alert.setContentText("Ingrediente modificado exitosamente");
-                alert.showAndWait();
-
+                
             } catch (IOException e) {
             }
         }
@@ -915,6 +931,8 @@ public class LoginScreenController implements Initializable {
                             product = new Product(txtProductName.getText(), txtProductType.getText(), productSyze, true, productPrice);
                             coffe.modifyProduct(product, pr.getName());
                             coffe.SortByPrice();
+                            alert.setContentText("Producto registrado exitosamente");
+                            alert.showAndWait();
                         } else {
                             alert.setContentText("La cantidad de productos escritos no coincide con la cantidad de productos indicados anteriormente");
                             alert.showAndWait();
@@ -929,8 +947,6 @@ public class LoginScreenController implements Initializable {
                 txtProductSize.setText("");
                 txtProductPrice.setText("");
                 txtIngredientNameP.setText("");
-                alert.setContentText("Producto registrado exitosamente");
-                alert.showAndWait();
             } catch (IOException e) {
             }
         }
@@ -966,6 +982,8 @@ public class LoginScreenController implements Initializable {
                 if (!txtNameClientAdd.getText().equals("") && !txtLastnameClientAdd.getText().equals("") && !txtIdClient.getText().equals("") && !txtAddressClientAdd.getText().equals("") && !txtPhoneClientAdd.getText().equals("")) {
                     client = new Client(txtNameClientAdd.getText(), txtLastnameClientAdd.getText(), txtIdClient.getText(), txtAddressClientAdd.getText(), txtPhoneClientAdd.getText(), txtObservationsArea.getText());
                     coffe.modifyClient(client, cl.getName());
+                    alert.setContentText("Cliente modificado exitosamente");
+                    alert.showAndWait();
                 }//End if
                 else {
                     ifTextIsEmpty(event);
@@ -976,8 +994,7 @@ public class LoginScreenController implements Initializable {
                 txtAddressClientAdd.setText("");
                 txtPhoneClientAdd.setText("");
                 txtObservationsArea.setText("");
-                alert.setContentText("Cliente modificado exitosamente");
-                alert.showAndWait();
+                
             } catch (IOException e) {
             }
         }

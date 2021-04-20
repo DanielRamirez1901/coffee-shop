@@ -34,7 +34,8 @@ public class Coffe {
     public final static String SAVE_DATA_PRODUCTS = "dataProducts.txt";
 //***********************************************************************************************************************************************************
 
-    public boolean loadData() throws IOException, ClassNotFoundException {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	public boolean loadData() throws IOException, ClassNotFoundException {
         File f = new File(SAVE_DATA_EMPLOYEE);
         boolean loaded = false;
         if (f.exists()) {
