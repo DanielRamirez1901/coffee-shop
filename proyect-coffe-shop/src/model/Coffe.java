@@ -24,7 +24,7 @@ public class Coffe {
     private ArrayList<Order> order;//Relation with class Order, order are contained in an ArrayList of that type(Order)
 
     //Constants
-    public static final String SAVE_DATA_EMPLOYEE = "data/Emploee.da";
+    public static final String SAVE_DATA_EMPLOYEE = "data/Employee.da";
     public static final String SAVE_DATA_CLIENTS = "data/Clients.da";
     public static final String SAVE_DATA_INGREDIENTS = "data/Ingredients.da";
     public static final String SAVE_DATA_ORDERS = "data/Orders.da";
@@ -57,8 +57,9 @@ public class Coffe {
      *
      * @param product Is a Product with the attributes of that class<br>
      */
-    public void addProduct(Product product) {
+    public void addProduct(Product product) throws IOException {
         products.add(product);
+        
     }//End addProduct method
 
 //***********************************************************************************************************************************************************
@@ -280,8 +281,9 @@ public class Coffe {
      *
      * @param employee Is an Employee with the attributes of that class<br>
      */
-    public void addEmployee(Employee employee) {
+    public void addEmployee(Employee employee) throws IOException {
         employees.add(employee);
+        saveDataEmployee();
     }//End addEmployee method
 
 //***********************************************************************************************************************************************************

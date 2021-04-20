@@ -5,11 +5,12 @@
  */
 package ui;
 
-
 import java.awt.TextArea;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -35,15 +36,13 @@ import model.Order;
 import model.Product;
 import model.Client;
 
-
 /**
-<<<<<<< Updated upstream
- * FXML Controller class uthor DanielRamirez<br>
+ * <<<<<<< Updated upstream FXML Controller class uthor DanielRamirez<br>
  *
-=======
- * FXML Controller class
+ * ======= FXML Controller class
+ *
  * @author DanielRamirez<br>
->>>>>>> Stashed changes
+ * >>>>>>> Stashed changes
  * @author AmilcarRodriguez<br>
  */
 public class LoginScreenController implements Initializable {
@@ -64,7 +63,11 @@ public class LoginScreenController implements Initializable {
     private TextField txtNameProductsOrder;
 
     @FXML
+<<<<<<< Updated upstream
     private TextField txtObservationsOrder;
+=======
+    private TextField txtNameProductsOrder;//Contains the name of the product that will be added in that order
+>>>>>>> Stashed changes
 
     //Change state Order
     @FXML
@@ -213,14 +216,15 @@ public class LoginScreenController implements Initializable {
     private Product product;
     private Order order;
 
-    public static void main(String[]args) {
-    	Coffe cf = new Coffe();
-    	cf.sortByName();
-    	cf.SortByPrice();
-    	cf.sortBySizeProduct();
-    	cf.sortBySizeProductComparable();
-    	cf.sortByProductType();
+    public static void main(String[] args) {
+        Coffe cf = new Coffe();
+        cf.sortByName();
+        cf.SortByPrice();
+        cf.sortBySizeProduct();
+        cf.sortBySizeProductComparable();
+        cf.sortByProductType();
     }
+
     /**
      * Initializes the controller class.
      */
@@ -251,22 +255,27 @@ public class LoginScreenController implements Initializable {
     }
 
     @FXML
-    public void registerAnSystemUser(ActionEvent event) throws IOException {
-    	Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Información");
+    public void registerAnSystemUser(ActionEvent event) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Informaciï¿½n");
         alert.setHeaderText(null);
+        try {
+            if (!txtUserLogin.getText().equals("") && !txtUserPassword.getText().equals("")) {
+                employee = new Employee(txtUserLogin.getText(), txtUserPassword.getText());
+                coffe.addEmployee(employee);
+                alert.setContentText("Se ha registrado el usuario exitosamente");
+                alert.showAndWait();
+            } else {
+                ifTextIsEmpty(event);
+            }
+            txtUserLogin.setText("");
+        txtUserPassword.setText("");
         
-        if(!txtUserLogin.getText().equals("") && !txtUserPassword.getText().equals("")) {
-        	employee = new Employee(txtUserLogin.getText(),txtUserPassword.getText());
-        	coffe.addEmployee(employee);
-        	alert.setContentText("Se ha registrado el usuario exitosamente");
-            alert.showAndWait();
-        }else {
-        	ifTextIsEmpty(event);
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
-        txtUserLogin.setText("");txtUserPassword.setText("");
     }
-    
+
     @FXML
     public void registerIngredient(ActionEvent event) throws IOException {
         Alert alert = new Alert(AlertType.INFORMATION);
@@ -570,7 +579,7 @@ public class LoginScreenController implements Initializable {
         fxmlLoader.setController(this);
         Parent add = fxmlLoader.load();
 
-        mainPanelB.getChildren().clear();	
+        mainPanelB.getChildren().clear();
         mainPanelB.setCenter(add);
         mainPanelB.setVisible(true);
         Stage st = (Stage) add.getScene().getWindow();
@@ -592,7 +601,6 @@ public class LoginScreenController implements Initializable {
 //        st.setHeight(575);
 //        st.setWidth(372);
 //    }
-
     @FXML
     public void loadMenuOrder(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuOrder.fxml"));
@@ -1043,6 +1051,66 @@ public class LoginScreenController implements Initializable {
         }
     }
 
+<<<<<<< Updated upstream
+=======
+    //Menu Pane
+//
+//    @FXML
+//    void btnMenuAdmin(ActionEvent event) throws IOException {
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PersonalAdmin.fxml"));
+//
+//        fxmlLoader.setController(this);
+//        Parent add = fxmlLoader.load();
+//
+//        mainPanelB.getChildren().clear();
+//        mainPanelB.setTop(add);
+//
+//    }
+//
+//    @FXML
+//    void btnMenuInicio(ActionEvent event) throws IOException {
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InitialMenu.fxml"));
+//
+//        fxmlLoader.setController(this);
+//        Parent add = fxmlLoader.load();
+//
+//        mainPanelB.getChildren().clear();
+//        mainPanelB.setTop(add);
+//    }
+//
+//    @FXML
+//    void btnMenuHelp(ActionEvent event) throws IOException {
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(""));
+//
+//        fxmlLoader.setController(this);
+//        Parent add = fxmlLoader.load();
+//
+//        mainPanelB.getChildren().clear();
+//        mainPanelB.setTop(add);
+//    }
+//
+//    @FXML
+//    void btnMenuOrder(ActionEvent event) throws IOException {
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuOrder.fxml"));
+//
+//        fxmlLoader.setController(this);
+//        Parent add = fxmlLoader.load();
+//
+//        mainPanelB.getChildren().clear();
+//        mainPanelB.setTop(add);
+//    }
+//
+//    @FXML
+//    void btnMenuProductsIngredients(ActionEvent event) throws IOException {
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PrAndIng.fxml"));
+//
+//        fxmlLoader.setController(this);
+//        Parent add = fxmlLoader.load();
+//
+//        mainPanelB.getChildren().clear();
+//        mainPanelB.setTop(add);
+//    }
+>>>>>>> Stashed changes
     @FXML
     public void disableProduct(ActionEvent event) {
 
@@ -1055,14 +1123,14 @@ public class LoginScreenController implements Initializable {
             alert.setContentText("Debes seleccionar un producto");
             alert.showAndWait();
         } else {
-        	pr.setState(false);
+            pr.setState(false);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
             alert.setTitle("Informacion");
             alert.setContentText("Se ha deshabilitado este producto");
         }
     }
-    
+
     @FXML
     public void disableIngredient(ActionEvent event) {
 
@@ -1075,44 +1143,44 @@ public class LoginScreenController implements Initializable {
             alert.setContentText("Debes seleccionar un ingrediente");
             alert.showAndWait();
         } else {
-        	ing.setState(false);
+            ing.setState(false);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
             alert.setTitle("Informacion");
             alert.setContentText("Se ha deshabilitado este ingrediente");
         }
     }
-    
+
     @FXML
     public void chageStateOrder(ActionEvent event) {
 
-    	Order ord = tableOrders.getSelectionModel().getSelectedItem();
+        Order ord = tableOrders.getSelectionModel().getSelectedItem();
 
-    	if (ord == null) {
-    		Alert alert = new Alert(Alert.AlertType.ERROR);
-    		alert.setHeaderText(null);
-    		alert.setTitle("Error");
-    		alert.setContentText("Debes seleccionar una orden");
-    		alert.showAndWait();
-    	} else {
-    		FXMLLoader loader = new FXMLLoader(getClass().getResource("ChangeStateOrder.fxml"));
-    		loader.setController(this);
-    		Parent p;
-    		try {
-    			p = loader.load();
-    			mainPanelB.setCenter(p);
-    			int number = Integer.parseInt(numberChangeStateOrder.getText());
-    			ord.changeState(number);
-    			Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    			alert.setHeaderText(null);
-    			alert.setTitle("Informacion");
-    			alert.setContentText("Se ha cambiado el estado de la orden");
-    			loadListOrders(event);	
-    		} catch (IOException e) {
-    		}
-    	}
+        if (ord == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("Debes seleccionar una orden");
+            alert.showAndWait();
+        } else {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ChangeStateOrder.fxml"));
+            loader.setController(this);
+            Parent p;
+            try {
+                p = loader.load();
+                mainPanelB.setCenter(p);
+                int number = Integer.parseInt(numberChangeStateOrder.getText());
+                ord.changeState(number);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);
+                alert.setTitle("Informacion");
+                alert.setContentText("Se ha cambiado el estado de la orden");
+                loadListOrders(event);
+            } catch (IOException e) {
+            }
+        }
     }
-    
+
 //Falta lo siguiente
 //    Serializar
 //    Generar archivo css
