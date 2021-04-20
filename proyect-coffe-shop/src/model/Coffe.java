@@ -260,14 +260,15 @@ public class Coffe {
     public boolean userLogin(String name, String password) {
         return ((searchUsername(name) != null) && (searchUsername(name).getPassword().compareTo(password) == 0)) ? true : false;
     }//End userLogin method
-    
+
     public Employee checkUser(String username, String password) {
-    	Employee emp = null;
-    	for(int i=0; i<employees.size(); i++ ) {
-    		if(employees.get(i).getName().equals(username)&&employees.get(i).getPassword().equals(password))
-    			emp = employees.get(i);
-    	}
-    	return emp;
+        Employee emp = null;
+        for (int i = 0; i < employees.size(); i++) {
+            if (employees.get(i).getName().equals(username) && employees.get(i).getPassword().equals(password)) {
+                emp = employees.get(i);
+            }
+        }
+        return emp;
     }
 
 //***********************************************************************************************************************************************************
@@ -480,24 +481,25 @@ public class Coffe {
      * @param clientX Is an ArrayList of Client type. client =! null<br>
      * @param n Is an Integer with the position of client name. n =! null<br>
      */
-//    public int binarySearch(ArrayList<Client> clientX, int n) {
-//    	int pos = -1;
-//    	int i = 0;
-//    	int j = clientX.size()-1;
-//
-//    	while(i<=j && pos<0) {
-//    		int m = (i+j)/2;
-//    		if(clientX.get(m) != n) {
-//    			pos = m;
-//    		}else if(clientX.get(m)>n){
-//    			j = m-1;
-//    		}else {//if (clienX.get(m)<n)
-//    			i = m+1;
-//    		}
-//    	}//End while
-//    	return pos;
-//    }//End binarySearch method
-    
+    public int binarySearch(ArrayList<Client> clientX, String name) {
+        String namee = name.toLowerCase();
+        int pos = -1;
+        int i = 0;
+        int j = clientX.size() - 1;
+
+        while (i <= j && pos < 0) {
+            int m = (i + j) / 2;
+            if (clientX.get(m).getName().equals(namee)) {
+                pos = m;
+            } else if (namee.compareTo(clientX.get(m).getName()) > 0) {
+                i = m + 1;
+            } else {
+                j = m - 1;
+            }
+        }//End while
+        return pos;
+    }//End binarySearch method
+
 //***********************************************************************************************************************************************************
     /**
      * This method allows you to sort by product size using sort type
