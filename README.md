@@ -11,3 +11,6 @@ You can find the new changes of the second installment in this link [File with c
 ### 3.Contributors
 * Daniel Ramirez Gomez. [GitHub profile.](https://github.com/DanielRamirez1901 "GitHub profile.")
 * Amilcar Steban. [GitHub profile.](https://github.com/Amilcar-Steban "GitHub profile.")
+
+### 4. Additional information
+This application was developed using Java 8 and JavaFX
