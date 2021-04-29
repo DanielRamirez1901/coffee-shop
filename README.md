@@ -6,7 +6,7 @@
 This application allows you to manage the users, producots, employees and orders of the restaurant La Casa Dorada.
 
 ### 2.Changes
-You can find the new changes of the second installment in this link
+You can find the new changes of the second installment in this link [File with chages](https://github.com/DanielRamirez1901/golden-house/blob/main/proyect-coffe-shop/docs/changelog.pdf)
 
 ### 3.Contributos
 * Daniel Ramirez Gomez. [GitHub profile.](https://github.com/DanielRamirez1901 "GitHub profile.")
